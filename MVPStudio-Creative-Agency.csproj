@@ -133,7 +133,7 @@
 	  <BundleResource Include="Resources\Images\login_background.svg" />
 	  <BundleResource Include="Resources\Images\company.jpeg" />
 	  <BundleResource Include="Resources\Images\clients.svg" />
-	  <BundleResource Include="Resources\Images\pop-out.svg" />
+	  <BundleResource Include="Resources\Images\pop_out.svg" />
 	  <BundleResource Include="Resources\Images\user_check.svg" />
 	  <BundleResource Include="Resources\Images\person3.jpeg" />
 	  <BundleResource Include="Resources\Images\calendar.svg" />
@@ -151,25 +151,5 @@
 	  <BundleResource Include="Resources\Images\png\staff_icon.png" />
 	  <BundleResource Include="Resources\Images\png\clients_icon.png" />
 	  <BundleResource Include="Resources\Images\png\funds_icon.png" />
-	</ItemGroup>
-	<ItemGroup>
-	  <MauiXaml Update="Components\FundCard.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Components\Nav.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Components\FundsSummaryCard.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Components\DashboardCard.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Components\ProjectListItem.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Components\ProjectsCard.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
 	</ItemGroup>
 </Project>

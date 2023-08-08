@@ -4,11 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <Color x:Key="Pink">#E3556B</Color>
+    <Color x:Key="PinkLight">#F195A5</Color>
+    <Color x:Key="PinkLighter">#F7BEC8</Color>
+    <Color x:Key="Purple">#ABABF6</Color>
+    <Color x:Key="PurpleLight"> #CDCCF9</Color>
+    <Color x:Key="PurpleLighter"> #EBEBFD</Color>
+    <Color x:Key="Aqua">#61D2D3</Color>
+    <Color x:Key="AquaLight">#A6E3E4</Color>
+    <Color x:Key="White">#FAFAFA</Color>
+    <Color x:Key="WhiteDark">#EEEDED</Color>
+    <Color x:Key="Black">#373636</Color>
+
     <Color x:Key="Primary">#512BD4</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
-    <Color x:Key="White">White</Color>
-    <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>
     <Color x:Key="Gray300">#ACACAC</Color>
@@ -20,8 +30,6 @@
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
-    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
-    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
     <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
     <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
     <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
@@ -40,5 +48,17 @@
     <Color x:Key="Blue100Accent">#3E8EED</Color>
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
+
+    <SolidColorBrush x:Key="PinkBrush" Color="{StaticResource Pink}"/>
+    <SolidColorBrush x:Key="PinkLightBrush" Color="{StaticResource PinkLight}"/>
+    <SolidColorBrush x:Key="PinkLighterBrush" Color="{StaticResource PinkLighter}"/>
+    <SolidColorBrush x:Key="PurpleBrush" Color="{StaticResource Purple}"/>
+    <SolidColorBrush x:Key="PurpleLightBrush" Color="{StaticResource PurpleLight}"/>
+    <SolidColorBrush x:Key="PurpleLighterBrush" Color="{StaticResource PurpleLighter}"/>
+    <SolidColorBrush x:Key="AquaBrush" Color="{StaticResource Aqua}"/>
+    <SolidColorBrush x:Key="AquaLightBrush" Color="{StaticResource AquaLight}"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="WhiteDarkBrush" Color="{StaticResource WhiteDark}"/>
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
 
 </ResourceDictionary>

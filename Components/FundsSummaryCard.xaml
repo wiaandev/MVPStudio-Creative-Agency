@@ -1,35 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:subComponents="clr-namespace:MVPStudio.Components"
-             x:Class="MVPStudio.Components.FundsSummaryCard">
-
-        <!--<Frame
-            CornerRadius="15"
-            BackgroundColor="{DynamicResource Purple}"
-            BorderColor="Transparent"
-            VerticalOptions="FillAndExpand"
-        >
-            <VerticalStackLayout>
-
-                <Label Text="MVP Funds" FontFamily="Montserrat-Bold" FontSize="28" TextColor="{DynamicResource White}"/>
-                <Label Text="Overview" FontFamily="Hind-Light" FontSize="16" TextColor="{DynamicResource White}"/>
-
-                <Frame CornerRadius="10" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{DynamicResource White}" BorderColor="Transparent">
-                    <Label Text="R 650 000.00" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="28"/>
-                </Frame>
-
-                <HorizontalStackLayout Spacing="10" Margin="0,20,0,0" HorizontalOptions="Center">
-                    <subComponents:FundCard FundAmount="R 150 000.00" FundType="Profit"/>
-                    <subComponents:FundCard FundAmount="R 30 000.00" FundType="Unpaid"/>
-                    <subComponents:FundCard FundAmount="R 10 000.00" FundType="Revenue"/>
-                </HorizontalStackLayout>
-
-            </VerticalStackLayout>
-
-        </Frame>-->
-
-    <Frame
+             xmlns:subComponents="clr-namespace:MVPStudio_Creative_Agency.Components"
+             x:Class="MVPStudio_Creative_Agency.Components.FundsSummaryCard">
+ <Frame
         CornerRadius="15"
         BackgroundColor="{DynamicResource Purple}"
         BorderColor="Transparent"

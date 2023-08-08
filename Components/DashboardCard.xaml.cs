@@ -1,4 +1,4 @@
-﻿namespace MVPStudio.Components;
+﻿namespace MVPStudio_Creative_Agency.Components;
 
 public partial class DashboardCard : ContentView
 {
@@ -13,8 +13,8 @@ public partial class DashboardCard : ContentView
     }
 
     public DashboardCard()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = this;
     }
 

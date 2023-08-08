@@ -1,4 +1,4 @@
-﻿namespace MVPStudio.Components;
+﻿namespace MVPStudio_Creative_Agency.Components;
 
 public partial class Nav : ContentView
 {
