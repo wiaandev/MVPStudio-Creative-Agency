@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio.Components.ProjectListItem">
+    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+
+        <Frame HeightRequest="100" WidthRequest="100" CornerRadius="50" BackgroundColor="{DynamicResource Black}" BorderColor="Transparent" Margin="0,20,0,20">
+            <VerticalStackLayout Spacing="0">
+                <Image Source="progress_icon.png" HeightRequest="40"/>
+                <Label Text="50%" FontFamily="Montserrat-Bold" TextColor="{DynamicResource White}" FontSize="18" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Border Stroke="{DynamicResource Aqua}"
+                HeightRequest="100" 
+                WidthRequest="100"
+                StrokeShape="RoundRectangle 50,50,50,50" StrokeThickness="7"
+        >
+
+            <Image Source="company.jpeg" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" Margin="0,0,0,0">
+                <Image.Clip>
+                    <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50" />
+                </Image.Clip>
+            </Image>
+
+        </Border>
+
+
+        <VerticalStackLayout VerticalOptions="Center">
+            <Label Text="WWF Studio Int." TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="24"/>
+            <Label Text="Web and App design bundle build " TextColor="{DynamicResource Black}" FontFamily="Hind-Light" FontSize="16"/>
+        </VerticalStackLayout>
+
+        
+    </HorizontalStackLayout>
+</ContentView>
+

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:child="clr-namespace:MVPStudio.Components"
+             x:Class="MVPStudio.Components.ProjectsCard">
+
+    <VerticalStackLayout VerticalOptions="Center">
+
+        <Label 
+            Text="Projects"
+            FontFamily="Montserrat-Bold"
+            FontSize="28"
+            TextColor="{DynamicResource Black}"/>
+
+        <Label 
+            Text="In-progress projects"
+            FontFamily="Hind-Light"
+            FontSize="16"
+            TextColor="{DynamicResource Black}"/>
+
+        <child:ProjectListItem/>
+        <child:ProjectListItem/>
+
+        <Button Text="VIEW MORE" BackgroundColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" HeightRequest="30" WidthRequest="200" CornerRadius="15" TextColor="{DynamicResource White}"/>
+
+    </VerticalStackLayout>
+
+</ContentView>
+
