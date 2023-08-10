@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
              x:Class="MVPStudio_Creative_Agency.Views.StaffManagementPage"
+                Shell.NavBarIsVisible="False"
              Title="StaffManagementPage">
 
 
@@ -9,7 +11,7 @@
     <Grid FlowDirection="MatchParent" Grid.Column="1" FlexLayout.Basis="Auto">
         <!-- Background image -->
 
-        <Image Source="background_img.png" Aspect="AspectFill" />
+        <Image Source="background.png" Aspect="AspectFill" />
 
         <FlexLayout Direction="Column" AlignItems="Start" JustifyContent="SpaceEvenly" VerticalOptions="FillAndExpand">
 
@@ -36,43 +38,7 @@
             </StackLayout>
 
 
-            <VerticalStackLayout Spacing="-20" VerticalOptions="FillAndExpand">
-
-                <HorizontalStackLayout Padding="10" Margin="25" Spacing="10" >
-                    <Image Source="home_icon.png"
-                />
-                    <Label Text="Work Board"
-               FontSize="14" TextColor="#2b2b2b" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"/>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout Padding="10,5" Margin="25" Spacing="10" >
-                    <Image Source="clients_icon.png"
-                />
-                    <Label Text="Clients"
-               FontSize="14" TextColor="#2b2b2b" VerticalTextAlignment="Center"/>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout Padding="10,5" Margin="25" Spacing="10" >
-                    <Image Source="projects_icon.png"
-                />
-                    <Label Text="Projects"
-               FontSize="14" TextColor="#2b2b2b" VerticalTextAlignment="Center"/>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout Padding="10,5" Margin="25" Spacing="10" >
-                    <Image Source="staff_icon.png"
-                />
-                    <Label Text="Staff"
-               FontSize="14" TextColor="#2b2b2b" VerticalTextAlignment="Center"/>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout Padding="10,5" Margin="25" Spacing="10" >
-                    <Image Source="funds_icon.png"
-                />
-                    <Label Text="Funds"
-               FontSize="14" TextColor="#2b2b2b" VerticalTextAlignment="Center"/>
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
+                <components:Nav Grid.Column="0" VerticalOptions="Start" Padding="20"/>
 
 
             <!--This is Left Bottom Navbar-->

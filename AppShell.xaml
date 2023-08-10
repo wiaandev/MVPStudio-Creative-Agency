@@ -8,15 +8,14 @@
 
     Shell.FlyoutBehavior="Disabled">
 
-    <!--<ShellContent
+     <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:DashboardPage}"
         Route="MainPage" />-->
 
-     <ShellContent
+    <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:StaffManagementPage}"
         Route="MainPage" />
 
 </Shell>
-
