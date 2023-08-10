@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio_Creative_Agency.Views.LoginPage"
+             Title=""
+             BackgroundColor="{DynamicResource White}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Source="login_background.png" Aspect="Fill" Grid.Column="0"/>
+        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
+            <Label Text="Log In" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="36"/>
+
+            <VerticalStackLayout>
+                <Label Text="Email" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular" Margin="0,0,0,0"/>
+                <Entry FontFamily="Montserrat-Regular" FontSize="18" TextColor="{DynamicResource Black}"/>
+                <Line X1="0" X2="500" Stroke="{DynamicResource Black}" Margin="0,0,0,0" />
+
+                <Label Text="Password" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular" Margin="0,40,0,0"/>
+                <Entry IsPassword="True" FontFamily="Montserrat-Regular" FontSize="18" TextColor="{DynamicResource Black}"/>
+                <Line X1="0" X2="500" Stroke="{DynamicResource Black}"/>
+            </VerticalStackLayout>
+
+            <Button BackgroundColor="{DynamicResource Black}" Text="LOG IN" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" WidthRequest="200" HorizontalOptions="Start" CornerRadius="20"/>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>
