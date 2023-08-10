@@ -77,7 +77,6 @@
 	  <None Remove="Resources\Images\projects.svg" />
 	  <None Remove="Resources\Images\layers.svg" />
 	  <None Remove="Resources\Images\person.png" />
-	  <None Remove="Resources\Images\login_background.svg" />
 	  <None Remove="Resources\Images\company.jpeg" />
 	  <None Remove="Resources\Images\clients.svg" />
 	  <None Remove="Resources\Images\pop-out.svg" />
@@ -99,6 +98,7 @@
 	  <None Remove="Resources\Images\png\clients_icon.png" />
 	  <None Remove="Resources\Images\png\funds_icon.png" />
 	  <None Remove="Views\" />
+	  <None Remove="Resources\Images\login_background.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="ViewModels\" />
@@ -131,7 +131,6 @@
 	  <BundleResource Include="Resources\Images\projects.svg" />
 	  <BundleResource Include="Resources\Images\layers.svg" />
 	  <BundleResource Include="Resources\Images\person.png" />
-	  <BundleResource Include="Resources\Images\login_background.svg" />
 	  <BundleResource Include="Resources\Images\company.jpeg" />
 	  <BundleResource Include="Resources\Images\clients.svg" />
 	  <BundleResource Include="Resources\Images\pop_out.svg" />
@@ -152,5 +151,6 @@
 	  <BundleResource Include="Resources\Images\png\staff_icon.png" />
 	  <BundleResource Include="Resources\Images\png\clients_icon.png" />
 	  <BundleResource Include="Resources\Images\png\funds_icon.png" />
+	  <BundleResource Include="Resources\Images\login_background.svg" />
 	</ItemGroup>
 </Project>
