@@ -99,6 +99,10 @@
 	  <None Remove="Resources\Images\png\clients_icon.png" />
 	  <None Remove="Resources\Images\png\funds_icon.png" />
 	  <None Remove="Views\" />
+	  <None Remove="Resources\Images\png\Staff management w\edit_icon2.png" />
+	  <None Remove="Components\StaffPageComponents\" />
+	  <None Remove="Resources\Images\png\calendar.png" />
+	  <None Remove="Resources\Images\png\Staff management w\Icons\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="ViewModels\" />
@@ -106,6 +110,8 @@
 	  <Folder Include="Handlers\" />
 	  <Folder Include="Components\" />
 	  <Folder Include="Views\" />
+	  <Folder Include="Components\StaffPageComponents\" />
+	  <Folder Include="Resources\Images\png\Staff management w\Icons\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Fonts\Hind-Bold.ttf" />
@@ -152,5 +158,7 @@
 	  <BundleResource Include="Resources\Images\png\staff_icon.png" />
 	  <BundleResource Include="Resources\Images\png\clients_icon.png" />
 	  <BundleResource Include="Resources\Images\png\funds_icon.png" />
+	  <BundleResource Include="Resources\Images\png\Staff management w\edit_icon2.png" />
+	  <BundleResource Include="Resources\Images\png\calendar.png" />
 	</ItemGroup>
 </Project>
