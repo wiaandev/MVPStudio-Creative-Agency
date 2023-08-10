@@ -252,25 +252,33 @@
         </Tab>
 
        
-    </TabBar>-->
+    </TabBar>
 
-                            <HorizontalStackLayout Spacing="32" Margin="25,60,0,10" HorizontalOptions="StartAndExpand">
-                                <Label Text="All projects"
+
+                             <Label Text="All projects"
                         FontSize="22" TextColor="#667080" VerticalTextAlignment="Start"
                              HorizontalTextAlignment="Start" FontFamily="Montserrat" FontAttributes="Bold" 
-                             />
+                             />-->
 
-                                <Label Text="Current Projects"
-                             FontSize="22" TextColor="#667080" VerticalTextAlignment="Start"
-                             HorizontalTextAlignment="Start" FontFamily="Montserrat" FontAttributes="Bold" 
-                             />
 
-                                <Label Text="Closed"
-                     FontSize="22" TextColor="#667080" VerticalTextAlignment="Start"
-                             HorizontalTextAlignment="Start" FontFamily="Montserrat" FontAttributes="Bold" 
-                             />
 
+                    <HorizontalStackLayout Spacing="30" Margin="0,60,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                               <Button Text="All Projects" TextColor="#667080"
+                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold"  >
+                                </Button>
+
+
+                                 <Button Text="Current" TextColor="#667080"
+                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
+                                </Button>
+
+
+                                 <Button Text="Closed" TextColor="#667080"
+                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
+                                </Button>
+                              
                             </HorizontalStackLayout>
+
 
                             <!--<Button Text="Do-Nothing Button" HorizontalOptions="Center" Padding="10" CornerRadius="22"/>-->
                             <StackLayout >
