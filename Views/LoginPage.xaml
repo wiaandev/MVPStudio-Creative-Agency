@@ -26,7 +26,7 @@
                 <Line X1="0" X2="500" Stroke="{DynamicResource Black}"/>
             </VerticalStackLayout>
 
-            <Button BackgroundColor="{DynamicResource Black}" Text="LOG IN" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" WidthRequest="200" HorizontalOptions="Start" CornerRadius="20"/>
+            <Button BackgroundColor="{DynamicResource Black}" Text="LOG IN" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" WidthRequest="200" HorizontalOptions="Start" CornerRadius="20" Clicked="login"/>
         </VerticalStackLayout>
 
     </Grid>
