@@ -12,7 +12,6 @@
 
     <Shell.Resources>
         <Style TargetType="Label" Class="FlyoutTitle">
-
             <Setter Property="TextColor"
                     Value="{DynamicResource Black}"/>
 
