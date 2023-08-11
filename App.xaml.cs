@@ -1,13 +1,14 @@
-﻿namespace MVPStudio_Creative_Agency;
+namespace MVPStudio_Creative_Agency;
 
 public partial class App : Application
 {
-    public App()
-    {
-        InitializeComponent();
+	public App()
+	{
+		InitializeComponent();
 
-        MainPage = new AppShell();
-    }
+		MainPage = new AppShell();
+	}
+
     protected override Window CreateWindow(IActivationState activationState)
     {
         var window = base.CreateWindow(activationState);
