@@ -13,7 +13,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <components:Nav Grid.Column="0" VerticalOptions="Start" Padding="20"/>
             <VerticalStackLayout Padding="50" FlexLayout.Basis="80%" Grid.Column="1">
                 <HorizontalStackLayout Spacing="50" Margin="0,0,0,50">
                     <Label Text="Agency Workboard" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="36"/>
