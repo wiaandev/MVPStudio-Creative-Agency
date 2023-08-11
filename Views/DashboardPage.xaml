@@ -1,19 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
              x:Class="MVPStudio_Creative_Agency.Views.DashboardPage"
-             Title="DashboardPage">
+             Title="">
 <Grid>
             <Image Source="background.png" Aspect="Fill" ZIndex="-999" Grid.ColumnSpan="2"/>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".1*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <VerticalStackLayout Padding="50" FlexLayout.Basis="80%" Grid.Column="1">
+            <VerticalStackLayout Padding="50" FlexLayout.Basis="80%" Grid.Column="0">
                 <HorizontalStackLayout Spacing="50" Margin="0,0,0,50">
                     <Label Text="Agency Workboard" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="36"/>
                     <!--<SearchBar Placeholder="Search..." BackgroundColor="{DynamicResource White}" TextColor="{DynamicResource Black}" MaximumWidthRequest="400" CursorPosition="1" CancelButtonColor="red"/> -->
