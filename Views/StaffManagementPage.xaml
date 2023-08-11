@@ -262,7 +262,7 @@
 
 
 
-                    <HorizontalStackLayout Spacing="30" Margin="0,60,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    <HorizontalStackLayout Spacing="40" Margin="20,60,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
                                <Button Text="All Projects" TextColor="#667080"
                                        FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold"  >
                                 </Button>
