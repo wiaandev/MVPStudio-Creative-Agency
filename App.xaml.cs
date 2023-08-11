@@ -1,4 +1,4 @@
-﻿namespace MVPStudio_Creative_Agency;
+namespace MVPStudio_Creative_Agency;
 
 public partial class App : Application
 {
@@ -13,7 +13,7 @@ public partial class App : Application
     {
         var window = base.CreateWindow(activationState);
 
-        const int newWidth = 1140;
+        const int newWidth = 1440;
         const int newHeight = 900;
 
         window.Width = newWidth;
