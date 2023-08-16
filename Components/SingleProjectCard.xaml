@@ -3,11 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVPStudio_Creative_Agency.Components.SingleProjectCard">
     <VerticalStackLayout>
-        <Frame CornerRadius="20" BackgroundColor="{DynamicResource WhiteDark}" BorderColor="Transparent" >
-            <HorizontalStackLayout>
-                <Label FontSize="16" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
-            </HorizontalStackLayout>
+        <ScrollView>
+        <Frame CornerRadius="20" BackgroundColor="{DynamicResource WhiteDark}" BorderColor="Transparent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                </Grid>
         </Frame>
+        </ScrollView>
     </VerticalStackLayout>
 </ContentView>
 
