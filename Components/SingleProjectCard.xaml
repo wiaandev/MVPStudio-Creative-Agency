@@ -4,8 +4,51 @@
              x:Class="MVPStudio_Creative_Agency.Components.SingleProjectCard">
     <VerticalStackLayout>
         <ScrollView>
-        <Frame CornerRadius="20" BackgroundColor="{DynamicResource WhiteDark}" BorderColor="Transparent">
-                <Grid>
+        <Frame CornerRadius="20" BackgroundColor="{DynamicResource WhiteDark}" BorderColor="Transparent" >
+                <VerticalStackLayout Padding="10" Spacing="20">
+                    <HorizontalStackLayout Spacing="20">
+                        <Label Text="08 July 2023" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
+
+                        <Label
+                            Text="Complete"
+                            TextColor="{DynamicResource Aqua}"
+                            FontFamily="Montserrat-Bold"
+                        />
+                    </HorizontalStackLayout>
+
+                    <Label Text="WWF Studios" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="12"/>
+                    <Label Text="Website Design" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="30"/>
+
+                    <Label Text="Progress" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
+                    <ProgressBar Progress="0.5" ProgressColor="{DynamicResource Black}" Margin="0,0,0,20"/>
+                    <Line X1="0" X2="300" Stroke="{DynamicResource Black}"/>
+
+
+                    <Label Text="Team" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
+                    <HorizontalStackLayout>
+
+                        <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="0">
+                            <Image.Clip>
+                                <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                            </Image.Clip>
+                        </Image>
+
+                        <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="-20,0,0,0">
+                            <Image.Clip>
+                                <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                            </Image.Clip>
+                        </Image>
+
+                        <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="-20,0,0,0">
+                            <Image.Clip>
+                                <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                            </Image.Clip>
+                        </Image>
+
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+                <!--<Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -16,7 +59,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                </Grid>
+                </Grid>-->
+
+
         </Frame>
         </ScrollView>
     </VerticalStackLayout>
