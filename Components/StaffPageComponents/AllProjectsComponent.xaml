@@ -3,58 +3,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVPStudio_Creative_Agency.Components.StaffPageComponents.AllProjectsComponent">
 
-              <Border Stroke="#F2F2FD" StrokeThickness="0" BackgroundColor="#fff"
-                                                             WidthRequest="200" HeightRequest="190"
-                                                             StrokeShape="RoundRectangle 25,25,25,25"
-                                                                Padding="0"
+              <Border Stroke="#F2F2FD" StrokeThickness="0.2" BackgroundColor="#fff"
+                                                            HeightRequest="160"
+                                                             StrokeShape="RoundRectangle 15,15,15,15"
+                                                                Padding="8" Margin="10,2,2,15"
                                                                         HorizontalOptions="StartAndExpand"
-                                                                  Margin="10, 10" >
+                                                                   >
 
                                                         <VerticalStackLayout>
                                                             <VerticalStackLayout>
-                                                                <Label FontFamily="Montserrat" HorizontalOptions="CenterAndExpand"
+                                                                <Label FontFamily="Montserrat" HorizontalOptions="Center"
                                                                        FontSize="14"
-                                                                       FontAttributes="Bold" Text="Developer Name"
+                                                                       FontAttributes="Bold" Text="{Binding ProjectName}"
                                                                        TextColor="#667080"
-                                                                       Margin="10,15,0,0">
+                                                                       Margin="0,15,0,0">
                                                                 </Label>
-                                                                <Image Source="profile_img.png" HeightRequest="40" Margin="10,10,0,10" HorizontalOptions="CenterAndExpand"
-                                       VerticalOptions="CenterAndExpand"/>
+                                                                <Image Source="{Binding Image}" HeightRequest="40" Margin="10,10,0,10" HorizontalOptions="CenterAndExpand"
+                                                                    VerticalOptions="CenterAndExpand"/>
                                                             </VerticalStackLayout>
 
 
-                                                            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Margin="10,5,10,0" HeightRequest="39" >
+                                                            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Margin="0,5,10,0" HeightRequest="35" >
 
-                                                                <Border Stroke="#ABfffABF6" StrokeThickness="0"  Background="#667080"
+                                                                   <Border Stroke="#ABfffABF6" StrokeThickness="0"  Background="#667080"
                                                                      StrokeShape="RoundRectangle 50"   >
 
                                                                     <VerticalStackLayout     VerticalOptions="CenterAndExpand" 
-                                                               HorizontalOptions="CenterAndExpand">
-                                          
+                                                                                                    HorizontalOptions="CenterAndExpand">
+    
+                                                                        <HorizontalStackLayout Spacing="1"  WidthRequest="145">
+                                                      <Border BackgroundColor="white" StrokeThickness="4" Stroke="#667080"  Background="#fff" StrokeShape="RoundRectangle 50" Padding="0" WidthRequest="34" HeightRequest="35"  Margin="-1,0,10,0">
+                                                                                <Image Source="calendar.png"  HeightRequest="19" WidthRequest="19"></Image>
+                                                                            </Border>
+                                                                               <Label TextColor="#e8e8e8" VerticalOptions="Center" FontSize="10">
+                                                                                <Label.FormattedText>
+                                                                                    <FormattedString>
+                                                                                        <Span Text="End Date, " />
+                                                                                        <Span Text="{Binding Date}" />
+                                                                                    </FormattedString>
+                                                                                </Label.FormattedText>
+                                                                            </Label>
+                                                                        </HorizontalStackLayout>
 
-
-                                                                       <HorizontalStackLayout Spacing="1" WidthRequest="150">
-                               <Border BackgroundColor="#3A3354" StrokeThickness="0"   StrokeShape="RoundRectangle 50" Padding="10" WidthRequest="40" HeightRequest="40"  Margin="0,0,10,0">
-                                      <Image Source="Images/png/calendar.png"  ></Image>
-
-                                </Border>
-                                     <Label  TextColor="White"   Text="End Date, 2023"  VerticalOptions="Center" FontSize="12" ></Label>
-
-                            </HorizontalStackLayout>
-
-                    <VerticalStackLayout>
+                                                            <VerticalStackLayout>
                             
 
-                        </VerticalStackLayout>
-                              </VerticalStackLayout>
+                                    </VerticalStackLayout>
+                                </VerticalStackLayout>
 
                               </Border>
 
 
 
-                                                            </HorizontalStackLayout>
-                                                            <Image Source="pop_out.png" HorizontalOptions="End" Margin="0,20,20,0"></Image>
-                                                        </VerticalStackLayout>
-                                                    </Border>
+                </HorizontalStackLayout>
+                <Image Source="pop_out.png" HorizontalOptions="End" HeightRequest="18" Margin="0,0,0,10"></Image>
+            </VerticalStackLayout>
+        </Border>
 </ContentView>
 
