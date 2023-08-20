@@ -6,7 +6,7 @@
               <Border Stroke="#F2F2FD" StrokeThickness="0.2" BackgroundColor="#fff"
                                                             HeightRequest="170"
                                                              StrokeShape="RoundRectangle 15,15,15,15"
-                                                                Padding="8" Margin="10,2,2,15"
+                                                                Padding="8" Margin="1,2,2,15"
                                                                         HorizontalOptions="StartAndExpand"
                                                                    >
 
