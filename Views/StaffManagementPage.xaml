@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components.StaffPageComponents"
@@ -54,7 +54,7 @@
         </FlexLayout>
 
         <!--GRID-->
-        <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="200,100,0,0" HorizontalOptions="FillAndExpand" >
+        <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="20,100,0,0" HorizontalOptions="FillAndExpand" >
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Border Stroke="#F2F2FD" StrokeThickness="0" BackgroundColor="#F2F2FD"
@@ -97,7 +97,7 @@
                                             <!-- Customize the card content here -->
 <!--TO DO : Create Component, add into folder-->
                                             <Border Stroke="#F2F2FD" StrokeThickness="0" BackgroundColor="#fff" 
-                                     WidthRequest="350" HeightRequest="230"
+                                     WidthRequest="300" HeightRequest="230"
                                      StrokeShape="RoundRectangle 25,25,25,25" 
                                         Padding="0"
                                                 HorizontalOptions="StartAndExpand"
@@ -179,8 +179,8 @@
             <HorizontalStackLayout >
 
                 <Border Stroke="#2b2b2b" StrokeThickness="0" BackgroundColor="#F2F2FD"
-                        WidthRequest="532" HeightRequest="800"  StrokeShape="RoundRectangle 25,25,25,25"  Padding="0"
-                        HorizontalOptions="End"  Margin="50,0,0,0">
+                        WidthRequest="500" HeightRequest="800"  StrokeShape="RoundRectangle 25,25,25,25"  Padding="0"
+                        HorizontalOptions="End"  Margin="10,0,0,0">
 
                     <VerticalStackLayout >
                         <!--   Title Stack-->
