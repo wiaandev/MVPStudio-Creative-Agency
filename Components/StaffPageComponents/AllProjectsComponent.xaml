@@ -4,7 +4,7 @@
              x:Class="MVPStudio_Creative_Agency.Components.StaffPageComponents.AllProjectsComponent">
 
               <Border Stroke="#F2F2FD" StrokeThickness="0.2" BackgroundColor="#fff"
-                                                            HeightRequest="160"
+                                                            HeightRequest="170"
                                                              StrokeShape="RoundRectangle 15,15,15,15"
                                                                 Padding="8" Margin="10,2,2,15"
                                                                         HorizontalOptions="StartAndExpand"
@@ -56,7 +56,7 @@
 
 
                 </HorizontalStackLayout>
-                <Image Source="pop_out.png" HorizontalOptions="End" HeightRequest="18" Margin="0,0,0,10"></Image>
+                <Image Source="pop_out.png" HorizontalOptions="End" HeightRequest="18" Margin="0,6,0,10"></Image>
             </VerticalStackLayout>
         </Border>
 </ContentView>
