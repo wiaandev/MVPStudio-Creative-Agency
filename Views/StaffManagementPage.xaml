@@ -1,32 +1,30 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components.StaffPageComponents"
              x:Class="MVPStudio_Creative_Agency.Views.StaffManagementPage"
                 Shell.NavBarIsVisible="False"
-             Title="StaffManagementPage">
+             Title="StaffManagementPage"
+             >
 
 
 
-    <Grid FlowDirection="MatchParent" Grid.Column="1" FlexLayout.Basis="Auto">
+
+    <Grid >
         <!-- Background image -->
 
         <Image Source="background.png" Aspect="AspectFill" />
 
-        <FlexLayout Direction="Column" AlignItems="Start" JustifyContent="SpaceEvenly" VerticalOptions="FillAndExpand">
+        <!--<FlexLayout Direction="Column" AlignItems="Start" JustifyContent="SpaceEvenly" VerticalOptions="FillAndExpand">-->
 
 
 
 
             <!--<StackLayout Orientation="Horizontal" Padding="10,5" Spacing="10"    HorizontalOptions="Start">
-                <Image Source="mvp_logo.png"  WidthRequest="100" HeightRequest="100"
-               HorizontalOptions="Center" VerticalOptions="Start" Margin="25,-10"/>
+               
 
                 <StackLayout Orientation="Horizontal" Padding="10,5" Spacing="50" Margin="2" >
-                    <Label Text="Staff board" FontFamily="Montserrat" FontAttributes="Bold"
-                     FontSize="42"   HorizontalOptions="Start"
-                     TextColor="#667080"
-                     />
+                 
 
                     <Border Stroke="#2b2b2b" StrokeThickness="0" BackgroundColor="#2b2b2b" WidthRequest="350" StrokeShape="RoundRectangle 12,12,12,12" Padding="0" HorizontalOptions="Center" >
                         <SearchBar Placeholder="Search..."  TextColor="#fff" BackgroundColor="#2b2b2b" />
@@ -51,26 +49,70 @@
                 <Button Text="Do-Nothing Button" HorizontalOptions="Center" Padding="10" CornerRadius="22"/>
 
             </VerticalStackLayout>-->
-        </FlexLayout>
-
+        <!--</FlexLayout>-->
+        <HorizontalStackLayout Margin="50,50,0,0">
+            <Label Text="Staff Board" FontFamily="Montserrat"
+        FontSize="30" FontAttributes="Bold" TextColor="#667080"
+   VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+            <StackLayout  Margin="150,-10,0,0">
+                <Button Text="+ Add new member" HorizontalOptions="Center" Padding="10" CornerRadius="8" BackgroundColor="#61d2d3" TextColor="#2b2b2b">
+                </Button>
+            </StackLayout>
+        </HorizontalStackLayout>
         <!--GRID-->
-        <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="200,100,0,0" HorizontalOptions="FillAndExpand" >
+        <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="20,100,0,0" HorizontalOptions="FillAndExpand" >
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Border Stroke="#F2F2FD" StrokeThickness="0" BackgroundColor="#F2F2FD"
-                        WidthRequest="950" HeightRequest="800"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
+                <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2FD"
+                        WidthRequest="580" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
                         HorizontalOptions="Start" VerticalOptions="FillAndExpand" >
                     <StackLayout ZIndex="3" >
                         <!--HEADINGS STAFF & ADMIN-->
-                        <HorizontalStackLayout Margin="20,20,0,-10" Spacing="70" >
+                        <HorizontalStackLayout Margin="5,10,0,-10" Spacing="70" >
                             <Label Text=" Staff" FontFamily="Montserrat"
-                         FontSize="30" FontAttributes="Bold" TextColor="#667080"
+                         FontSize="20" FontAttributes="Bold" TextColor="#667080"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
 
                             <Label Text="Admin" FontFamily="Montserrat"
-                                  FontSize="30" FontAttributes="Bold" TextColor="#667080"
-                             VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                                  FontSize="20" FontAttributes="Bold" TextColor="#667080"
+                             VerticalTextAlignment="Start" HorizontalTextAlignment="Center"   />
+
+
+                    
+                              
+
+                          
                         </HorizontalStackLayout>
+                        <StackLayout>
+                            <!--<TabControl>
+                                --><!-- Tab for Staff --><!--
+                                <TabItem Title="Staff">
+                                    <ContentView>
+                                        --><!-- Content specific to Staff --><!--
+                                        <ScrollView VerticalScrollBarVisibility="Default" Margin="5,10,0,0" HeightRequest="600">
+                                            --><!-- Place your Staff-related content here --><!--
+                                        </ScrollView>
+                                    </ContentView>
+                                </TabItem>
+
+                                --><!-- Tab for Admin --><!--
+                                <TabItem Title="Admin">
+                                    <ContentView>
+                                        --><!-- Content specific to Admin --><!--
+                                        <ScrollView VerticalScrollBarVisibility="Default" Margin="5,10,0,0" HeightRequest="600">
+                                            --><!-- Place your Admin-related content here --><!--
+                                        </ScrollView>
+                                    </ContentView>
+                                </TabItem>
+                            </TabControl>-->
+                        </StackLayout>
+
+
+
+
+
+
+
 
                         <!--<CollectionView ItemsSource="{Binding Cards}"
                     ItemTemplate="{StaticResource CardTemplate}">
@@ -78,14 +120,14 @@
             <GridItemsLayout Orientation="Vertical" Span="2" />-->
 
 
-                        <ScrollView Padding="20" VerticalScrollBarVisibility="Default" Margin="0,50,0,0" HeightRequest="670" >
+                        <ScrollView  VerticalScrollBarVisibility="Always" Margin="0,16,0,0" HeightRequest="600" >
 
                             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="10" >
                                 <!--Dont add this! (Cards)-->
-                                <CollectionView ItemsSource="{Binding Cards}" SelectionMode="None" HeightRequest="670"  VerticalScrollBarVisibility="Never" >
+                                <CollectionView ItemsSource="{Binding Cards}" SelectionMode="None" HeightRequest="600"  VerticalScrollBarVisibility="Never" >
 
                                     <CollectionView.ItemsLayout >
-                                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="30"  VerticalItemSpacing="30" />
+                                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10"   />
                                     </CollectionView.ItemsLayout>
 
                                     <CollectionView.ItemTemplate>
@@ -95,72 +137,9 @@
 
 
                                             <!-- Customize the card content here -->
-<!--TO DO : Create Component, add into folder-->
-                                            <Border Stroke="#F2F2FD" StrokeThickness="0" BackgroundColor="#fff" 
-                                     WidthRequest="350" HeightRequest="230"
-                                     StrokeShape="RoundRectangle 25,25,25,25" 
-                                        Padding="0"
-                                                HorizontalOptions="StartAndExpand"
-                                                Margin="10, 10,30,30"  >
+                                            <!--TO DO : Create Component, add into folder-->
+                                            <components:StaffAdminTab/>
 
-                                                <VerticalStackLayout >
-                                                    <HorizontalStackLayout>
-                                                        <Image Source="profile_img.png" HeightRequest="60" Margin="10,50" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
-
-                                                        <VerticalStackLayout Margin="10,50">
-                                                            <Label FontFamily="Montserrat"
-                                                         FontSize="25" FontAttributes="Bold"
-                                                         Text="Developer Name" TextColor="#667080">
-                                                            </Label>
-
-                                                            <!--Titles-->
-                                                       <HorizontalStackLayout Spacing="10" Margin="0,8,0,0">
-                                                                 <Label FontFamily="Montserrat"
-                                                         FontSize="18" FontAttributes="Bold"
-                                                         Text="Creative" TextColor="#667080">
-                                                                </Label>
-
-
-                                                                <Label FontFamily="Montserrat"
-                                                         FontSize="18" FontAttributes="Bold"
-                                                         Text="Developer" TextColor="#3B2765">
-                                                                </Label>
-                                                            </HorizontalStackLayout>
-
-                                                        </VerticalStackLayout>
-                                                    </HorizontalStackLayout>
-                                                    <HorizontalStackLayout Spacing="-20">
-
-                                                        <VerticalStackLayout>
-                                                            <HorizontalStackLayout Margin="20, 0, 0, 0" Spacing="20">
-                                                                <Image Source="layers.png"></Image>
-
-                                                                <Label  Text="Total Projects" TextColor="#667080"></Label>
-                                                            </HorizontalStackLayout>
-
-                                                            <VerticalStackLayout Margin="100, 0">
-                                                                <Label Text="11" TextColor="#667080"></Label>
-                                                            </VerticalStackLayout>
-                                                        </VerticalStackLayout>
-
-                                                        <VerticalStackLayout >
-                                                            <HorizontalStackLayout Margin="20, 0, 0, 0" Spacing="20">
-                                                                <Image Source="dollar_sign.png"></Image>
-                                                                <Label Text="Salary p/m" TextColor="#667080" ></Label>
-                                                            </HorizontalStackLayout>
-
-                                                            <VerticalStackLayout Margin="65, 0, 0, 0" >
-                                                                <Label Text="$13 500.00" TextColor="#667080"></Label>
-                                                            </VerticalStackLayout>
-                                                        </VerticalStackLayout>
-                                                    </HorizontalStackLayout >
-
-                                                <HorizontalStackLayout HorizontalOptions="End" Margin="0,20,20,0">
-                                                            <Image Source="pop_out.png" ></Image>
-                                                    </HorizontalStackLayout>
-
-                                                </VerticalStackLayout>
-                                            </Border>
 
 
                                         </DataTemplate>
@@ -178,13 +157,13 @@
 
             <HorizontalStackLayout >
 
-                <Border Stroke="#2b2b2b" StrokeThickness="0" BackgroundColor="#F2F2FD"
-                        WidthRequest="532" HeightRequest="800"  StrokeShape="RoundRectangle 25,25,25,25"  Padding="0"
-                        HorizontalOptions="End"  Margin="50,0,0,0">
+                <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2Fd"
+                        WidthRequest="450" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25"  Padding="0"
+                        HorizontalOptions="End"  Margin="10,0,0,0">
 
                     <VerticalStackLayout >
                         <!--   Title Stack-->
-                        <HorizontalStackLayout Spacing="100"  Margin="0,40,0,0" HorizontalOptions="CenterAndExpand">
+                        <HorizontalStackLayout Spacing="10"  Margin="0,40,0,0" HorizontalOptions="CenterAndExpand">
                             <Label Text=" Employee Overview" FontFamily="Montserrat"
                              FontSize="30" FontAttributes="Bold" TextColor="#667080"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
@@ -196,10 +175,9 @@
 
 
                         <!--Staff Profile Picture-->
-                        <VerticalStackLayout VerticalOptions="FillAndExpand"  Margin="10,20,10,10" Spacing="8" >
+                        <VerticalStackLayout VerticalOptions="FillAndExpand"  Margin="10,20,10,10" Spacing="6" >
                             <HorizontalStackLayout HorizontalOptions="Center">
                                 <Image Source="profile_img.png" HeightRequest="90" Margin="0,0,0,10" />
-
                             </HorizontalStackLayout>
 
                             <Label
@@ -211,31 +189,30 @@
 
                             <Label
                                 Text="shanrescheepers@gmail.com" 
-                            FontFamily="Montserrat" WidthRequest="280"
+                            FontFamily="Montserrat" Margin="88,0,0,0"
                              FontSize="16" TextColor="#667080"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
                             <Label
                              Text="Creative Developer"
-                            FontFamily="Montserrat" WidthRequest="280"
+                            FontFamily="Montserrat" Margin="88,0,0,0"
                              FontSize="20" FontAttributes="Bold" TextColor="#3B2765"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
-                           <VerticalStackLayout HorizontalOptions="Start" Margin="113,20,0,0">
-                                 <HorizontalStackLayout Margin="0,0,0,10" >
+                           <VerticalStackLayout HorizontalOptions="Start" Margin="75,20,0,0">
+                                 <HorizontalStackLayout Margin="10,0,0,10" >
                                     <Label
                                     Text="Salary"
-
-                                    FontSize="20" TextColor="#667080"   />
+                                      FontFamily="Montserrat" FontAttributes="Bold"
+                                    FontSize="18" TextColor="#667080"   />
                             </HorizontalStackLayout>
 
                             <HorizontalStackLayout  Spacing="0">
-                                    <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="#fff"
-                                       StrokeShape="RoundRectangle 25"  HorizontalOptions="Start"  WidthRequest="300" Padding="5">
+                                    <Border Stroke="#667080" StrokeThickness="1"  Background="#fff"
+                                       StrokeShape="RoundRectangle 25"  HorizontalOptions="Start"  WidthRequest="300" Margin="7,-10,0,0" Padding="5">
                                        <StackLayout Orientation="Horizontal"  Spacing="150" >
-                                             <Entry x:Name="entry"  Placeholder="Enter salary"   />
-                                                <Label Text="p/m" TextColor="#667080" VerticalOptions="CenterAndExpand"></Label>
-
+                                             <Label Text="R25 000 p/m" WidthRequest="280" Padding="4"  />
+                                              
                                         </StackLayout>
                                     </Border>
 
@@ -262,57 +239,51 @@
 
 
 
-                    <HorizontalStackLayout Spacing="40" Margin="20,60,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
-                               <Button Text="All Projects" TextColor="#667080"
+                    <HorizontalStackLayout Spacing="20" Margin="18,20,20,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                               <Button Text="All Projects" TextColor="#3b2765"
                                        FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold"  >
                                 </Button>
 
 
-                                 <Button Text="Current" TextColor="#667080"
+                                 <Button Text="Current" TextColor="#9d9de4"
                                        FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
                                 </Button>
 
 
-                                 <Button Text="Closed" TextColor="#667080"
+                                 <Button Text="Closed" TextColor="#f195a5" 
                                        FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
                                 </Button>
                               
                             </HorizontalStackLayout>
 
 
-                            <!--<Button Text="Do-Nothing Button" HorizontalOptions="Center" Padding="10" CornerRadius="22"/>-->
-                            <StackLayout >
-                                <!--ScrollView Card-->
-
-                                <!--ScrollView Employee Overview-->
-                                <ScrollView Padding="20" VerticalScrollBarVisibility="Always" HeightRequest="240" VerticalOptions="FillAndExpand">
-
-                                    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="10">
-                                        <!--Dont add this! (Cards)-->
-                                        <CollectionView ItemsSource="{Binding Cards}" SelectionMode="None">
-
-                                            <CollectionView.ItemsLayout >
-                                                <GridItemsLayout Orientation="Vertical" Span="2" 
-                                                         HorizontalItemSpacing="30" VerticalItemSpacing="30" />
-                                            </CollectionView.ItemsLayout>
-
-                                            <CollectionView.ItemTemplate>
-                                                <DataTemplate>
-
-                                                    <!-- Customize the card content here -->
                           
-                                                           <components:AllProjectsComponent WidthRequest="100"/>
+                            <ScrollView VerticalScrollBarVisibility="Always"  HeightRequest="200">
+                                <StackLayout>
+                                    <!-- Add other content here if needed -->
 
-                             
+                                    <CollectionView ItemsSource="{Binding ProjectCards}" SelectionMode="None">
+                                        <CollectionView.ItemsLayout>
+                                            <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="20" VerticalItemSpacing="30" />
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <components:AllProjectsComponent ProjectName="{Binding ProjectName}" Image="{Binding Image}" Date="{Binding Date}" />
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+
+                                    <!-- Add other content here if needed -->
+                                </StackLayout>
+                            </ScrollView>
 
 
-                                                </DataTemplate>
-                                            </CollectionView.ItemTemplate>
-                                        </CollectionView>
-                                    </StackLayout>
-                                </ScrollView>
-
+                            <StackLayout> 
+                            
+                            
                             </StackLayout>
+
+
 
 
 

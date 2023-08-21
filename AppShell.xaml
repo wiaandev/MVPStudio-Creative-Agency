@@ -6,8 +6,10 @@
     xmlns:local="clr-namespace:MVPStudio_Creative_Agency"
     xmlns:views="clr-namespace:MVPStudio_Creative_Agency.Views"
     xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
-    Shell.FlyoutBehavior="Locked"
-    FlyoutBackgroundColor="{DynamicResource White}"
+    Shell.FlyoutBehavior="Locked" 
+    FlyoutWidth="200"
+   FlyoutIsPresented="True"
+
     >
 
     <Shell.Resources>
@@ -33,12 +35,11 @@
 
         </Style>
 
-
     </Shell.Resources>
 
 
     <Shell.FlyoutHeader>
-        <Image Source="logo.png" WidthRequest="200" />
+        <Image Source="mvp_logo.png" WidthRequest="100" Margin="0,20,0,20" />
     </Shell.FlyoutHeader>
 
     
@@ -80,7 +81,7 @@
 
     <Shell.FlyoutFooter>
         <StackLayout StyleClass="FlyoutFooter">
-            <components:FlyoutFooter/>
+            <components:FlyoutFooter BackgroundColor="Transparent"/>
         </StackLayout>
     </Shell.FlyoutFooter>
 
