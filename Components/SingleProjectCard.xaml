@@ -48,21 +48,9 @@
                     </HorizontalStackLayout>
 
                 </VerticalStackLayout>
-                <!--<Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                </Grid>-->
 
 
-        </Frame>
+            </Frame>
         </ScrollView>
     </VerticalStackLayout>
 </ContentView>
