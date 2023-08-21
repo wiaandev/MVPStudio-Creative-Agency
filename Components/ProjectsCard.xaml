@@ -9,13 +9,15 @@
             Text="Projects"
             FontFamily="Montserrat-Bold"
             FontSize="28"
-            TextColor="{DynamicResource Black}"/>
+            TextColor="{DynamicResource Black}"
+        />
 
         <Label 
             Text="In-progress projects"
             FontFamily="Hind-Light"
             FontSize="16"
-            TextColor="{DynamicResource Black}"/>
+            TextColor="{DynamicResource Black}"
+        />
 
         <child:ProjectListItem/>
         <child:ProjectListItem/>

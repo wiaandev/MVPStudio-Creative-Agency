@@ -3,10 +3,24 @@ using MVPStudio_Creative_Agency.Views;
 
 public partial class AppShell : Shell
 {
-	public AppShell()
+
+    async protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        await Task.Delay(3000);
+
+        var color = Color.FromArgb("#FAFAFA");
+
+        FlyoutBackgroundColor = color;
+        FlyoutBackground = Color.FromArgb("#FAFAFA");
+    }
+
+    public AppShell()
 	{
 		InitializeComponent();
     }
+
 
 }
 
