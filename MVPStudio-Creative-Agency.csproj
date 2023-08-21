@@ -112,12 +112,11 @@
 	  <None Remove="Resources\Images\GraphPlaceHolder.png" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Folder Include="Components\StaffPageComponents\NewFolder\" />
 	  <Folder Include="ViewModels\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="Handlers\" />
-	  <Folder Include="Components\" />
 	  <Folder Include="Views\" />
-	  <Folder Include="Components\StaffPageComponents\" />
 	  <Folder Include="Components\FundsPageComponents\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -169,5 +168,10 @@
 	  <BundleResource Include="Resources\Images\codesandbox.png" />
 	  <BundleResource Include="Resources\Images\edit_icon2.png" />
 	  <BundleResource Include="Resources\Images\graphplaceholder.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>
