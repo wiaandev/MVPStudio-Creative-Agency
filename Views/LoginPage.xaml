@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVPStudio_Creative_Agency.Views.LoginPage"
              Title=""
@@ -18,15 +19,17 @@
 
             <VerticalStackLayout>
                 <Label Text="Email" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular" Margin="0,0,0,0"/>
-                <Entry FontFamily="Montserrat-Regular" FontSize="18" TextColor="{DynamicResource Black}"/>
-                <Line X1="0" X2="500" Stroke="{DynamicResource Black}" Margin="0,0,0,0" />
+                <Entry x:Name="emailEntry" FontFamily="Montserrat-Regular" Placeholder="johndoe@gmail.com" FontSize="18" TextColor="{DynamicResource Black}"/>
+                <!-- adding validation-->
+                <Label x:Name="ErrorLabel" TextColor="Red" Margin="0,5,0,0"/>
+               
 
                 <Label Text="Password" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular" Margin="0,40,0,0"/>
                 <Entry IsPassword="True" FontFamily="Montserrat-Regular" FontSize="18" TextColor="{DynamicResource Black}"/>
                 <Line X1="0" X2="500" Stroke="{DynamicResource Black}"/>
             </VerticalStackLayout>
 
-            <Button BackgroundColor="{DynamicResource Black}" Text="LOG IN" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" WidthRequest="200" HorizontalOptions="Start" CornerRadius="20" Clicked="login"/>
+            <Button BackgroundColor="{DynamicResource Black}" Text="LOG IN" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" WidthRequest="200" HorizontalOptions="Start" CornerRadius="20" Clicked="Login"/>
         </VerticalStackLayout>
 
     </Grid>
