@@ -8,7 +8,6 @@ namespace MVPStudio_Creative_Agency.Models
 {
     public class Employee
     {
-       
         public int Id { get; set; }
 
         public int RoleId { get; set; }
