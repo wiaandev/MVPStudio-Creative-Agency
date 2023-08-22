@@ -1,17 +1,89 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="MVPStudio_Creative_Agency.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MVPStudio_Creative_Agency"
     xmlns:views="clr-namespace:MVPStudio_Creative_Agency.Views"
+    xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
+    Shell.FlyoutBehavior="Locked" 
+    FlyoutWidth="200"
+   FlyoutIsPresented="True"
 
-    Shell.FlyoutBehavior="Disabled">
+    >
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:DashboardPage}"
-        Route="MainPage" />
+    <Shell.Resources>
+        <Style TargetType="Label" Class="FlyoutTitle">
+            <Setter Property="TextColor"
+                    Value="{DynamicResource Black}"/>
+
+            <Setter Property="FontFamily"
+                    Value="Montserrat-Regular" />
+
+            <Setter Property="FontSize"
+                    Value="18" />
+
+            <Setter Property="Margin"
+                    Value="30,0,0,0"/>
+
+        </Style>
+
+        <Style TargetType="components:FlyoutFooter">
+
+            <Setter Property="Margin"
+                    Value="50"/>
+
+        </Style>
+
+    </Shell.Resources>
+
+
+    <Shell.FlyoutHeader>
+        <Image Source="mvp_logo.png" WidthRequest="100" Margin="0,20,0,20" />
+    </Shell.FlyoutHeader>
+
+    
+    <FlyoutItem x:Name="Hello" Title="Workboard" Icon="work_board.png" StyleClass="FlyoutTitle">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Projects" Icon="layers.png" StyleClass="FlyoutTitle">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:ProjectsManagementPage}"/>
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Clients" Icon="users.png" StyleClass="FlyoutTitle">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:ClientsManagementPage}"/>
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Staff" Icon="user_check.png" StyleClass="FlyoutTitle">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:StaffManagementPage}"/>
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Funds" Icon="dollar_sign.png" StyleClass="FlyoutTitle">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:FundsManagementPage}"/>
+
+        </Tab>
+
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <StackLayout StyleClass="FlyoutFooter">
+            <components:FlyoutFooter BackgroundColor="Transparent"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
 
 </Shell>
 
