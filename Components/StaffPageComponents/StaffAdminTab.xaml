@@ -12,12 +12,12 @@
         <VerticalStackLayout >
             <HorizontalStackLayout>
 
-                <Image Source="profile_img.png" HeightRequest="40" Margin="20,10,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+                <Image Source="{Binding Image}" HeightRequest="40" Margin="20,10,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
                 <VerticalStackLayout Margin="10,10,0,0">
 
                     <Label FontFamily="Montserrat"
                                                   FontSize="18" FontAttributes="Bold"
-                                                  Text="Developer Name" TextColor="#667080">
+                                                  Text="{Binding Name}" TextColor="#667080">
                     </Label>
 
                     <!--Titles-->
@@ -30,7 +30,7 @@
 
                         <Label FontFamily="Montserrat"
                                                   FontSize="14" FontAttributes="Bold"
-                                                  Text="Developer" TextColor="#3B2765">
+                                                  Text="{Binding Title}" TextColor="#3B2765">
                         </Label>
                     </HorizontalStackLayout>
 
@@ -47,7 +47,7 @@
                     </HorizontalStackLayout>
 
                     <VerticalStackLayout  HorizontalOptions="Center">
-                        <Label Text="11"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0"></Label>
+                        <Label Text="{Binding Projects}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0"></Label>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
 
@@ -59,7 +59,7 @@
                     </HorizontalStackLayout>
 
                     <VerticalStackLayout HorizontalOptions="Center" >
-                        <Label Text="R13 500.00" TextColor="#667080"  HorizontalTextAlignment="Center" Margin="24 ,0,0,0"></Label>
+                        <Label Text="{Binding Salary}" TextColor="#667080"  HorizontalTextAlignment="Center" Margin="24 ,0,0,0"></Label>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
             </HorizontalStackLayout >

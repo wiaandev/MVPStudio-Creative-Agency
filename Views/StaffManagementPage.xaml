@@ -53,18 +53,18 @@
         <HorizontalStackLayout Margin="50,50,0,0">
             <Label Text="Staff Board" FontFamily="Montserrat"
         FontSize="30" FontAttributes="Bold" TextColor="#667080"
-   VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+   VerticalTextAlignment="Start" HorizontalTextAlignment="Center"  />
             <StackLayout  Margin="150,-10,0,0">
                 <Button Text="+ Add new member" HorizontalOptions="Center" Padding="10" CornerRadius="8" BackgroundColor="#61d2d3" TextColor="#2b2b2b">
                 </Button>
             </StackLayout>
         </HorizontalStackLayout>
         <!--GRID-->
-        <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="20,100,0,0" HorizontalOptions="FillAndExpand" >
+        <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="80,100,0,0" HorizontalOptions="FillAndExpand" Spacing="50" >
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2FD"
-                        WidthRequest="580" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
+                        WidthRequest="600" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
                         HorizontalOptions="Start" VerticalOptions="FillAndExpand" >
                     <StackLayout ZIndex="3" >
                         <!--HEADINGS STAFF & ADMIN-->
@@ -138,7 +138,7 @@
 
                                             <!-- Customize the card content here -->
                                             <!--TO DO : Create Component, add into folder-->
-                                            <components:StaffAdminTab/>
+                                            <components:StaffAdminTab Name="{Binding Name}" Title="{Binding Title}" Image="{Binding Image}" Projects="{Binding Projects}" Salary="{Binding Salary}" ID="{Binding ID}" />
 
 
 

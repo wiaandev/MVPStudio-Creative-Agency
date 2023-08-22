@@ -11,27 +11,12 @@ public partial class StaffManagementPage : ContentPage
     public StaffManagementPage()
     {
         InitializeComponent();
-        // Populate the Cards collection with dummy data Array
 
         Cards = new ObservableCollection<Card>
             {
-                new Card { Title = "Card 1" },
-                new Card { Title = "Card 2" },
-                new Card { Title = "Card 3" },
-                new Card { Title = "Card 4" },
-                new Card { Title = "Card 5" },
-                  new Card { Title = "Card 5" },
-                    new Card { Title = "Card 5" },
-                      new Card { Title = "Card 5" },
-                         new Card { Title = "Card 4" },
-                new Card { Title = "Card 5" },
-                  new Card { Title = "Card 5" },
-                    new Card { Title = "Card 5" },
-                      new Card { Title = "Card 5" },
-                // Add more dummy data as needed
+                new Card { Name = "John", Title = "Developer", Image = "profile_img.png", Projects = "4", Salary = "R13 500.00", ID = "1"},
+                new Card { Name = "Jane", Title = "Developer", Image = "profile_img.png", Projects = "8", Salary = "R15 500.00", ID = "2"},
             };
-
-
 
         ProjectCards = new ObservableCollection<ProjectCard>
             {
@@ -47,7 +32,12 @@ public partial class StaffManagementPage : ContentPage
 
 public class Card
 {
+    public string Name { get; internal set; }
     public string Title { get; internal set; }
+    public string Image { get; internal set; }
+    public string Projects { get; internal set; }
+    public string Salary { get; internal set; }
+    public string ID { get; internal set; }
 }
 
 public class ProjectCard

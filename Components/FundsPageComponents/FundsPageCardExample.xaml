@@ -4,20 +4,20 @@
              x:Class="MVPStudio_Creative_Agency.Components.FundsPageComponents.FundsPageCardExample">
 
       <Border Stroke="#F2F2FD" StrokeThickness="0" BackgroundColor="#EBEBFD" 
-                                     WidthRequest="400" HeightRequest="630"
+                                     WidthRequest="540" HeightRequest="560"
                                      StrokeShape="RoundRectangle 25,25,25,25" 
                                         Padding="0"
                                                 HorizontalOptions="StartAndExpand"
-                                                Margin="10, 10,30,30"  >
+                                                Margin="0,0,0,0"  >
 
                                                 <VerticalStackLayout >
                                                     <HorizontalStackLayout>
-                                                        <Image Source="profile_img.png" HeightRequest="60" Margin="20,50" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+                                                        <Image Source="{Binding Image}" HeightRequest="60" Margin="25,50" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
 
                                                         <VerticalStackLayout Margin="10,50">
                                                             <Label FontFamily="Montserrat"
-                                                         FontSize="25" FontAttributes="Bold"
-                                                         Text="Company Name" TextColor="#667080">
+                                                         FontSize="22" FontAttributes="Bold"
+                                                         Text="{Binding Name}" TextColor="#667080">
                                                             </Label>
 
                                                             <!--Titles-->
@@ -27,7 +27,7 @@
 
                                                                 <Label FontFamily="Montserrat"
                                                          FontSize="18" 
-                                                         Text="Web + App design bundle " TextColor="#3B2765">
+                                                         Text="{Binding Bundle}" TextColor="#3B2765">
                                                                 </Label>
                                                             </HorizontalStackLayout>
 
@@ -38,18 +38,20 @@
 
 
             
-                <StackLayout Margin="0,-10,0,0">
-                    <Label Text="Description" TextColor="#2b2b2b"  FontFamily="Montserrat"
-                                                         FontSize="14" Margin="20,0,0,10"></Label>
-                         <HorizontalStackLayout  Spacing="0" HorizontalOptions="Center" VerticalOptions="Center">  
-                                    <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
-                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="360" HeightRequest="100"  Padding="5" Margin="0,0,0,40">
+                <StackLayout Margin="0,-20,0,0">
+                    
+                         <HorizontalStackLayout  Spacing="20" HorizontalOptions="Start" VerticalOptions="Center">
+                    <VerticalStackLayout>
+                        <Label Text="Description" TextColor="#2b2b2b"  FontFamily="Montserrat" FontAttributes="Bold"
+                                     FontSize="16" Margin="20,0,0,10"></Label>
+                    <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
+                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="300" HeightRequest="168"  Padding="5" Margin="20,0,0,40">
                                        <StackLayout Orientation="Horizontal"  Spacing="150" >
 
-                                             <Label LineBreakMode="WordWrap" WidthRequest="300" Padding="8,8,8,8" Margin="2,8,8,8">
+                                             <Label LineBreakMode="WordWrap" WidthRequest="295" Padding="8,8,8,8" Margin="2,8,8,8">
                                 <Label.FormattedText Padding="8,8,8,8">
                                     <FormattedString  >
-                                           <Span Text="This is a descrdddiption about the project overview/package" TextColor="#667080"  />
+                                            <Span Text="{Binding Description}" TextColor="#667080"  />
 
                                     </FormattedString>
 
@@ -59,86 +61,125 @@
 
                                         </StackLayout>
                                     </Border>
-                                                          
-                                 </HorizontalStackLayout>
-
-
-                <HorizontalStackLayout Spacing="10"  >
-                    <VerticalStackLayout Margin="20,0,0,0">
-                          <Label Text="Team" TextColor="#2b2b2b"  FontFamily="Montserrat" FontAttributes="Bold"
-                                                         FontSize="14" Margin="5,0,0,10"></Label>
-                         <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
-                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="160" HeightRequest="80"  Margin="0,0,0,0">
-                                       <StackLayout Orientation="Horizontal"  Spacing="150" >
-
-                                <HorizontalStackLayout Spacing="-55" WidthRequest="80" HorizontalOptions="Start" Margin="-15,0,0,0">
-                                                <Image Source="profile_img.png" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
-                                               <Image Source="profile_img.png" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
-                                                <Image Source="profile_img.png" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
-                                                <Image Source="profile_img.png" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
-                                                <Image Source="profile_img.png" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
-                                </HorizontalStackLayout>
-                            </StackLayout>
-                                    </Border>
-
                     </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="15"  >
+                        <VerticalStackLayout Margin="0,0,0,0">
+                            <Label Text="Team" TextColor="#2b2b2b"  FontFamily="Montserrat" FontAttributes="Bold"
+                                         FontSize="18" Margin="5,0,0,5"></Label>
+                            <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
+                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="180" HeightRequest="65"  Margin="0,0,0,0">
+                                <StackLayout Orientation="Horizontal"  Spacing="150" >
 
-                      <VerticalStackLayout Margin="20,0,0,0">
-                          <Label Text="Timeline" TextColor="#2b2b2b"  FontFamily="Montserrat" FontAttributes="Bold"
-                                                         FontSize="14" Margin="5,0,0,10"></Label>
-                         <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
-                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="160" HeightRequest="80"  Padding="5" Margin="0,0,0,40">
-                                       <StackLayout Orientation="Horizontal"  Spacing="150" >
+                                    <HorizontalStackLayout Spacing="-10" WidthRequest="40" HorizontalOptions="Start" Margin="10,0,0,0">
+                                        <Image Source="{Binding Team}" HeightRequest="40"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                        <Image Source="profile_img.png" HeightRequest="40"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                        <Image Source="profile_img.png" HeightRequest="40"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                        <Image Source="profile_img.png" HeightRequest="40"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                        <Image Source="profile_img.png" HeightRequest="40"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                    </HorizontalStackLayout>
+                                </StackLayout>
+                            </Border>
 
-                                   <HorizontalStackLayout Spacing="1" WidthRequest="150">
-                               <Border BackgroundColor="#3A3354" StrokeThickness="0"   StrokeShape="RoundRectangle 50" Padding="10" WidthRequest="40" HeightRequest="40"  Margin="0,0,10,0">
-                                      <Image Source="Images/png/calendar.png"  ></Image>
+                        </VerticalStackLayout>
 
-                                </Border>
-                                     <Label  TextColor="Black"   Text="End Date, 2023"  VerticalOptions="Center" FontSize="12" ></Label>
+                        <VerticalStackLayout Margin="0,0,0,0">
+                            <Label Text="Timeline" TextColor="#2b2b2b"  FontFamily="Montserrat" FontAttributes="Bold"
+                                         FontSize="18" Margin="5,0,0,5"></Label>
+                            
 
-                            </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="1" WidthRequest="200">
+                                       
+                                        <Border Stroke="#ABfffABF6" StrokeThickness="0"  Background="#667080"
+                                       StrokeShape="RoundRectangle 15"   WidthRequest="180" HeightRequest="65">
+
+                                            <VerticalStackLayout     VerticalOptions="CenterAndExpand" 
+                                                                      HorizontalOptions="CenterAndExpand">
+
+                                                <HorizontalStackLayout Spacing="1"  WidthRequest="180">
+                                                    <Border BackgroundColor="white" StrokeThickness="1" Stroke="#667080"  Background="#fff" StrokeShape="RoundRectangle 50" Padding="0" WidthRequest="50" HeightRequest="50"  Margin="5,0,10,0">
+                                                        <Image Source="calendar.png"  HeightRequest="19" WidthRequest="19" ZIndex="99"></Image>
+                                                    </Border>
+                                            <Label TextColor="#e8e8e8" VerticalOptions="Center" FontSize="16" FontFamily="Montserrat" FontAttributes="Bold">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="End Date, " />
+                                                        <Span Text="{Binding TimeLine}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </HorizontalStackLayout>
+
+                                                <VerticalStackLayout>
+
+
+                                                </VerticalStackLayout>
+                                            </VerticalStackLayout>
+
+                                        </Border>
+                                    </HorizontalStackLayout>
+
 
                                
-                            </StackLayout>
 
-                                    </Border>
 
+                        </VerticalStackLayout>
 
                     </VerticalStackLayout>
 
                 </HorizontalStackLayout>
-                 <HorizontalStackLayout  Margin="20,0,0,0" Spacing="30">
+
+
+                
+                 <HorizontalStackLayout  Margin="20,0,0,0" Spacing="20">
                                     <VerticalStackLayout HeightRequest="100" >
                                            <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="pink"
-                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="160" HeightRequest="150"  Margin="0,0,0,0">
-                                     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="8">
-                                <Label   FontFamily="Montserrat" FontAttributes="Bold" Text="Project Finance" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="300" HeightRequest="160"  Margin="0,0,0,0">
+                            <VerticalStackLayout Margin="20,10,0,0">
+                                <Label Margin="0,10,0,10"  FontFamily="Montserrat" FontAttributes="Bold" Text="Project Finance" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start"></Label>
 
-                                <Label   FontFamily="Montserrat" Text="Project Cost" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"> </Label>
+                                <HorizontalStackLayout Spacing="20">
+                                
+                                <VerticalStackLayout VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Spacing="8">
+                                   
+                                    <Label   FontFamily="Montserrat" Text="Cost" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start"></Label>
 
-                                <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
-                                       StrokeShape="RoundRectangle 5" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="120" HeightRequest="60"  Margin="0,10,0,0">
-                                    <Label Text="R123 45.00" TextColor="HotPink" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                                    <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
+                                        StrokeShape="RoundRectangle 15" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="120" HeightRequest="60"  Margin="0,10,0,0">
+                                            <Label Text="{Binding Cost}" TextColor="HotPink" VerticalOptions="Center" HorizontalOptions="Center"></Label>
 
-                                </Border>
+                                    </Border>
 
+                                </VerticalStackLayout>
+
+                                    <VerticalStackLayout VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Spacing="8">
+
+                                        <Label   FontFamily="Montserrat" Text="Paid" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start"></Label>
+
+                                        <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
+                                            StrokeShape="RoundRectangle 15" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="120" HeightRequest="60"  Margin="0,10,0,0">
+                                            <Label Text="{Binding Paid}" TextColor="HotPink" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+                                        </Border>
+
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
                             </VerticalStackLayout>
+
                         </Border>
 
                                     </VerticalStackLayout>
 
                                    <VerticalStackLayout HeightRequest="100" >
                                            <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="#A6E3E4"
-                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="160" HeightRequest="150"  Margin="0,0,0,0">
+                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="180" HeightRequest="160"  Margin="0,0,0,0">
                             <VerticalStackLayout>
                                   <Label   FontFamily="Montserrat" Text="Progress" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20,0,0" FontAttributes="Bold"> </Label>
 
                                 <Border Stroke="#F2F2FD" StrokeThickness="0"  Background="white"
                                        StrokeShape="RoundRectangle 100" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="90" HeightRequest="90"  Margin="0,10,0,0">
-                                           <VerticalStackLayout Margin="0,10,0,0">
-                                          <Image Source="codesandbox.png"  ></Image>
-                                    <Label   FontFamily="Montserrat" Text="50%" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Padding="1"  FontAttributes="Bold"></Label>
+                                           <VerticalStackLayout Margin="0,15,0,0">
+                                        <Image Source="codesandbox.png" WidthRequest="40" HeightRequest="40" ></Image>
+                                        <Label   FontFamily="Montserrat" Text="{Binding Progress}" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" Padding="1"  FontAttributes="Bold"></Label>
 
                                     </VerticalStackLayout>
                                 </Border>
