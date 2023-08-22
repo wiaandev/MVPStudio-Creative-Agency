@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio_Creative_Agency.Components.ProjectDetailCard">
+<Frame CornerRadius="20" BackgroundColor="{DynamicResource WhiteDark}" BorderColor="Transparent">
+                <VerticalStackLayout Padding="10" Spacing="20">
+                    <HorizontalStackLayout Spacing="20">
+
+                        <Image Source="company.jpeg" WidthRequest="80" HeightRequest="80" Aspect="AspectFill" Margin="0">
+                            <Image.Clip>
+                                <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                            </Image.Clip>
+                        </Image>
+
+                        <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="WWF Studios" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="24"/>
+                        <Label Text="Web and App design bundle build" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}" FontSize="14"/>
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="Description" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="14"/>
+                        <Label Text="Custom Tailor Made Full Website Development Bundle" TextColor="{DynamicResource Black}" FontFamily="Hind-Regular" FontSize="14"/>
+                    </VerticalStackLayout>
+
+                    <HorizontalStackLayout Spacing="60">
+
+                       <VerticalStackLayout Spacing="10" VerticalOptions="Center">
+
+
+                            <Label Text="Team" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="18"/>
+                            <HorizontalStackLayout>
+
+
+                                <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="0">
+                                    <Image.Clip>
+                                        <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                                    </Image.Clip>
+                                </Image>
+
+                                <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="-20,0,0,0">
+                                    <Image.Clip>
+                                        <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                                    </Image.Clip>
+                                </Image>
+
+                                <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="-20,0,0,0">
+                                    <Image.Clip>
+                                        <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                                    </Image.Clip>
+                                </Image>
+
+                            </HorizontalStackLayout>
+                       </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="10" VerticalOptions="Center">
+                            <Label Text="Due Date" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="18"/>
+                            <Label Text="09 July 2023" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}" FontSize="18"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    <Label FontFamily="Montserrat-Bold" Text="Project Finance" TextColor="{DynamicResource Black}"/>
+                    <HorizontalStackLayout Spacing="60">
+                        
+                        <VerticalStackLayout Spacing="30">
+                            <VerticalStackLayout>
+                                <Label Text="Cost" TextColor="{DynamicResource Black}" FontFamily="Hind-Regular"/>
+                                <Label Text="R 245 000.00" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="24"/>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout>
+                                <Label Text="Outstanding" TextColor="{DynamicResource Black}" FontFamily="Hind-Regular"/>
+                                <Label Text="R 75 500.00" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="24"/>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="Center">
+
+                            <Label Text="Progress" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold"/>
+                            <Label Text="50%" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="36"/>
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+        </Frame>
+</ContentView>
+

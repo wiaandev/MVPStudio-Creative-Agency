@@ -1,9 +1,8 @@
 ﻿namespace MVPStudio_Creative_Agency.Components;
 
-public partial class FundsSummaryCard : ContentView
+public partial class ProjectDetailCard : ContentView
 {
-
-	public FundsSummaryCard()
+	public ProjectDetailCard()
 	{
 		InitializeComponent();
 	}

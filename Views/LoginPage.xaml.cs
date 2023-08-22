@@ -1,4 +1,6 @@
-﻿namespace MVPStudio_Creative_Agency.Views;
+﻿using System.Text.RegularExpressions;
+
+namespace MVPStudio_Creative_Agency.Views;
 
 public partial class LoginPage : ContentPage
 {
@@ -7,9 +9,23 @@ public partial class LoginPage : ContentPage
 		InitializeComponent();
 	}
 
-    private async void login(object sender, EventArgs e)
+    private async void Login(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("/DashboardPage");
+        var email = emailEntry.Text;
+        
+        var emailPattern = "^(?(\")(\".+?(?<!\\\\)\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9]))$";
+
+        if (Regex.IsMatch(email, emailPattern))
+        {
+            
+            await Shell.Current.GoToAsync("/DashboardPage");
+        }
+        else
+        {
+            
+            ErrorLabel.Text = "Invalid email";
+        }
+       
     }
 
     protected override void OnAppearing()
@@ -33,5 +49,7 @@ public partial class LoginPage : ContentPage
             Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
         }
     }
+
+  
 
 }

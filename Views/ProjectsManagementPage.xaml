@@ -1,112 +1,61 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVPStudio_Creative_Agency.Views.ProjectsManagementPage"
-             Title="ProjectsManagementPage"
-             BackgroundColor="{DynamicResource PurpleLighter}">
-<HorizontalStackLayout
-        BackgroundColor="#EBEBFD"
-        HeightRequest="700"
-        HorizontalOptions="FillAndExpand">
-        <!--  border radius????? wtf  -->
-        <Label
-            Margin="80,50,0,0"
-            FontSize="20"
-            Text="Projects" />
-        <Border StrokeShape="RoundRectangle 5,5,5" StrokeThickness="0">
-            <Grid
-                Margin="-70,0,0,0"
-                BackgroundColor="#F2F2FD"
-                HeightRequest="520"
-                StyleClass="rectangle"
-                WidthRequest="1200"
-                ZIndex="2">
+<ContentPage
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
+            x:Class="MVPStudio_Creative_Agency.Views.ProjectsManagementPage"
+            Shell.NavBarIsVisible="False"
+            BackgroundColor="{DynamicResource PurpleLighter}">
+    <Frame CornerRadius="20" BackgroundColor="{DynamicResource White}" BorderColor="Transparent" Margin="20">
 
-                <FlexLayout AlignItems="Start">
-                    <!--  vertical and hoz boxes for the project cards  -->
+        <ScrollView>
+            <Grid ColumnSpacing="10" Padding="20" RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <!--<ColumnDefinition Width="*"/>-->
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".4*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <HorizontalStackLayout Spacing="50" Grid.Column="0">
+                    <VerticalStackLayout>
 
-                    <Border StrokeShape="RoundRectangle 10,10,10,10">
-                        <Grid
-                            Margin="30,30,0,0"
-                            BackgroundColor="#EBEBFD"
-                            HeightRequest="300"
-                            HorizontalOptions="Start"
-                            WidthRequest="300">
-                            <Image
-                                Margin="0,-100,0,0"
-                                HeightRequest="50"
-                                Source="dotnet_bot.png" />
-                            <Label Margin="20,10,0,0" Text="10 August 2023" />
-                            <Label
-                                Margin="0,150,0,0"
-                                FontAttributes="Bold"
-                                HorizontalOptions="Center"
-                                Text="Website build" />
-                            <Label
-                                Margin="0,180,0,0"
-                                HorizontalOptions="Center"
-                                Text="Updates to nav" />
+                        <Label Text="42" FontFamily="Montserrat-Bold" FontSize="24" TextColor="{DynamicResource Black}"/>
+                        <Label Text="Total Projects" FontFamily="Hind-Regular" FontSize="16" TextColor="{DynamicResource Black}"/>
+                    </VerticalStackLayout>
 
-                            <!--  PROGRESS SECTION  -->
-                            <Label Margin="20,210,0,0" Text="Progress - 40%" />
-                            <ProgressBar
-                                Margin="10,195,10,10"
-                                Progress="0.4"
-                                ProgressColor="#fff" />
-                            <Image
-                                Margin="20,240,0,0"
-                                HeightRequest="37"
-                                HorizontalOptions="Start"
-                                Source="dotnet_bot.png" />
-                        </Grid>
-                    </Border>
-                    <Border StrokeShape="RoundRectangle 10,10,10,10">
-                        <Grid
-                            Margin="30,30,0,0"
-                            BackgroundColor="#EBEBFD"
-                            HeightRequest="300"
-                            HorizontalOptions="Start"
-                            WidthRequest="300">
-                            <Image
-                                Margin="0,-100,0,0"
-                                HeightRequest="50"
-                                Source="dotnet_bot.png" />
-                            <Label Margin="20,10,0,0" Text="10 August 2023" />
-                            <Label
-                                Margin="0,150,0,0"
-                                FontAttributes="Bold"
-                                HorizontalOptions="Center"
-                                Text="Website build" />
-                            <Label
-                                Margin="0,180,0,0"
-                                HorizontalOptions="Center"
-                                Text="Updates to nav" />
+                    <VerticalStackLayout>
 
-                            <!--  PROGRESS SECTION  -->
-                            <Label Margin="20,210,0,0" Text="Progress - 40%" />
-                            <ProgressBar
-                                Margin="10,195,10,10"
-                                Progress="0.4"
-                                ProgressColor="#fff" />
-                            <Image
-                                Margin="20,240,0,0"
-                                HeightRequest="37"
-                                HorizontalOptions="Start"
-                                Source="dotnet_bot.png" />
-                        </Grid>
-                    </Border>
+                        <Label Text="35" FontFamily="Montserrat-Bold" FontSize="24" TextColor="{DynamicResource Black}"/>
+                        <Label Text="In Progress" FontFamily="Hind-Regular" FontSize="16" TextColor="{DynamicResource Black}"/>
+                    </VerticalStackLayout>
 
+                    <VerticalStackLayout>
 
-                </FlexLayout>
+                        <Label Text="17" FontFamily="Montserrat-Bold" FontSize="24" TextColor="{DynamicResource Black}"/>
+                        <Label Text="Completed" FontFamily="Hind-Regular" FontSize="16" TextColor="{DynamicResource Black}"/>
+                    </VerticalStackLayout>
+
+                    <Button Text="ADD +" BackgroundColor="{DynamicResource Black}" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" FontSize="18" WidthRequest="200"/>
+
+                </HorizontalStackLayout>
+                <components:SingleProjectCard Grid.Column="0" Grid.Row="1" />
+                <components:SingleProjectCard Grid.Column="1" Grid.Row="1" />
+                <components:SingleProjectCard Grid.Column="2" Grid.Row="1" />
+                <components:SingleProjectCard Grid.Column="0" Grid.Row="2" />
+                <components:SingleProjectCard Grid.Column="1" Grid.Row="2" />
+                <components:SingleProjectCard Grid.Column="2" Grid.Row="2" />
+                <components:ProjectDetailCard Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" />
+                <components:SingleProjectCard Grid.Column="0" Grid.Row="3" />
+                <components:SingleProjectCard Grid.Column="1" Grid.Row="3" />
+                <components:SingleProjectCard Grid.Column="2" Grid.Row="3" />
             </Grid>
-        </Border>
-
-        <Image
-            Margin="-400,0"
-            HorizontalOptions="End"
-            Source="vectorp.png"
-            StyleClass="vectorimg"
-        />
-
-    </HorizontalStackLayout>
+        </ScrollView>
+    </Frame>
 </ContentPage>
