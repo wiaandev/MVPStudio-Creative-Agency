@@ -164,9 +164,9 @@
                                        <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
                                           <VerticalStackLayout>
                                                    <Label  TextColor="Black"  FontFamily="Montserrat"
-                             FontSize="14" Text="R 180 000.00"  FontAttributes="Bold"  Padding="2"></Label>
+                                                    FontSize="14" Text="R 180 000.00"  FontAttributes="Bold"  Padding="2"></Label>
                                                    <Label  TextColor="Black"  FontFamily="Montserrat"
-                             FontSize="10" Text="Revenue"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
+                                                     FontSize="10" Text="Revenue"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
 
                                     </VerticalStackLayout>
                             </StackLayout>

@@ -78,6 +78,8 @@
 
     </FlyoutItem>
 
+    
+
     <Shell.FlyoutFooter>
         <StackLayout StyleClass="FlyoutFooter">
             <components:FlyoutFooter/>

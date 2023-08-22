@@ -19,7 +19,7 @@
                     FontFamily="Montserrat-Bold"
                     FontSize="18"
                     BackgroundColor="{DynamicResource Black}"
-                    Clicked="logout"
+                    Clicked="Logout"
                 />
 
             </VerticalStackLayout>

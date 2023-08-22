@@ -7,7 +7,7 @@ public partial class FlyoutFooter : ContentView
 		InitializeComponent();
 	}
 
-    private async void logout(object sender, EventArgs e)
+    private async void Logout(object sender, EventArgs e)
     {
 
         await Shell.Current.GoToAsync("/LoginPage");
