@@ -114,8 +114,6 @@
 	<ItemGroup>
 
 	  <Folder Include="Components\StaffPageComponents\NewFolder\" />
-
-	  <Folder Include="ViewModels\" />
 	  <Folder Include="Handlers\" />
 	  <Folder Include="Views\" />
 	  <Folder Include="Components\FundsPageComponents\" />
