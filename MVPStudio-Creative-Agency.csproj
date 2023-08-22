@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<!--<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>-->
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
@@ -55,7 +55,6 @@
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
 		<PackageReference Include="LiveCharts" Version="0.9.7" />
 		<PackageReference Include="LiveChartsCore.SkiaSharpView.Maui" Version="2.0.0-beta.911" />
-		<PackageReference Include="Microcharts" Version="0.9.5.9" />
 		<PackageReference Include="Microcharts.Maui" Version="1.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
@@ -113,13 +112,13 @@
 	  <None Remove="Resources\Images\GraphPlaceHolder.png" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Classes\" />
+
+	  <Folder Include="Components\StaffPageComponents\NewFolder\" />
+
 	  <Folder Include="ViewModels\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="Handlers\" />
-	  <Folder Include="Components\" />
 	  <Folder Include="Views\" />
-	  <Folder Include="Components\StaffPageComponents\" />
 	  <Folder Include="Components\FundsPageComponents\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -171,5 +170,10 @@
 	  <BundleResource Include="Resources\Images\codesandbox.png" />
 	  <BundleResource Include="Resources\Images\edit_icon2.png" />
 	  <BundleResource Include="Resources\Images\graphplaceholder.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>
