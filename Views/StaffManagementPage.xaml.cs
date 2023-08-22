@@ -1,5 +1,8 @@
 using System.Collections.ObjectModel;
-using Microsoft.Maui.Controls; 
+using System.Diagnostics;
+using Microsoft.Maui.Controls;
+using MVPStudio_Creative_Agency.ViewModels;
+
 namespace MVPStudio_Creative_Agency.Views;
 
 public partial class StaffManagementPage : ContentPage
@@ -7,10 +10,14 @@ public partial class StaffManagementPage : ContentPage
     public ObservableCollection<Card> Cards { get; set; }
     public ObservableCollection<ProjectCard> ProjectCards { get; set; }
 
+    private StaffViewModel _staffViewModel;
 
     public StaffManagementPage()
     {
         InitializeComponent();
+        _staffViewModel = new StaffViewModel(new Services.StaffRestService()); //init our service
+        BindingContext = _staffViewModel; //the context of the xaml is this viewModel
+
 
         Cards = new ObservableCollection<Card>
             {
@@ -28,6 +35,14 @@ public partial class StaffManagementPage : ContentPage
 
         BindingContext = this;
     }
+    //on appear
+    protected override async void OnAppearing()
+    {
+        Debug.WriteLine("Getting data");
+        base.OnAppearing();
+        await _staffViewModel.fetchAllStaff();
+    }
+
 }
 
 public class Card

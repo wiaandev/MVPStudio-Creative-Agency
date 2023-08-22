@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.Services
 {
-    public class RestService : IRestService
+    public class StaffRestService : IRestService
     {
         //Our httpClient
         HttpClient _client;
@@ -23,7 +23,7 @@ namespace MVPStudio_Creative_Agency.Services
         public List<Employee> Items { get; private set; }
 
         //Constructor - Creating our httpClient
-        public RestService()
+        public StaffRestService()
         {
             _client = new HttpClient();
             _serializerOptions = new JsonSerializerOptions
