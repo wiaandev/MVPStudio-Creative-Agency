@@ -33,14 +33,15 @@ public partial class StaffManagementPage : ContentPage
 
             };
 
-        BindingContext = this;
+        //BindingContext = this;
     }
     //on appear
     protected override async void OnAppearing()
     {
         Debug.WriteLine("Getting data");
         base.OnAppearing();
-        await _staffViewModel.fetchAllStaff();
+        await _staffViewModel.LoadAllStaffAsync();
+        Debug.WriteLine(_staffViewModel.EmployeeList);
     }
 
 }
