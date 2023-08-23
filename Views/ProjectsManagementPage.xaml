@@ -45,16 +45,9 @@
                     <Button Text="ADD +" BackgroundColor="{DynamicResource Black}" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" FontSize="18" WidthRequest="200"/>
 
                 </HorizontalStackLayout>
-                <components:SingleProjectCard Grid.Column="0" Grid.Row="1" />
-                <components:SingleProjectCard Grid.Column="1" Grid.Row="1" />
-                <components:SingleProjectCard Grid.Column="2" Grid.Row="1" />
-                <components:SingleProjectCard Grid.Column="0" Grid.Row="2" />
-                <components:SingleProjectCard Grid.Column="1" Grid.Row="2" />
-                <components:SingleProjectCard Grid.Column="2" Grid.Row="2" />
-                <components:ProjectDetailCard Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" />
-                <components:SingleProjectCard Grid.Column="0" Grid.Row="3" />
-                <components:SingleProjectCard Grid.Column="1" Grid.Row="3" />
-                <components:SingleProjectCard Grid.Column="2" Grid.Row="3" />
+
+                <components:SingleProjectCard Grid.Column="0" Grid.Row="1" ProjectType="{Binding Project_Type}"/>
+
             </Grid>
         </ScrollView>
     </Frame>
