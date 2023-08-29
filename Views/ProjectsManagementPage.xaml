@@ -51,7 +51,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                         <ViewCell>
-                            <components:SingleProjectCard ClientId="{Binding ClientId}" Project_Name="{Binding Project_Name}" Description="{Binding Description}" />
+                            <components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" />
                         </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
