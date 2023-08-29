@@ -23,6 +23,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+
                 <HorizontalStackLayout Spacing="50" Grid.Column="0">
                     <VerticalStackLayout>
 
@@ -46,9 +47,18 @@
 
                 </HorizontalStackLayout>
 
-                <components:SingleProjectCard Grid.Column="0" Grid.Row="1" ProjectType="{Binding Project_Type}"/>
+                <ListView ItemsSource="{Binding Projects}" Grid.Column="0" Grid.Row="2">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                        <ViewCell>
+                            <components:SingleProjectCard ClientId="{Binding ClientId}" Project_Name="{Binding Project_Name}" Description="{Binding Description}" />
+                        </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
             </Grid>
         </ScrollView>
+
     </Frame>
 </ContentPage>

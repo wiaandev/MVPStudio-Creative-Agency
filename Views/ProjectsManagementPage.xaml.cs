@@ -15,7 +15,7 @@ public partial class ProjectsManagementPage : ContentPage
 
 	protected override async void OnAppearing()
 	{
-        Debug.WriteLine("Getting the data");
+        Debug.WriteLine("Getting the data: ");
         base.OnAppearing();
 		await _projectViewModel.fetchAllProjects();
         Debug.WriteLine(_projectViewModel);

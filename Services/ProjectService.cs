@@ -35,13 +35,15 @@ namespace MVPStudio_Creative_Agency.Services
         {
             Projects = new List<Project>();
 
-            Uri uri = new(string.Format(baseUrl + "Employees", string.Empty));
+            Uri uri = new(string.Format(baseUrl + "Projects", string.Empty));
             try
             {
+                Debug.WriteLine(Projects);
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
+                    Debug.WriteLine($"From Project Service: {content}");
                     Projects = JsonSerializer.Deserialize<List<Project>>(content, _serializerOptions);
                 }
             }
@@ -49,7 +51,7 @@ namespace MVPStudio_Creative_Agency.Services
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
-
+            Debug.WriteLine(Projects);
             return Projects;
         }
     }

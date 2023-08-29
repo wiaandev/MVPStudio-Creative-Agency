@@ -30,6 +30,10 @@ namespace MVPStudio_Creative_Agency.ViewModels
             {
                 Projects.Add(project);
                 Debug.WriteLine(project.Description);
+                Debug.WriteLine(project.Project_Type);
+                Debug.WriteLine(project.Project_Name);
+                Debug.WriteLine(project.Project_Time);
+                Debug.WriteLine(project.ClientId);
             }
         }
     }

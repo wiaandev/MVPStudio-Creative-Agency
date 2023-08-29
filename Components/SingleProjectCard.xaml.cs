@@ -2,25 +2,25 @@
 
 public partial class SingleProjectCard : ContentView
 {
-	public static readonly BindableProperty ProjectCardProperty = 
-		BindableProperty.Create(nameof(ProjectClient), typeof(string), typeof(SingleProjectCard), default(string));
+	public static readonly BindableProperty ClientIdProperty = 
+	BindableProperty.Create(nameof(ClientId), typeof(string), typeof(SingleProjectCard), default(string));
 
-    public static readonly BindableProperty ProjectTypeProperty =
-    BindableProperty.Create(nameof(ProjectType), typeof(string), typeof(SingleProjectCard), default(string));
+    public static readonly BindableProperty Project_NameProperty =
+    BindableProperty.Create(nameof(Project_Name), typeof(string), typeof(SingleProjectCard), default(string));
 
     public static readonly BindableProperty DescriptionProperty =
-BindableProperty.Create(nameof(Description), typeof(string), typeof(SingleProjectCard), default(string));
+    BindableProperty.Create(nameof(Description), typeof(string), typeof(SingleProjectCard), default(string));
 
-    public string ProjectClient
+    public string ClientId
     {
-        get => (string)GetValue(ProjectCardProperty);
-        set => SetValue(ProjectCardProperty, value);
+        get => (string)GetValue(ClientIdProperty);
+        set => SetValue(ClientIdProperty, value);
     }
 
-    public string ProjectType
+    public string Project_Name
     {
-        get => (string)GetValue(ProjectTypeProperty);
-        set => SetValue(ProjectTypeProperty, value);
+        get => (string)GetValue(Project_NameProperty);
+        set => SetValue(Project_NameProperty, value);
     }
 
     public string Description
