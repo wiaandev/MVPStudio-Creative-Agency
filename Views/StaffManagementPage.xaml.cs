@@ -15,7 +15,7 @@ public partial class StaffManagementPage : ContentPage
     public StaffManagementPage()
     {
         InitializeComponent();
-        _staffViewModel = new StaffViewModel(new Services.StaffRestService()); //init our service
+        _staffViewModel = new StaffViewModel(new Services.StaffRestService(), new Services.StaffRolesServices()); //init our service
         BindingContext = _staffViewModel; //the context of the xaml is this viewModel
 
 

@@ -74,14 +74,20 @@
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
 
                             <Label Text="Admin" FontFamily="Montserrat"
-                                  FontSize="20" FontAttributes="Bold" TextColor="#667080"
+                                  FontSize="20" FontAttributes="Bold" TextColor="#2b2b2b"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Center"   />
 
+                            <Label Text="Developers" FontFamily="Montserrat"
+                         FontSize="20" FontAttributes="Bold" TextColor="#3B2765"
+                        VerticalTextAlignment="Start" HorizontalTextAlignment="Center"   />
+                            
+                            <Label Text="UX UI" FontFamily="Montserrat"
+                              FontSize="20" FontAttributes="Bold" TextColor="#f195a5"
+                            VerticalTextAlignment="Start" HorizontalTextAlignment="Center"   />
 
-                    
-                              
 
-                          
+
+
                         </HorizontalStackLayout>
                         <StackLayout>
                             <!--<TabControl>
