@@ -16,8 +16,7 @@
                         />
                     </HorizontalStackLayout>
 
-                    <Label Text="{Binding ClientId}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="12"/>
-                    <Label Text="{Binding Description}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="12"/>
+                    <Label Text="{Binding ClienName}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="18"/>
                     <Label Text="{Binding Project_Name}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="30"/>
 
                     <Label Text="Progress" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
