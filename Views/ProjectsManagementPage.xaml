@@ -23,6 +23,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+
                 <HorizontalStackLayout Spacing="50" Grid.Column="0">
                     <VerticalStackLayout>
 
@@ -45,17 +46,19 @@
                     <Button Text="ADD +" BackgroundColor="{DynamicResource Black}" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" FontSize="18" WidthRequest="200"/>
 
                 </HorizontalStackLayout>
-                <components:SingleProjectCard Grid.Column="0" Grid.Row="1" />
-                <components:SingleProjectCard Grid.Column="1" Grid.Row="1" />
-                <components:SingleProjectCard Grid.Column="2" Grid.Row="1" />
-                <components:SingleProjectCard Grid.Column="0" Grid.Row="2" />
-                <components:SingleProjectCard Grid.Column="1" Grid.Row="2" />
-                <components:SingleProjectCard Grid.Column="2" Grid.Row="2" />
-                <components:ProjectDetailCard Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" />
-                <components:SingleProjectCard Grid.Column="0" Grid.Row="3" />
-                <components:SingleProjectCard Grid.Column="1" Grid.Row="3" />
-                <components:SingleProjectCard Grid.Column="2" Grid.Row="3" />
+
+                <ListView ItemsSource="{Binding Projects}" Grid.Column="0" Grid.Row="2">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                        <ViewCell>
+                            <components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" />
+                        </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
             </Grid>
         </ScrollView>
+
     </Frame>
 </ContentPage>

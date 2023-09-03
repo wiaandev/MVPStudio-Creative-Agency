@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 namespace MVPStudio_Creative_Agency.Models
 {
     public class Client
-    {      
-            public int Id { get; set; }
 
-            public string Name { get; set; } = string.Empty;
+    {
+        public int Id { get; set; }
 
-            public string ImgUrl { get; set; } = string.Empty;
+        public string Name { get; set; }
 
-            public string Email { get; set; } = string.Empty;
+        public string ImgUrl { get; set; }
 
-            public int ClientTypeId { get; set; }
-            public string ClientType { get; set; }
-       
+        public string Email { get; set; }
+
+        public int ClientTypeId { get; set; }
+
     }
 }
