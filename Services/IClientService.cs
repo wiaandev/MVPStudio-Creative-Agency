@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace MVPStudio_Creative_Agency.Services
 {
-    public interface IRestService
+    public interface IClientService
     {
-        //Define all of our REST Methods
-        Task<List<Employee>> RefreshDataAsync(); //GET all Employees 
+        Task<List<Client>> RefreshDataAsync();
     }
 }
