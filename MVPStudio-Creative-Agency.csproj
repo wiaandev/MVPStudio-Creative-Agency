@@ -51,10 +51,15 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Remove="Modals\**" />
 	  <Compile Remove="Views\NewFolder1\**" />
+	  <EmbeddedResource Remove="Modals\**" />
 	  <EmbeddedResource Remove="Views\NewFolder1\**" />
+	  <MauiCss Remove="Modals\**" />
 	  <MauiCss Remove="Views\NewFolder1\**" />
+	  <MauiXaml Remove="Modals\**" />
 	  <MauiXaml Remove="Views\NewFolder1\**" />
+	  <None Remove="Modals\**" />
 	  <None Remove="Views\NewFolder1\**" />
 	</ItemGroup>
 
@@ -179,11 +184,11 @@
 	  <MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Modals\addNewStaff.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
 	  <PRIResource Remove="Views\NewFolder1\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PRIResource Remove="Modals\**" />
 	</ItemGroup>
 </Project>
