@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using MVPStudio_Creative_Agency.Models;
+﻿using MVPStudio_Creative_Agency.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.Services
 {
-    public class StaffRestService : IRestService
+    public class ClientService: IClientService
     {
         //Our httpClient
         HttpClient _client;
         JsonSerializerOptions _serializerOptions;
 
         //Base Api Url
-        internal string baseUrl = "http://localhost:5044/api/";
+        internal string baseUrl = "https://localhost:7193/api/Clients";
 
         //List of Items
-        public List<Employee> Items { get; private set; }
+        public List<Client> Items { get; private set; }
 
         //Constructor - Creating our httpClient
-        public StaffRestService()
+        public ClientService()
         {
             _client = new HttpClient();
             _serializerOptions = new JsonSerializerOptions
@@ -33,18 +32,18 @@ namespace MVPStudio_Creative_Agency.Services
             };
         }
 
-        public async Task<List<Employee>> RefreshDataAsync()
+        public async Task<List<Client>> RefreshDataAsync()
         {
-            Items = new List<Employee>();
+            Items = new List<Client>();
 
-            Uri uri = new(string.Format(baseUrl + "Employees", string.Empty));
+            Uri uri = new (string.Format(baseUrl, string.Empty));
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    Items = JsonSerializer.Deserialize<List<Employee>>(content, _serializerOptions);
+                    Items = JsonSerializer.Deserialize<List<Client>>(content, _serializerOptions);
                 }
             }
             catch (Exception ex)

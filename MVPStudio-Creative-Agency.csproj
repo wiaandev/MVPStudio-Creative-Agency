@@ -58,8 +58,11 @@
 		<PackageReference Include="Microcharts.Maui" Version="1.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+		<PackageReference Include="Mopups" Version="1.1.1" />
 		<PackageReference Include="Syncfusion.Maui.Charts" Version="22.2.8" />
 	</ItemGroup>
+	
+	
 
 	<ItemGroup>
 	  <None Remove="ViewModels\" />
@@ -115,7 +118,6 @@
 
 	  <Folder Include="Components\StaffPageComponents\NewFolder\" />
 	  <Folder Include="Handlers\" />
-	  <Folder Include="Views\" />
 	  <Folder Include="Components\FundsPageComponents\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -170,6 +172,27 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ClientsManagementPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\DashboardPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FundsManagementPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Modals\EditClient.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProjectsManagementPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\StaffManagementPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

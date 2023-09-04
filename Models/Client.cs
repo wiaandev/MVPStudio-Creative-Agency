@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace MVPStudio_Creative_Agency.Models
 {
     public class Client
+
     {
         public int Id { get; set; }
 
@@ -19,5 +20,6 @@ namespace MVPStudio_Creative_Agency.Models
         public string Email { get; set; }
 
         public int ClientTypeId { get; set; }
+
     }
 }
