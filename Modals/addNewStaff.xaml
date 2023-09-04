@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio_Creative_Agency.Modals.addNewStaff"
+             Title="addNewStaff">
+
+            <StackLayout MaximumHeightRequest="300" WidthRequest="300" HorizontalOptions="CenterAndExpand" >
+                <Label Text="Add New Staff" FontSize="Title" HorizontalOptions="CenterAndExpand" />
+                <Entry Placeholder="Staff Name" x:Name="staffNameEntry" />
+                <Entry Placeholder="Surname" x:Name="surnameEntry" />
+        <Entry Placeholder="Role Type" ReturnCommand="{Binding RoleId}"/>
+        <Entry Placeholder="Gender" x:Name="genderEntry" />
+                <Entry Placeholder="Profile Image" x:Name="profileImgEntry" />
+                <DatePicker Date="{Binding BirthDate}" />
+                <Entry Placeholder="Current Hours" x:Name="currHoursEntry" />
+                <Button Text="Add" Command="{Binding AddStaffCommand}" HorizontalOptions="CenterAndExpand" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+    
+</ContentPage>

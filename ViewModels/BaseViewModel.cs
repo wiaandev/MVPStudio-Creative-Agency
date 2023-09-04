@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVPStudio_Creative_Agency.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
             OnPropertyChanged(propertyName);
             return true;
         }
+
+    
     }
 }
 
