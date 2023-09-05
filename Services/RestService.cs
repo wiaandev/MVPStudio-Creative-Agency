@@ -31,6 +31,36 @@ namespace MVPStudio_Creative_Agency.Services
                 WriteIndented = true
             };
         }
+        // POST linked with modal
+        //pass employe in
+        public async Task<bool> PostEmployeeAsync(Employee employee)
+        {
+            Uri uri = new Uri(baseUrl + "Employees");
+
+            try
+            {
+                string json = JsonSerializer.Serialize(employee, _serializerOptions);
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                //post hier leke
+                HttpResponseMessage response = await _client.PostAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Employee was successfully created on the server
+                    return true;
+                }
+                else
+                {
+                    Debug.WriteLine(@"\tERROR: Unable to post employee data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR: {0}", ex.Message);
+            }
+
+            return false;
+        }
 
         public async Task<List<Employee>> RefreshDataAsync()
         {
