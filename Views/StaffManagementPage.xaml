@@ -9,115 +9,107 @@
 
 
 
-
     <Grid >
-        <!-- Background image -->
-
         <Image Source="background.png" Aspect="AspectFill" />
-
-        <!--<FlexLayout Direction="Column" AlignItems="Start" JustifyContent="SpaceEvenly" VerticalOptions="FillAndExpand">-->
-
-
-
-
-            <!--<StackLayout Orientation="Horizontal" Padding="10,5" Spacing="10"    HorizontalOptions="Start">
-               
-
-                <StackLayout Orientation="Horizontal" Padding="10,5" Spacing="50" Margin="2" >
-                 
-
-                    <Border Stroke="#2b2b2b" StrokeThickness="0" BackgroundColor="#2b2b2b" WidthRequest="350" StrokeShape="RoundRectangle 12,12,12,12" Padding="0" HorizontalOptions="Center" >
-                        <SearchBar Placeholder="Search..."  TextColor="#fff" BackgroundColor="#2b2b2b" />
-                    </Border>
-
-                    <Button Text="+ Add new staff" HorizontalOptions="Center" Padding="20, 10" CornerRadius="15" BackgroundColor="#61D2D3"
-                         FontFamily="Montserrat" TextColor="Black" />
-                </StackLayout>
-            </StackLayout>-->
-
-
-
-
-
-            <!--This is Left Bottom Navbar-->
-            <!--<VerticalStackLayout VerticalOptions="FillAndExpand"  Margin="10,40,10,-10" Spacing="10" >
-                <Image Source="profile_img.png"
-               HeightRequest="60" />
-                <Label Text="Jane Doe"
-               FontSize="14" TextColor="#2b2b2b" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
-
-                <Button Text="Do-Nothing Button" HorizontalOptions="Center" Padding="10" CornerRadius="22"/>
-
-            </VerticalStackLayout>-->
-        <!--</FlexLayout>-->
-        <HorizontalStackLayout Margin="50,50,0,0">
+        <HorizontalStackLayout Margin="90,50,0,0">
             <Label Text="Staff Board" FontFamily="Montserrat"
         FontSize="30" FontAttributes="Bold" TextColor="#667080"
    VerticalTextAlignment="Start" HorizontalTextAlignment="Center"  />
-            <StackLayout  Margin="150,-10,0,0">
-                <Button Text="+ Add new member" HorizontalOptions="Center" Padding="10" CornerRadius="8" BackgroundColor="#61d2d3" TextColor="#2b2b2b">
-                </Button>
+            <StackLayout  Margin="20,-10,0,0">
+
+                <Button HeightRequest="30" Text="Add new" FontFamily="Montserrat"
+                           FontSize="16" FontAttributes="Bold" TextColor="#fff"  />
             </StackLayout>
         </HorizontalStackLayout>
+        
         <!--GRID-->
         <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="80,100,0,0" HorizontalOptions="FillAndExpand" Spacing="50" >
-
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2FD"
                         WidthRequest="600" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
                         HorizontalOptions="Start" VerticalOptions="FillAndExpand" >
                     <StackLayout ZIndex="3" >
+                        
                         <!--HEADINGS STAFF & ADMIN-->
-                        <HorizontalStackLayout Margin="5,10,0,-10" Spacing="70" >
-                            <Label Text=" Staff" FontFamily="Montserrat"
-                         FontSize="20" FontAttributes="Bold" TextColor="#667080"
-                             VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                        <HorizontalStackLayout Margin="5,10,0,-10" Spacing="30" >
 
-                            <Label Text="Admin" FontFamily="Montserrat"
-                                  FontSize="20" FontAttributes="Bold" TextColor="#667080"
-                             VerticalTextAlignment="Start" HorizontalTextAlignment="Center"   />
+                            <Button x:Name="AllButton"
+                                Text="All"
+                                FontFamily="Montserrat"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#9d9de4"
+                                Command="{Binding ChangeAllStaffFilterCommand}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding IsAllStaffButtonActive}" Value="True">
+                                    <Setter Property="BackgroundColor" Value="#2b2b2b" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Button" Binding="{Binding IsAllStaffButtonActive}" Value="False">
+                                    <Setter Property="BackgroundColor" Value="#fff" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                        <Button x:Name="AdminButton"
+                                Text="Admin"
+                                FontFamily="Montserrat"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#9d9de4"
+                                Command="{Binding ChangeAdminFilterCommand}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding IsAdminButtonActive}" Value="True">
+                                    <Setter Property="BackgroundColor" Value="#2b2b2b" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Button" Binding="{Binding IsAdminButtonActive}" Value="False">
+                                    <Setter Property="BackgroundColor" Value="#fff" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                        <Button x:Name="DeveloperButton"
+                                Text="Developer"
+                                FontFamily="Montserrat"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#9d9de4"
+                                Command="{Binding ChangeDeveloperFilterCommand}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding IsDeveloperButtonActive}" Value="True">
+                                    <Setter Property="BackgroundColor" Value="#2b2b2b" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Button" Binding="{Binding IsDeveloperButtonActive}" Value="False">
+                                    <Setter Property="BackgroundColor" Value="#fff" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                        <Button x:Name="DesignerButton"
+                                Text="Designer"
+                                FontFamily="Montserrat"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#9d9de4"
+                                Command="{Binding ChangeDesignerFilterCommand}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding IsDesignerButtonActive}" Value="True">
+                                    <Setter Property="BackgroundColor" Value="#2b2b2b" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Button" Binding="{Binding IsDesignerButtonActive}" Value="False">
+                                    <Setter Property="BackgroundColor" Value="#ffff" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                                                                                                                                                                           
 
 
-                    
-                              
-
-                          
                         </HorizontalStackLayout>
                         <StackLayout>
-                            <!--<TabControl>
-                                --><!-- Tab for Staff --><!--
-                                <TabItem Title="Staff">
-                                    <ContentView>
-                                        --><!-- Content specific to Staff --><!--
-                                        <ScrollView VerticalScrollBarVisibility="Default" Margin="5,10,0,0" HeightRequest="600">
-                                            --><!-- Place your Staff-related content here --><!--
-                                        </ScrollView>
-                                    </ContentView>
-                                </TabItem>
-
-                                --><!-- Tab for Admin --><!--
-                                <TabItem Title="Admin">
-                                    <ContentView>
-                                        --><!-- Content specific to Admin --><!--
-                                        <ScrollView VerticalScrollBarVisibility="Default" Margin="5,10,0,0" HeightRequest="600">
-                                            --><!-- Place your Admin-related content here --><!--
-                                        </ScrollView>
-                                    </ContentView>
-                                </TabItem>
-                            </TabControl>-->
+           
                         </StackLayout>
 
 
-
-
-
-
-
-
-                        <!--<CollectionView ItemsSource="{Binding Cards}"
-                    ItemTemplate="{StaticResource CardTemplate}">
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout Orientation="Vertical" Span="2" />-->
 
 
                         <ScrollView  VerticalScrollBarVisibility="Always" Margin="0,16,0,0" HeightRequest="600" >

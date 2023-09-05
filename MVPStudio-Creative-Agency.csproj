@@ -50,6 +50,18 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Compile Remove="Modals\**" />
+	  <Compile Remove="Views\NewFolder1\**" />
+	  <EmbeddedResource Remove="Modals\**" />
+	  <EmbeddedResource Remove="Views\NewFolder1\**" />
+	  <MauiCss Remove="Modals\**" />
+	  <MauiCss Remove="Views\NewFolder1\**" />
+	  <MauiXaml Remove="Modals\**" />
+	  <MauiXaml Remove="Views\NewFolder1\**" />
+	  <None Remove="Modals\**" />
+	  <None Remove="Views\NewFolder1\**" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
@@ -119,6 +131,7 @@
 	  <Folder Include="Components\StaffPageComponents\NewFolder\" />
 	  <Folder Include="Handlers\" />
 	  <Folder Include="Components\FundsPageComponents\" />
+	  <Folder Include="Views\NewFolder\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Fonts\Hind-Bold.ttf" />
@@ -195,5 +208,11 @@
 	  <MauiXaml Update="Views\StaffManagementPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <PRIResource Remove="Views\NewFolder1\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PRIResource Remove="Modals\**" />
 	</ItemGroup>
 </Project>

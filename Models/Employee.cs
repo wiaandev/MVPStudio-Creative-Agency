@@ -17,6 +17,16 @@ namespace MVPStudio_Creative_Agency.Models
 
         public string Surname { get; set; }
 
+        public string FullName { get; set; }
+        public string Role_Type { get; set; }
+        public int Hourly_Rate { get; set; }
+        public int Salary { get; set; }
+        public string Payment { get; set; }
+
+
+        
+
+
         public string Gender { get; set; }
 
         public string ProfileImg { get; set; }
