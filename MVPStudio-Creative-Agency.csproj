@@ -205,6 +205,9 @@
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Modals\AddStaffModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Modals\EditClient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
