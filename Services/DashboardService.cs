@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.Services
 {
-    class ProjectService: IProjectService
+    internal class DashboardService : IDashboardService
     {
-        //Our httpClient
         HttpClient _client;
         JsonSerializerOptions _serializerOptions;
 
         //Base Api Url
         internal string baseUrl = "https://localhost:7193/api/";
 
-        //List of Items
         public List<Project> Projects { get; private set; }
+        //TODO: list of Clients
+        //TODO: list of Employees 
+        //TODO: list of funds
 
-        //Constructor - Creating our httpClient
-        public ProjectService()
+        public DashboardService()
         {
             _client = new HttpClient();
             _serializerOptions = new JsonSerializerOptions
@@ -31,6 +31,7 @@ namespace MVPStudio_Creative_Agency.Services
                 WriteIndented = true
             };
         }
+
         public async Task<List<Project>> GetAllProjects()
         {
             Projects = new List<Project>();
@@ -51,32 +52,8 @@ namespace MVPStudio_Creative_Agency.Services
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
-            Debug.WriteLine(Projects);
+            Debug.WriteLine($"Projects from DashVM: {Projects}");
             return Projects;
-        }
-
-        public async Task<Project> GetSingleProject(int id)
-        {
-            Project project = null;
-
-            try
-            {
-                Uri uri = new Uri(baseUrl + $"Projects/{id}");
-                HttpResponseMessage response = await _client.GetAsync(uri);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    Debug.WriteLine($"From Individual Task: {content}");
-                    project = JsonSerializer.Deserialize<Project>(content, _serializerOptions);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"ERROR: {ex.Message}");
-            }
-
-            return project;
         }
     }
 }

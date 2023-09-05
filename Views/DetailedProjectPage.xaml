@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio_Creative_Agency.Views.DetailedProjectPage"
+             Title="DetailedProjectPage"
+            Shell.NavBarIsVisible="False"
+            BackgroundColor="{DynamicResource PurpleLighter}">
+	<StackLayout>
+		<Label Text="{Binding ProjectId}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" TextColor="{DynamicResource White}" />
+
+		<Label Text="{Binding clienName}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" TextColor="{DynamicResource White}" />
+
+		<Label Text="{Binding Project_Name}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" TextColor="{DynamicResource White}" />
+	</StackLayout>
+</ContentPage>

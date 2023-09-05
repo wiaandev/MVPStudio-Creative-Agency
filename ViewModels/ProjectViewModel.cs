@@ -16,6 +16,20 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public ObservableCollection<Project> Projects { get; set; }
 
+        private string _project_Count;
+        public string Project_Count
+        {
+            get => _project_Count;
+            set => SetProperty(ref _project_Count, value);
+        }
+
+        private string _client_Name;
+        public string ClienName
+        {
+            get => _client_Name;
+            set => SetProperty(ref _client_Name, value);
+        }
+
         public ProjectViewModel(ProjectService projectService)
         {
             _projectService = projectService;
@@ -28,9 +42,24 @@ namespace MVPStudio_Creative_Agency.ViewModels
             Projects.Clear();
             foreach (var project in projects)
             {
+
                 Projects.Add(project);
                 Debug.WriteLine(project.ClienName);
+            }
 
+            Project_Count = $"{Projects.Count()}";
+        }
+
+        public async Task fetchSingleProject(int id)
+        {
+            var project = await _projectService.GetSingleProject(id);
+            Projects.Clear();
+
+            if (project != null)
+            {
+                Projects.Add(project);
+                Debug.WriteLine($"Project client is: {Projects.First()}"); // Corrected property name
+                Project_Count = $"{Projects.Count}";
             }
         }
     }
