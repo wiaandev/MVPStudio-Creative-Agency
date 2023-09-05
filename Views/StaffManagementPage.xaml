@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components.StaffPageComponents"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MVPStudio_Creative_Agency.Views.StaffManagementPage"
                 Shell.NavBarIsVisible="False"
              Title="StaffManagementPage"
@@ -18,7 +19,10 @@
             <StackLayout  Margin="20,-10,0,0">
 
                 <Button HeightRequest="30" Text="Add new" FontFamily="Montserrat"
-                           FontSize="16" FontAttributes="Bold" TextColor="#fff"  />
+                           FontSize="16" FontAttributes="Bold" TextColor="#fff"
+                        Clicked="OpenModalButton_Clicked" />
+                
+                
             </StackLayout>
         </HorizontalStackLayout>
         

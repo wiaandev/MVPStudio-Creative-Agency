@@ -1,7 +1,13 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 using MVPStudio_Creative_Agency.ViewModels;
+using MVPStudio_Creative_Agency.Views.Modals;
+using CommunityToolkit.Maui;
+using Mopups.Services;
+using CommunityToolkit.Maui.Views;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace MVPStudio_Creative_Agency.Views;
 
@@ -35,6 +41,28 @@ public partial class StaffManagementPage : ContentPage
 
         //BindingContext = this;
     }
+
+    //Add Staff Modal
+    /*private async void openmodalbutton_clicked(object sender, eventargs e)
+    {
+        modalpage is addstaff
+        var addstaff = new addstaffmodal();
+        var navigationpage = new navigationpage(addstaff);
+        await navigation.pushmodalasync(addstaff);
+
+        addstaff.backgroundcolor = color.fromhex("#f0f0f0");
+        addstaff.title = "custom modal";
+        addstaff.modalpresentationstyle = modalpresentationstyle.overfullscreen;
+
+    }
+
+    private async void closebutton_clicked(object sender, eventargs e)
+    {
+        await navigation.popmodalasync();
+    }*/
+
+
+
     //on appear
     protected override async void OnAppearing()
     {
@@ -43,6 +71,22 @@ public partial class StaffManagementPage : ContentPage
         await _staffViewModel.LoadAllStaffAsync();
         Debug.WriteLine(_staffViewModel.EmployeeList);
     }
+
+    //popup
+    private void OpenModalButton_Clicked(object sender, EventArgs e)
+    {
+        var modalPage = new AddStaffModal(); // Create an instance of your modal page
+
+        this.ShowPopup(modalPage); // Show the modal as a popup
+    }
+
+    public void DisplayPopup()
+    {
+        var popup = new AddStaffModal();
+
+        this.ShowPopup(popup);
+    }
+
 
 }
 
