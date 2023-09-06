@@ -12,7 +12,7 @@
 
     <Grid >
         <Image Source="background.png" Aspect="AspectFill" />
-        <HorizontalStackLayout Margin="90,50,0,0">
+        <HorizontalStackLayout Margin="90,50,0,0" Spacing="16">
             <Label Text="Staff Board" FontFamily="Montserrat"
         FontSize="30" FontAttributes="Bold" TextColor="#667080"
    VerticalTextAlignment="Start" HorizontalTextAlignment="Center"  />
@@ -35,7 +35,7 @@
                     <StackLayout ZIndex="3" >
                         
                         <!--HEADINGS STAFF & ADMIN-->
-                        <HorizontalStackLayout Margin="5,10,0,-10" Spacing="30" >
+                        <HorizontalStackLayout Margin="10,10,0,-10" Spacing="40" >
 
                             <Button x:Name="AllButton"
                                 Text="All"
@@ -59,7 +59,7 @@
                                 FontFamily="Montserrat"
                                 FontSize="20"
                                 FontAttributes="Bold"
-                                TextColor="#9d9de4"
+                                TextColor="#F7BEC8"
                                 Command="{Binding ChangeAdminFilterCommand}">
                             <Button.Triggers>
                                 <DataTrigger TargetType="Button" Binding="{Binding IsAdminButtonActive}" Value="True">
