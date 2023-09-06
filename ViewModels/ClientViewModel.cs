@@ -1,4 +1,5 @@
-﻿using MVPStudio_Creative_Agency.Models;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,14 @@ namespace MVPStudio_Creative_Agency.ViewModels
         // define all observed props
         public ObservableCollection<Client> Clients { get; set; }
 
+        public Client CurrentClient { get; set; }
+
         // ADDING CLIENTS
         public string Name { get; set; }    
 
         public string Email { get; set; } 
+
+        public string ImgUrl { get; set; } 
 
         public int ClientTypeId { get; set; }  
 

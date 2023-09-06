@@ -42,11 +42,13 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
             if (authSuccess)
             {
-                await Shell.Current.GoToAsync(nameof(DashboardPage));
-            } else
+                await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
+            }
+            
+            else
             {
                 ErrorMessage = "The username or password you entered is incorrect, try again";
-            }
+            } 
             
             OnPropertyChanged(nameof(ErrorMessage));
         }

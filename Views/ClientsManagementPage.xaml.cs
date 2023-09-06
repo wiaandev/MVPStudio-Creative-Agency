@@ -16,6 +16,7 @@ public partial class ClientsManagementPage : ContentPage
         InitializeComponent();
         _clientViewModel = new ClientViewModel(new Services.ClientService()); // init our service
         BindingContext = _clientViewModel; //context of xaml is the view model
+       
         
     }
 
