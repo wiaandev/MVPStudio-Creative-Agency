@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVPStudio_Creative_Agency.Components.StaffPageComponents.StaffAdminTab">
+             x:Class="MVPStudio_Creative_Agency.Components.StaffPageComponents.StaffAdminTab"
+               >
+
     <Border Stroke="#2b2b2b" StrokeThickness="0.1" BackgroundColor="White" 
-                              WidthRequest="250" HeightRequest="150"
+                              WidthRequest="250" HeightRequest="220"
                               StrokeShape="RoundRectangle 15,15,15,15" 
-                                 Padding="0" ZIndex="99"
+                                 Padding="6" ZIndex="99"
                                          HorizontalOptions="StartAndExpand"
                                          Margin="0, 15,30,10"  >
 
         <VerticalStackLayout >
-            <HorizontalStackLayout>
+            <HorizontalStackLayout 
+                Margin="10,10,0,0">
 
-                <Image Source="{Binding Image}" HeightRequest="40" Margin="20,10,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
-                <VerticalStackLayout Margin="10,10,0,0">
+                <Grid HeightRequest="50" WidthRequest="50"  Margin="20,10,10,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Image Source="{Binding ProfileImg}" Aspect="AspectFill" />
+                    <Grid.Clip>
+                        <EllipseGeometry Center="25,25" RadiusX="25" RadiusY="25" />
+                    </Grid.Clip>
+                </Grid>
+                <VerticalStackLayout Margin="4,15,0,0" Padding="10,0,0,0">
 
                     <Label FontFamily="Montserrat"
-                                                  FontSize="18" FontAttributes="Bold"
-                                                  Text="{Binding Name}" TextColor="#667080">
+                                                  FontSize="14" FontAttributes="Bold"
+                                                  Text="{Binding FullName}" TextColor="#667080">
                     </Label>
 
                     <!--Titles-->
-                    <HorizontalStackLayout Spacing="4" Margin="0,4,0,0">
+                    <HorizontalStackLayout Spacing="4" Margin="0,10,0,0">
                         <Label FontFamily="Montserrat"
-                                                  FontSize="14" FontAttributes="None"
-                                                  Text="Creative" TextColor="#667080">
+                                                  FontSize="14" FontAttributes="Bold"
+                                                  Text="Creative" TextColor="#2b2b2b">
                         </Label>
 
 
                         <Label FontFamily="Montserrat"
                                                   FontSize="14" FontAttributes="Bold"
-                                                  Text="{Binding Title}" TextColor="#3B2765">
+                                                  Text="{Binding Role_Type}" TextColor="#3B2765">
                         </Label>
                     </HorizontalStackLayout>
 
@@ -40,14 +48,14 @@
             <HorizontalStackLayout Spacing="8">
                 <!--PROJECTS-->
                 <VerticalStackLayout>
-                    <HorizontalStackLayout Margin="20, 8, 0, 0" Spacing="0">
+                    <HorizontalStackLayout Margin="15, 8, 0, 0" Spacing="0">
                         <Image Source="layers.png" HeightRequest="15" Margin="8, 8, 0, 0"></Image>
 
-                        <Label   FontAttributes="Bold" Text="Projects" Margin="8, 8, 0, 0" TextColor="#667080" FontSize="12" ></Label>
+                        <Label   FontAttributes="Bold" Text="Projects" Margin="3, 8, 0, 0" TextColor="#667080" FontSize="12" ></Label>
                     </HorizontalStackLayout>
 
                     <VerticalStackLayout  HorizontalOptions="Center">
-                        <Label Text="{Binding Projects}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0"></Label>
+                        <Label Text="{Binding Id}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0" FontSize="12"></Label>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
 
@@ -55,17 +63,24 @@
                 <VerticalStackLayout >
                     <HorizontalStackLayout Margin="20, 8, 0, 0" Spacing="0">
                         <Image Source="dollar_sign.png"  HeightRequest="15" Margin="8, 8, 0, 0"></Image>
-                        <Label  FontAttributes="Bold" Text="Salary p/m" TextColor="#667080" Margin="8, 8, 0, 0" FontSize="12" ></Label>
+                        <Label  FontAttributes="Bold" Text="Salary " TextColor="#667080" Margin="8, 8, 0, 0" FontSize="12" ></Label>
                     </HorizontalStackLayout>
 
                     <VerticalStackLayout HorizontalOptions="Center" >
-                        <Label Text="{Binding Salary}" TextColor="#667080"  HorizontalTextAlignment="Center" Margin="24 ,0,0,0"></Label>
+                        <Label Text="{Binding Payment}" TextColor="#667080"  HorizontalTextAlignment="Center" Margin="34 ,0,0,0" FontSize="12"></Label>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
             </HorizontalStackLayout >
 
-            <HorizontalStackLayout HorizontalOptions="End" Margin="0,16,10,0">
-                <Image Source="pop_out.png" HeightRequest="20"  ></Image>
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="45" Margin="0,30,0,0" >
+
+       
+
+
+                <Button HeightRequest="30" ClassId="{Binding Id}" Text="Delete" FontFamily="Montserrat"
+                        BorderColor="#fb4b4e" BackgroundColor="White" TextColor="#fb4b4e" Opacity="0.9" 
+                        Clicked="OnDeleteButtonClicked"/>
+
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

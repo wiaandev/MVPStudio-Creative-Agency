@@ -1,256 +1,146 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVPStudio_Creative_Agency.Views.ClientsManagementPage"
-             Title=""
-             BackgroundImageSource="background.png"
-             BackgroundColor="{DynamicResource PurpleLighter}">
-    
+<ContentPage
+    x:Class="MVPStudio_Creative_Agency.Views.ClientsManagementPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title=""
+    BackgroundColor="{DynamicResource PurpleLighter}"
+    BackgroundImageSource="background.png">
+
 
     <Grid>
-        
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="120*"/>
+            <RowDefinition Height="30*" />
             <RowDefinition />
             <RowDefinition Height="1" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        
-        <BoxView Color="{DynamicResource Purple}" Margin="50" CornerRadius="23" />
-        <Label Text="Clients"
-               FontSize="Title"
-               FontAttributes="Bold"
-               Margin="100,90,0,0"
-                />
-        <BoxView Grid.Column="1"
-                 Color="{DynamicResource PurpleLight}"
-                 Margin="50"
-                 CornerRadius="23"
-                  />
-        <Label Grid.Column="1"
-               Text="Client Info"
-               FontAttributes="Bold"
-               FontSize="Subtitle"
-               Margin="100,90,0,0"
-               
-        />
 
-        <Button Text="Add Client"
-                VerticalOptions="Start"
-                Margin="0,80,90,0"
-                HorizontalOptions="End"
-                Grid.Column="0" />
+        <BoxView
+            Margin="50"
+            CornerRadius="23"
+            Color="{DynamicResource Purple}" />
+        <Label
+            Margin="100,90,0,0"
+            FontAttributes="Bold"
+            FontSize="Title"
+            Text="Clients" />
+        <BoxView
+            Grid.Column="1"
+            Margin="50"
+            CornerRadius="23"
+            Color="{DynamicResource PurpleLight}" />
+        <Label
+            Grid.Column="1"
+            Margin="100,90,0,0"
+            FontAttributes="Bold"
+            FontSize="Subtitle"
+            Text="Client Info" />
+
+        <Button
+            Grid.Column="0"
+            Margin="0,80,90,0"
+            Clicked="OpenPopUp"
+            HorizontalOptions="End"
+            Text="Add Client"
+            VerticalOptions="Start" />
 
         <!--<SearchBar Placeholder="Search items..." HorizontalOptions="Start" Grid.Column="0" HeightRequest="20" WidthRequest="150" />-->
 
-        <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center" Margin="0,150,0,0" Spacing="40" Grid.Column="0">
 
-            <Border Stroke="#F2F2FD"  Background="white"
-                StrokeShape="RoundRectangle 15"   WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-                        HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-                           IsClippedToBounds="True" Padding="0" >
-                            <Image Source="person.jpeg" Aspect="Fill" HorizontalOptions="Center"/>
-                        </Frame>
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-                            FontSize="14" Text="Jamie Underwood"  Padding="15"></Label>
-                        <Label TextColor="{DynamicResource Purple}"   FontFamily="Montserrat"
-                            FontSize="12" Text="Website front page"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
 
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
 
-            <Border Stroke="#F2F2FD"  Background="white"
-                StrokeShape="RoundRectangle 15"  WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-                            HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-                            IsClippedToBounds="True" Padding="0" >
-                            <Image Source="person2.jpeg" Aspect="Fill" HorizontalOptions="Center"/>
-                        </Frame>
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-                             FontSize="14" Text="Margaret Stevens"    Padding="15"></Label>
-                        <Label  TextColor="{DynamicResource Purple}"  FontFamily="Montserrat"
-                               FontSize="12" Text="Stripe payment system"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
 
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
 
-            <Border Stroke="#F2F2FD" Background="white"
-                StrokeShape="RoundRectangle 15"  WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-                            HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-                            IsClippedToBounds="True" Padding="0" >
-                          <Image Source="person3.jpeg" Aspect="Fill" HorizontalOptions="Center"/>  
-                        </Frame>
-                        
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-                            FontSize="14" Text="Anica Barker"   Padding="15"></Label>
-                        <Label FontFamily="Montserrat"
-                            FontSize="12" Text="Icon update" TextColor="{DynamicResource Purple}"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
 
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
-        </HorizontalStackLayout>
 
-        <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center" Margin="0,400,0,0" Spacing="40" Grid.Column="0">
+        <ScrollView
+            Grid.Column="0"
+            HeightRequest="700"
+            WidthRequest="700">
+            <StackLayout>
 
-            <Border Stroke="#F2F2FD"  Background="white"
-        StrokeShape="RoundRectangle 15"   WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-                HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-                   IsClippedToBounds="True" Padding="0" >
-                            <Image Source="person4.jpg" Aspect="Fill" HorizontalOptions="Center"/>
-                        </Frame>
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-                    FontSize="14" Text="Peter Griffin"  Padding="15"></Label>
-                        <Label TextColor="{DynamicResource Purple}"   FontFamily="Montserrat"
-                    FontSize="12" Text="Client page update"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
+                <CollectionView ItemsSource="{Binding Clients}" SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                            HorizontalItemSpacing="2"
+                            Orientation="Vertical"
+                            Span="3"
+                            VerticalItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <components:ClientCard Name="{Binding Name}" Email="{Binding Email}" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
+            </StackLayout>
+        </ScrollView>
 
-            <Border Stroke="#F2F2FD"  Background="white"
-        StrokeShape="RoundRectangle 15"  WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-                    HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-                    IsClippedToBounds="True" Padding="0" >
-                            <Image Source="person5.jpg" Aspect="Fill" HorizontalOptions="Center"/>
-                        </Frame>
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-                     FontSize="14" Text="Michael Hooper"    Padding="15"></Label>
-                        <Label  TextColor="{DynamicResource Purple}"  FontFamily="Montserrat"
-                       FontSize="12" Text="Colour redesign"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
 
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
 
-            <Border Stroke="#F2F2FD" Background="white"
-        StrokeShape="RoundRectangle 15"  WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-                    HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-                    IsClippedToBounds="True" Padding="0" >
-                            <Image Source="person6.jpeg" Aspect="Fill" HorizontalOptions="Center"/>
-                        </Frame>
 
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-                    FontSize="14" Text="Steven Martin"   Padding="15"></Label>
-                        <Label FontFamily="Montserrat"
-                    FontSize="12" Text="DB migration" TextColor="{DynamicResource Purple}"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
-
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center" Margin="0,650,0,0" Spacing="40" Grid.Column="0">
-
-            <Border Stroke="#F2F2FD"  Background="white"
-StrokeShape="RoundRectangle 15"   WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-        HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-           IsClippedToBounds="True" Padding="0" >
-                            <Image Source="person7.jpg" Aspect="Fill" HorizontalOptions="Center"/>
-                        </Frame>
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-            FontSize="14" Text="Jake Albright"  Padding="15"></Label>
-                        <Label TextColor="{DynamicResource Purple}"   FontFamily="Montserrat"
-            FontSize="12" Text="Profile page"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
-
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
-
-            <Border Stroke="#F2F2FD"  Background="white"
-StrokeShape="RoundRectangle 15"  WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-            HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-            IsClippedToBounds="True" Padding="0" >
-                            <Image Source="person8.jpeg" Aspect="Fill" HorizontalOptions="Center"/>
-                        </Frame>
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-             FontSize="14" Text="Candice poole"    Padding="15"></Label>
-                        <Label  TextColor="{DynamicResource Purple}"  FontFamily="Montserrat"
-               FontSize="12" Text="Login and logout"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
-
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
-
-            <Border Stroke="#F2F2FD" Background="white"
-StrokeShape="RoundRectangle 15"  WidthRequest="180" HeightRequest="200"  Padding="5" Margin="0,0,0,0">
-                <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <VerticalStackLayout>
-                        <Frame
-            HeightRequest="100" WidthRequest="100" CornerRadius="23" HorizontalOptions="Center"
-            IsClippedToBounds="True" Padding="0" >
-                            <Image Source="person9.jpg" Aspect="Fill" HorizontalOptions="Center"/>
-                        </Frame>
-
-                        <Label  TextColor="Black"  FontFamily="Montserrat"
-            FontSize="14" Text="Meryl Owens"   Padding="15"></Label>
-                        <Label FontFamily="Montserrat"
-            FontSize="12" Text="DB restructure" TextColor="{DynamicResource Purple}"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
-
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Border>
-        </HorizontalStackLayout>
 
 
         <Grid Grid.Column="1">
-            <Label Text="Jamie Underwood" Grid.Column="1" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold" Margin="160"/>
-            <Frame HeightRequest="300"
-                   WidthRequest="290" 
-                   CornerRadius="23"
-                   HorizontalOptions="Center"
-                   IsClippedToBounds="True"
-                   Padding="0"
-                   Margin="0,-250,0,0">
-                <Image Aspect="Fill" Source="person.jpeg"  HorizontalOptions="Center"/>
+            <Label
+                Grid.Column="1"
+                Margin="160"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Jamie Underwood" />
+            <Frame
+                Margin="0,-250,0,0"
+                Padding="0"
+                CornerRadius="23"
+                HeightRequest="300"
+                HorizontalOptions="Center"
+                IsClippedToBounds="True"
+                WidthRequest="290">
+                <Image
+                    Aspect="Fill"
+                    HorizontalOptions="Center"
+                    Source="person.jpeg" />
             </Frame>
-            <Label 
-                Text="Email: jamieunderwood@gmail.com" 
-                HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="Small"  Margin="0,160,0,0"/>
+            <Label
+                Margin="0,160,0,0"
+                FontAttributes="Bold"
+                FontSize="Small"
+                HorizontalOptions="Center"
+                Text="Email: jamieunderwood@gmail.com"
+                VerticalOptions="Center" />
 
-            <Label Text="Project: Website front page update" VerticalOptions="Center" FontSize="Small" HorizontalOptions="Center"
-                   Margin="0,280,0,0" />
-            <Label Text="Number: 0569785678" VerticalOptions="Center" FontSize="Micro" HorizontalOptions="Center"
-                    Margin="0,380,0,0" FontAttributes="None"/>
+            <Label
+                Margin="0,280,0,0"
+                FontSize="Small"
+                HorizontalOptions="Center"
+                Text="Project: Website front page update"
+                VerticalOptions="Center" />
+            <Label
+                Margin="0,380,0,0"
+                FontAttributes="None"
+                FontSize="Micro"
+                HorizontalOptions="Center"
+                Text="Number: 0569785678"
+                VerticalOptions="Center" />
 
 
-            <Button Text="Edit Client"
-            VerticalOptions="End"
-            Margin="0,0,0,200"
-            HorizontalOptions="CenterAndExpand"
-            WidthRequest="400"
-                   
-            Grid.Column="1" 
-                    />
+            <Button
+                Grid.Column="1"
+                Margin="0,0,0,200"
+                HorizontalOptions="CenterAndExpand"
+                Text="Edit Client"
+                VerticalOptions="End"
+                WidthRequest="400" />
         </Grid>
-        
+
     </Grid>
 </ContentPage>
