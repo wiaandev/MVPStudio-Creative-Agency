@@ -16,25 +16,22 @@ namespace MVPStudio_Creative_Agency.ViewModels
     {
         //injecting the services I need
         private ProjectService _projectService;
-        private ClientService _clientService;
 
         //getting the arrays of projects and clients so I can loop / map  them and set it to the front-end
         public ObservableCollection<Client> Clients { get; set; }   
         public ObservableCollection<Project> Projects { get; set; }
 
-        private ProjectType _selectedProjectType;
+        private ClientPicker _selectedClient;
 
-        public ObservableCollection<ProjectType> ProjectTypes { get; set; }
-
-        public ProjectType SelectedProjectType
+        public ClientPicker SelectedClient
         {
-            get { return _selectedProjectType; }
+            get { return _selectedClient; }
             set
             {
-                if (_selectedProjectType != value)
+                if (_selectedClient != value)
                 {
-                    _selectedProjectType = value;
-                    OnPropertyChanged(nameof(SelectedProjectType));
+                    _selectedClient = value;
+                    OnPropertyChanged(nameof(SelectedClient));
                 }
             }
         }
@@ -43,6 +40,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         //setting up project count variable
         private string _project_Count;
+
+
         public string Project_Count
         {
             get => _project_Count;
@@ -62,7 +61,6 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public int Duration_Week { get; set; }
 
         public int Project_Time { get; set; }
-
         public string Project_Type { get; set; }
 
         public int Project_Cost { get; set; }
@@ -88,24 +86,15 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
             OnAddNewProject = new Command(async () => await AddNewProjectToDb());
 
-            ProjectTypes = new ObservableCollection<ProjectType>
-            {
-                new ProjectType {Name = "Web Development"},
-                new ProjectType {Name = "App Development"},
-                new ProjectType {Name = "IoT"},
-                new ProjectType {Name = "CMS"},
-                new ProjectType {Name = "Secure System"},
-                new ProjectType {Name = "Wordpress"},
-                new ProjectType {Name = "Webflow"},
-            };
-
         }
 
         private async Task AddNewProjectToDb()
         {
+
             var newProject = new Project
             {
-                ClienName = ClienName,
+                Id = Id,
+                ClienName = "Deloitte",
                 Project_Name = Project_Name,
                 Description = Description,
                 Project_Start = DateOnly.Parse("2023/09/23"),
@@ -119,8 +108,9 @@ namespace MVPStudio_Creative_Agency.ViewModels
             };
 
             await _projectService.AddNewProject(newProject);
-
+            Debug.WriteLine($"Your Added Projec: { newProject}");
             fetchAllProjects();
+
         }
 
         public async Task fetchAllProjects()

@@ -90,7 +90,7 @@
 
                 <VerticalStackLayout Grid.Row="1" Grid.Column="1">
 
-                    <Picker x:Name="clientPicker" Title="Choose Client" ItemsSource="{Binding Clients}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedItem}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular"/>
+                    <Picker x:Name="clientPicker" Title="Choose Client" ItemsSource="{Binding Clients}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClient}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular"/>
                     
                     <Entry
                         x:Name="projectNameEntry"
@@ -137,7 +137,15 @@
                         TextColor="{DynamicResource Black}" 
                     />
 
-                    <Picker x:Name="projectTypePicker" Title="Project Type" ItemsSource="{Binding ProjectTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedProjectType}" TextColor="{DynamicResource Black}"/>
+                    <Entry
+                        x:Name="projectType"
+                        Placeholder="Project Type"
+                        ClearButtonVisibility="WhileEditing"
+                        FontFamily="Montserrat-Regular"
+                        FontSize="18"
+                        Text="{Binding Project_Type}"
+                        TextColor="{DynamicResource Black}" 
+                    />
 
                     <Entry
                         x:Name="projectCost"
@@ -150,8 +158,7 @@
 
                     <Button Text="Add Project" BackgroundColor="{DynamicResource Black}" TextColor="{DynamicResource White}" FontFamily="Monstserrat-Bold" Command="{Binding OnAddNewProject}"/>
 
-                    <Label Text="{Binding SelectedItem}"/>
-
+                    <Label Text="{Binding Source={x:Reference projectTypePicker}, Path=SelectedItem}" />
                 </VerticalStackLayout>
 
 			</Grid>
