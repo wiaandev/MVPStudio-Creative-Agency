@@ -104,7 +104,7 @@
                         </Button>
 
                             <Button HeightRequest="30" Text="Add new" FontFamily="Montserrat"
-            FontSize="16" FontAttributes="Bold" TextColor="#fff"
+            FontSize="16" FontAttributes="Bold" TextColor="#fff" Clicked="OpenModalButton_Clicked" 
           Margin="200,0,0,0" />
 
 
@@ -130,11 +130,7 @@
                                         <DataTemplate>
                                             <!-- Customize the card content here -->
                                             <!--TO DO : Create Component, add into folder-->
-                                            <components:StaffAdminTab >
-                                                <components:StaffAdminTab.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding ChangeSelectedStaffCommand}" CommandParameter="{Binding .}" />
-                                                </components:StaffAdminTab.GestureRecognizers>
-                                            </components:StaffAdminTab>
+                                            <components:StaffAdminTab ViewModel="{Binding}" x:Name="staffAdminTab" />
 
 
 

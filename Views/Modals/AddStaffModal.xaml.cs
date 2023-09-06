@@ -113,7 +113,7 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             {
                 // The nullable integer has a value (not null)
                 currHours = Int32.Parse(entryCurrHours.Text); // Access the integer value
-
+                
             }
 
 

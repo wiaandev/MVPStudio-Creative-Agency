@@ -73,10 +73,12 @@ namespace MVPStudio_Creative_Agency.ViewModels
         }
 
 
-
+        
+    
 
         public async Task LoadAllStaffAsync()
         {
+            Debug.WriteLine("Get Staff");
             var items = await _restService.RefreshDataAsync();
             var roles = await _staffRolesServices.GetStaffRolesAsync();
 
@@ -120,6 +122,13 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
 
             }
+        }
+
+        public void DeleteEmployeeByIdAsync(int id)
+        {
+            _restService.DeleteEmployeeAsync(id);
+            Task.Delay(1000);
+            LoadAllStaffAsync();
         }
         // ChangeTo to be applied to filtering buttnos
         private bool isAllStaffButtonActive = true;

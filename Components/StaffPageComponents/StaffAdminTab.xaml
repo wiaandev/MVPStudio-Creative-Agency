@@ -73,15 +73,19 @@
             </HorizontalStackLayout >
 
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="45" Margin="0,30,0,0" >
+
+                <!--<Image Source="pop_out.png" HeightRequest="20" ClassId="{Binding Id}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnButtonClicked" NumberOfTapsRequired="1" /> </Image.GestureRecognizers> </Image> -->
                     
 
                 <Button HeightRequest="30" Text="Update" FontFamily="Montserrat"
                       FontSize="14" FontAttributes="Bold" TextColor="#fff"
                    />
 
-                <Button HeightRequest="30" Text="Delete" FontFamily="Montserrat"
-                   FontSize="14" 
-             BorderColor="#fb4b4e" BackgroundColor="White" TextColor="#fb4b4e" Opacity="0.9" />
+                <Button HeightRequest="30" ClassId="{Binding Id}" Text="Delete" FontFamily="Montserrat"
+                        BorderColor="#fb4b4e" BackgroundColor="White" TextColor="#fb4b4e" Opacity="0.9" 
+                        Clicked="OnDeleteButtonClicked"/>
 
             </HorizontalStackLayout>
 
