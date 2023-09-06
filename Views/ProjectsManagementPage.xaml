@@ -7,6 +7,7 @@
             x:Class="MVPStudio_Creative_Agency.Views.ProjectsManagementPage"
             Shell.NavBarIsVisible="False"
             BackgroundColor="{DynamicResource PurpleLighter}">
+
 	<StackLayout Padding="60">
 		<Border StrokeShape="RoundRectangle 10"
             BackgroundColor="{DynamicResource White}"

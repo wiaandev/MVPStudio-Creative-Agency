@@ -1,5 +1,11 @@
-﻿using System.Collections.ObjectModel;
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
+using CommunityToolkit.Maui.Views;
+using MVPStudio_Creative_Agency.Components;
+using MVPStudio_Creative_Agency.Models;
+using MVPStudio_Creative_Agency.ViewModels;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
 namespace MVPStudio_Creative_Agency.Views;
 
 public partial class FundsManagementPage : ContentPage
@@ -9,15 +15,34 @@ public partial class FundsManagementPage : ContentPage
     public FundsManagementPage()
     {
         InitializeComponent();
-        // Populate the Cards collection with dummy data Array
+        _projectViewModel = new ProjectViewModel(new Services.ProjectService());
+        BindingContext = _projectViewModel;
+        
+       /* BindingContext = this;*/
+    }
 
-        FundCards = new ObservableCollection<FundCard>
-            {
-                new FundCard { Name = "Google", Image = "profile_img.png", Bundle = "Web + App design bundle", Description = "This is a descrdddiption about the project overview/package", Team = "profile_img.png", Timeline = "2023", Cost = "R120 000.00", Paid = "R10 000.00", Progress = "50%"  },
-                new FundCard { Name = "Google", Image = "profile_img.png", Bundle = "Web + App design bundle", Description = "This is a descrdddiption about the project overview/package", Team = "data", Timeline = "2023", Cost = "R120 000.00", Paid = "R10 000.00", Progress = "50%"  },
-            };
 
-        BindingContext = this;
+    private ProjectViewModel _projectViewModel;
+    public string projectCount = "";
+    public double totalProjectCost { get; set; } = 0;
+
+    protected override async void OnAppearing()
+    {
+        Debug.WriteLine("Getting the data: ");
+        base.OnAppearing();
+        await _projectViewModel.fetchAllProjects();
+        await _projectViewModel.fetchAllClients();
+        _projectViewModel.Project_Count = $"{_projectViewModel.Projects.Count}";
+        
+        foreach (var project in _projectViewModel.Projects)
+        {
+            totalProjectCost += (double)project.Project_Cost;
+        }
+        
+        Debug.WriteLine($"Total Project Cost: {totalProjectCost}");
+
+        // Project_Count = $"{_projectViewModel.Projects.Count}";
+        Debug.WriteLine($"Clients are {_projectViewModel.Clients.Count}");
     }
 }
 
