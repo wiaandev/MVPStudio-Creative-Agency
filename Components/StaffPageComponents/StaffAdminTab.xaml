@@ -55,7 +55,7 @@
                     </HorizontalStackLayout>
 
                     <VerticalStackLayout  HorizontalOptions="Center">
-                        <Label Text="{Binding Projects}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0"></Label>
+                        <Label Text="{Binding Id}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0"></Label>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
 
@@ -73,10 +73,12 @@
             </HorizontalStackLayout >
 
             <HorizontalStackLayout HorizontalOptions="End" Margin="0,3,10,0" Opacity="0.30">
-                <ContentView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ChangeSelectedStaffCommand}" CommandParameter="{Binding .}" />
-                </ContentView.GestureRecognizers>
-                <Image Source="pop_out.png" HeightRequest="20"  />
+
+                <Image Source="pop_out.png" HeightRequest="20" ClassId="{Binding Id}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnButtonClicked" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

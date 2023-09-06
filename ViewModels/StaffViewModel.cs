@@ -31,7 +31,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
             ChangeAdminFilterCommand = new Command(ChangeToFilterAdmin);
             ChangeDeveloperFilterCommand = new Command(ChangeToFilterDeveloper);
 
-            ChangeSelectedStaffCommand = new Command(ChangeSelectedStaff);
+   
 
         }
 
@@ -43,7 +43,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public ICommand ChangeDeveloperFilterCommand { get; private set; }
 
         private string selectedStaff = "";
-        public ICommand ChangeSelectedStaffCommand { get; private set; }
+
 
 
         public string MyFilterAction
@@ -223,12 +223,13 @@ namespace MVPStudio_Creative_Agency.ViewModels
             LoadAllStaffAsync();
         }
 
-        private void ChangeSelectedStaff()
+        public void ChangeSelectedStaff(string iD)
         {
             MySelectedAction = "Developer";
 
             Debug.WriteLine("Set Filter to Selected");
-           
+            Debug.WriteLine(iD);
+
         }
     }
 
