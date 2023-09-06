@@ -14,6 +14,6 @@ namespace MVPStudio_Creative_Agency.Services
 
         Task<List<Client>> RefreshDataAsync();
 
-        Task<List<Project>> AddNewProject(Project project);
+        Task<Project> AddNewProject(Project project);
     }
 }

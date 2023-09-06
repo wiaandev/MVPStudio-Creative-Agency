@@ -22,6 +22,8 @@ namespace MVPStudio_Creative_Agency.Services
         public List<Client> Clients { get; private set; }
         public List<Project> Projects { get; private set; }
 
+        public Project SingleProject { get; private set; }
+
         //Constructor - Creating our httpClient
         public ProjectService()
         {
@@ -102,28 +104,39 @@ namespace MVPStudio_Creative_Agency.Services
             return Clients;
         }
 
-        public async Task<List<Project>> AddNewProject(Project project)
+        public async Task<Project> AddNewProject(Project project)
         {
-
-            Uri uri = new(string.Format(baseUrl + "/Project"));
             try
             {
+                Uri uri = new Uri($"{baseUrl}Projects");
                 var body = JsonSerializer.Serialize(project, _serializerOptions);
-                StringContent stringContent = new(body, Encoding.UTF8, "application/json");
+                StringContent stringContent = new StringContent(body, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await _client.PostAsync(uri, stringContent);
-                if (response.IsSuccessStatusCode)
+
+                if (!response.IsSuccessStatusCode)
                 {
-                    string content = await response.Content.ReadAsStringAsync();
-                    Debug.WriteLine($"From Recipe Service: {content}");
-                    Projects = JsonSerializer.Deserialize<List<Project>>(content, _serializerOptions);
+                    throw new HttpRequestException($"HTTP request failed with status code {response}");
                 }
+
+                string content = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"From AddProjectService: {content}");
+                SingleProject = JsonSerializer.Deserialize<Project>(content, _serializerOptions);
+
+                return SingleProject; // Consider if this is needed
+            }
+            catch (HttpRequestException ex)
+            {
+                // Log the exception and handle it as needed
+                Debug.WriteLine($"\tERROR: {ex.Message}");
+                throw; // Rethrow the exception
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+                // Handle other exceptions (e.g., network issues, JSON parsing errors)
+                Debug.WriteLine($"\tERROR: {ex.Message}");
+                throw; // Rethrow the exception or handle it according to your requirements
             }
-            Debug.WriteLine(Projects);
-            return Projects;
         }
+
     }
 }
