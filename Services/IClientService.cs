@@ -10,5 +10,7 @@ namespace MVPStudio_Creative_Agency.Services
     public interface IClientService
     {
         Task<List<Client>> RefreshDataAsync();
+
+        Task SaveClientAsync(Client client, bool isNewClient = true); // post
     }
 }
