@@ -6,16 +6,17 @@
             Shell.NavBarIsVisible="False"
             BackgroundColor="{DynamicResource PurpleLighter}">
     <StackLayout>
-        <Label Text="{Binding ProjectId}"
+        <Label Text="{Binding Id}"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" TextColor="{DynamicResource White}" />
 
-        <Label Text="{Binding clienName}"
+        <Label Text="{Binding ClienName}"
                 VerticalOptions="Center" 
-                HorizontalOptions="Center" TextColor="{DynamicResource White}" />
+                HorizontalOptions="Center" TextColor="{DynamicResource Black}" />
 
         <Label Text="{Binding Project_Name}"
                 VerticalOptions="Center" 
-                HorizontalOptions="Center" TextColor="{DynamicResource White}" />
+                FontSize="48"
+                HorizontalOptions="Center" TextColor="{DynamicResource Black}" />
     </StackLayout>
 </ContentPage>

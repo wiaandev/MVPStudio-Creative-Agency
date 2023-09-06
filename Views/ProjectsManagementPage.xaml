@@ -3,6 +3,7 @@
             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
+            xmlns:sys="clr-namespace:System;assembly=mscorlib"
             x:Class="MVPStudio_Creative_Agency.Views.ProjectsManagementPage"
             Shell.NavBarIsVisible="False"
             BackgroundColor="{DynamicResource PurpleLighter}">
@@ -25,9 +26,39 @@
 
 				<StackLayout HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.ColumnSpan="2" Padding="5">
 					<FlexLayout JustifyContent="SpaceBetween">
-						<Label Text="{Binding Project_Count}" FontFamily="Montserrat-Bold" FontSize="24" TextColor="{DynamicResource Black}"/>
-						<Label Text="Item 2" FontFamily="Montserrat-Bold" FontSize="24" TextColor="{DynamicResource Black}"/>
-						<Label Text="Item 3" FontFamily="Montserrat-Bold" FontSize="24" TextColor="{DynamicResource Black}"/>
+                        <Label
+                            FontFamily="Hind-Regular"
+                            TextColor="{DynamicResource Black}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Project_Count}" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="28"/>
+                                    <Span Text="Total Projects " FontFamily="Hind-Regular" TextColor="{DynamicResource Black}" FontSize="18"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label
+                            FontFamily="Hind-Regular"
+                            TextColor="{DynamicResource Black}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="5" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="28"/>
+                                    <Span Text="Complete " FontFamily="Hind-Regular" TextColor="{DynamicResource Black}" FontSize="18"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        
+                        <Label
+                            FontFamily="Hind-Regular"
+                            TextColor="{DynamicResource Black}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="3" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="28"/>
+                                    <Span Text="Incomplete " FontFamily="Hind-Regular" TextColor="{DynamicResource Black}" FontSize="18"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        
 						<Button Text="Add"/>
 					</FlexLayout>
 				</StackLayout>
@@ -54,6 +85,71 @@
 					</CollectionView>
 
 				</ScrollView>
+
+                <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+
+                    <Picker x:Name="clientPicker" Title="Choose Client" ItemsSource="{Binding Clients}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedItem}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular"/>
+                    
+                    <Entry
+                        x:Name="projectNameEntry"
+                        ClearButtonVisibility="WhileEditing"
+                        FontFamily="Montserrat-Regular"
+                        FontSize="18"
+                        Placeholder="Name of Project"
+                        Text="{Binding Name}"
+                        TextColor="{DynamicResource Black}" />
+
+                    <Entry
+                        x:Name="projectDescription"
+                        ClearButtonVisibility="WhileEditing"
+                        Placeholder="Project Description"
+                        FontFamily="Montserrat-Regular"
+                        FontSize="18"
+                        Text="{Binding Description}"
+                        TextColor="{DynamicResource Black}" />
+
+                    <Label Text="Project Start Date" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold"/>
+
+                    <DatePicker
+                        MinimumDate="{x:Static sys:DateTime.Now}"
+                        Date="{Binding Project_Start}"
+                        
+                    />
+
+                    <Entry
+                        x:Name="durationWeek"
+                        Placeholder="Duration of project (weeks)"
+                        ClearButtonVisibility="WhileEditing"
+                        FontFamily="Montserrat-Regular"
+                        FontSize="18"
+                        Text="{Binding Duration_Week}"
+                        TextColor="{DynamicResource Black}" 
+                    />
+
+                    <Entry
+                        x:Name="projectTimeHours"
+                        Placeholder="Duration of project (Hours)"
+                        ClearButtonVisibility="WhileEditing"
+                        FontFamily="Montserrat-Regular"
+                        FontSize="18"
+                        Text="{Binding Project_Time}"
+                        TextColor="{DynamicResource Black}" 
+                    />
+
+                    <Picker x:Name="projectTypePicker" Title="Project Type" ItemsSource="{Binding ProjectTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedProjectType}" TextColor="{DynamicResource Black}"/>
+
+                    <Entry
+                        x:Name="projectCost"
+                        ClearButtonVisibility="WhileEditing"
+                        FontFamily="Montserrat-Regular"
+                        FontSize="18"
+                        Placeholder="Cost of Project"
+                        Text="{Binding Project_Cost}"
+                        TextColor="{DynamicResource Black}" />
+
+                    <Button Text="Add Project" BackgroundColor="{DynamicResource Black}" TextColor="{DynamicResource White}" FontFamily="Monstserrat-Bold" Command="{Binding OnAddNewProject}"/>
+
+                </VerticalStackLayout>
 
 			</Grid>
 		</Border>

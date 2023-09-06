@@ -11,5 +11,9 @@ namespace MVPStudio_Creative_Agency.Services
     {
         Task<List<Project>> GetAllProjects(); //GET all Projects 
         Task<Project> GetSingleProject(int id);
+
+        Task<List<Client>> RefreshDataAsync();
+
+        Task<List<Project>> AddNewProject(Project project);
     }
 }

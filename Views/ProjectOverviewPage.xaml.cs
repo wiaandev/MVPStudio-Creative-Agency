@@ -34,9 +34,10 @@ public partial class ProjectOverviewPage : ContentPage
 
     public ProjectOverviewPage()
     {
-        InitializeComponent();
         _projectViewModel = new ProjectViewModel(new Services.ProjectService());
-        BindingContext = _projectViewModel;
+        BindingContext = _projectViewModel; // Move this line here
+        InitializeComponent();
+
     }
 
     protected override async void OnAppearing()
@@ -47,18 +48,9 @@ public partial class ProjectOverviewPage : ContentPage
         {
             if (viewModel.NavigationParameter is int id)
             {
-                ProjectId = id;
-            }
-
-            try
-            {
-                await _projectViewModel.fetchSingleProject(ProjectId);
+                await _projectViewModel.fetchSingleProject(id);
                 BindingContext = _projectViewModel;
-                Debug.WriteLine($"The project Id is: {ProjectId}");
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"An error occurred: {ex.Message}");
+                Debug.WriteLine($"The project Id is: {_projectViewModel.Id}");
             }
         }
     }

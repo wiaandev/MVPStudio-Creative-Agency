@@ -16,6 +16,8 @@ public partial class ProjectsManagementPage : ContentPage
         InitializeComponent();
         _projectViewModel = new ProjectViewModel(new Services.ProjectService());
         BindingContext = _projectViewModel;
+        var selectedClient = (Client)clientPicker.SelectedItem;
+        Debug.WriteLine(selectedClient);
     }
 
     protected override async void OnAppearing()
@@ -23,13 +25,9 @@ public partial class ProjectsManagementPage : ContentPage
         Debug.WriteLine("Getting the data: ");
         base.OnAppearing();
         await _projectViewModel.fetchAllProjects();
+        await _projectViewModel.fetchAllClients();
         _projectViewModel.Project_Count = $"{_projectViewModel.Projects.Count}";
         // Project_Count = $"{_projectViewModel.Projects.Count}";
-        Debug.WriteLine($"PRoject count is {_projectViewModel.Project_Count}");
-    }
-
-    private void AddProject(object sender, EventArgs e)
-    {
-        this.ShowPopup(new AddProjectModal());
+        Debug.WriteLine($"Clients are {_projectViewModel.Clients.Count}");
     }
 }
