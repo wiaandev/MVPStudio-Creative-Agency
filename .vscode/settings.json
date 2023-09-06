@@ -1,3 +1,4 @@
 {
-    "dotnet.defaultSolution": "MVPStudio-Creative-Agency.sln"
+    "dotnet.defaultSolution": "MVPStudio-Creative-Agency.sln",
+    "cmake.configureOnOpen": false
 }

@@ -18,9 +18,7 @@
    VerticalTextAlignment="Start" HorizontalTextAlignment="Center"  />
             <StackLayout  Margin="20,-10,0,0">
 
-                <Button HeightRequest="30" Text="Add new" FontFamily="Montserrat"
-                           FontSize="16" FontAttributes="Bold" TextColor="#fff"
-                        Clicked="OpenModalButton_Clicked" />
+               
                 
                 
             </StackLayout>
@@ -30,7 +28,7 @@
         <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="80,100,0,0" HorizontalOptions="FillAndExpand" Spacing="50" >
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2FD"
-                        WidthRequest="600" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
+                        WidthRequest="1000" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
                         HorizontalOptions="Start" VerticalOptions="FillAndExpand" >
                     <StackLayout ZIndex="3" >
                         
@@ -105,8 +103,11 @@
                             </Button.Triggers>
                         </Button>
 
-                                                                                                                                                                           
-
+                            <Button HeightRequest="30" Text="Add new" FontFamily="Montserrat"
+                               FontSize="16" FontAttributes="Bold" TextColor="#fff" Clicked="OpenModalButton_Clicked" 
+                               Margin="180,0,0,0" />
+                            <Button HeightRequest="30" Text="Update" FontFamily="Montserrat"
+                                FontSize="14" FontAttributes="Bold" TextColor="#fff" Clicked="OpenStaffModalButton_Clicked" />
 
                         </HorizontalStackLayout>
                         <StackLayout>
@@ -123,18 +124,17 @@
                                 <CollectionView ItemsSource="{Binding EmployeeList}" SelectionMode="None" HeightRequest="600"  VerticalScrollBarVisibility="Never" >
 
                                     <CollectionView.ItemsLayout >
-                                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10"   />
+                                        <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="10"   />
                                     </CollectionView.ItemsLayout>
 
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-
-
-
-
                                             <!-- Customize the card content here -->
-                                            <!--TO DO : Create Component, add into folder-->
-                                            <components:StaffAdminTab   />
+
+                                   
+                                            <components:StaffAdminTab ViewModel="{Binding}" x:Name="staffAdminTab"  />
+
+
 
 
 
@@ -150,6 +150,7 @@
                 </Border>
 
             </StackLayout>
+
 
             <HorizontalStackLayout >
 
@@ -289,6 +290,7 @@
                 </Border>
 
             </HorizontalStackLayout>
+
 
         </HorizontalStackLayout>
     </Grid>
