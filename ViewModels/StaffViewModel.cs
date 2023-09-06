@@ -43,7 +43,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
             ChangeAdminFilterCommand = new Command(ChangeToFilterAdmin);
             ChangeDeveloperFilterCommand = new Command(ChangeToFilterDeveloper);
 
-   
+            
 
         }
 
@@ -55,8 +55,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public ICommand ChangeDeveloperFilterCommand { get; private set; }
 
         private string selectedStaff = "";
+        public ICommand ChangeSelectedStaffCommand { get; private set; }
 
-        
 
         public string MyFilterAction
         {

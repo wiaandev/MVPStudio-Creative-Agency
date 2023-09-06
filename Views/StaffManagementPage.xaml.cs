@@ -29,13 +29,16 @@ public partial class StaffManagementPage : ContentPage
 
     }
 
+
+
+
     //on appear
     protected override async void OnAppearing()
     {
         Debug.WriteLine("Getting data");
         base.OnAppearing();
         await _staffViewModel.LoadAllStaffAsync();
-    
+        Debug.WriteLine(_staffViewModel.EmployeeList);
     }
 
     //popup

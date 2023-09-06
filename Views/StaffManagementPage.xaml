@@ -130,7 +130,15 @@
                                         <DataTemplate>
                                             <!-- Customize the card content here -->
                                             <!--TO DO : Create Component, add into folder-->
-                                            <components:StaffAdminTab ViewModel="{Binding}" x:Name="staffAdminTab" />
+                                            <components:StaffAdminTab >
+                                                <components:StaffAdminTab.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding ChangeSelectedStaffCommand}" CommandParameter="{Binding .}" />
+                                                </components:StaffAdminTab.GestureRecognizers>
+                                            </components:StaffAdminTab>
+
+
+
+
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
