@@ -1,4 +1,6 @@
+using MVPStudio_Creative_Agency.ViewModels;
 using System.Data;
+using MVPStudio_Creative_Agency.Views.Modals;
 
 namespace MVPStudio_Creative_Agency.Components.StaffPageComponents;
 
@@ -58,8 +60,12 @@ public partial class StaffAdminTab : ContentView
         set => SetValue(IDProperty, value);
     }
 
+    private StaffViewModel _staffViewModel;
+
     public StaffAdminTab()
 	{
 		InitializeComponent();
-	}
+        
+
+    }
 }

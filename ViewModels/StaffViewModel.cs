@@ -31,6 +31,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
             ChangeAdminFilterCommand = new Command(ChangeToFilterAdmin);
             ChangeDeveloperFilterCommand = new Command(ChangeToFilterDeveloper);
 
+            ChangeSelectedStaffCommand = new Command(ChangeSelectedStaff);
+
         }
 
 // filter
@@ -39,6 +41,10 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public ICommand ChangeDesignerFilterCommand { get; private set; }
         public ICommand ChangeAdminFilterCommand { get; private set; }
         public ICommand ChangeDeveloperFilterCommand { get; private set; }
+
+        private string selectedStaff = "";
+        public ICommand ChangeSelectedStaffCommand { get; private set; }
+
 
         public string MyFilterAction
         {
@@ -49,6 +55,19 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 {
                     filteringStaff = value;
                     OnPropertyChanged(nameof(MyFilterAction));
+                }
+            }
+        }
+
+        public string MySelectedAction
+        {
+            get => selectedStaff;
+            set
+            {
+                if (selectedStaff != value)
+                {
+                    selectedStaff = value;
+                    OnPropertyChanged(nameof(MySelectedAction));
                 }
             }
         }
@@ -89,29 +108,11 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 if (filteringStaff == "AllStaff")
                 {
                     EmployeeList.Add(item);
-                    Debug.WriteLine(item.Name);
-                    Debug.WriteLine(item.FullName);
-
-                    Debug.WriteLine(item.RoleId);
-                    Debug.WriteLine(item.Id);
-                    Debug.WriteLine(item.Surname);
-                    Debug.WriteLine(item.Gender);
-                    Debug.WriteLine(item.Birth_Date);
-                    Debug.WriteLine(item.Curr_Hours);
-                    Debug.WriteLine(item.ProfileImg);
+ 
                 } else if (filteringStaff == item.Role_Type)
                 {
                     EmployeeList.Add(item);
-                    Debug.WriteLine(item.Name);
-                    Debug.WriteLine(item.FullName);
-
-                    Debug.WriteLine(item.RoleId);
-                    Debug.WriteLine(item.Id);
-                    Debug.WriteLine(item.Surname);
-                    Debug.WriteLine(item.Gender);
-                    Debug.WriteLine(item.Birth_Date);
-                    Debug.WriteLine(item.Curr_Hours);
-                    Debug.WriteLine(item.ProfileImg);
+     
                 }
                 
 
@@ -221,6 +222,16 @@ namespace MVPStudio_Creative_Agency.ViewModels
             Debug.WriteLine("Set Filter to Developer");
             LoadAllStaffAsync();
         }
+
+        private void ChangeSelectedStaff()
+        {
+            MySelectedAction = "Developer";
+
+            Debug.WriteLine("Set Filter to Selected");
+           
+        }
     }
+
+
 
 }

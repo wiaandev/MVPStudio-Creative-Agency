@@ -134,7 +134,12 @@
 
                                             <!-- Customize the card content here -->
                                             <!--TO DO : Create Component, add into folder-->
-                                            <components:StaffAdminTab   />
+                                            <components:StaffAdminTab >
+                                                <components:StaffAdminTab.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding ChangeSelectedStaffCommand}" CommandParameter="{Binding .}" />
+                                                </components:StaffAdminTab.GestureRecognizers>
+                                            </components:StaffAdminTab>
+
 
 
 
@@ -159,13 +164,13 @@
 
                     <VerticalStackLayout >
                         <!--   Title Stack-->
-                        <HorizontalStackLayout Spacing="10"  Margin="0,40,0,0" HorizontalOptions="CenterAndExpand">
+                        <HorizontalStackLayout Spacing="20"  Margin="20,20,0,0" HorizontalOptions="StartAndExpand">
+                            
                             <Label Text=" Employee Overview" FontFamily="Montserrat"
-                             FontSize="30" FontAttributes="Bold" TextColor="#667080"
+                             FontSize="25" FontAttributes="Bold" TextColor="#667080"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
-                            <Image Source="Images/png/edit_icon.png"
-                         HeightRequest="45"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" />
+                            <Button Text="Update" WidthRequest="120" HorizontalOptions="CenterAndExpand" Margin="20,-10,0,0" FontSize="14"></Button>
 
                         </HorizontalStackLayout>
 
@@ -183,11 +188,7 @@
                              FontSize="30" FontAttributes="Bold" TextColor="#667080"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Center"/>
 
-                            <Label
-                                Text="shanrescheepers@gmail.com" 
-                            FontFamily="Montserrat" Margin="88,0,0,0"
-                             FontSize="16" TextColor="#667080"
-                             VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
+                            <!-- <Label Text="shanrescheepers@gmail.com" FontFamily="Montserrat" Margin="88,0,0,0" FontSize="16" TextColor="#667080"VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/> -->
 
                             <Label
                              Text="Creative Developer"
@@ -216,39 +217,22 @@
                                  </HorizontalStackLayout>
                             </VerticalStackLayout>
 
-                             <!--<TabBar Shell.BackgroundColor="#6d6c51" Shell.NavBarHasShadow="False">
-        <Tab Title="All Trees">
+           
 
-            <ShellContent Title="All Trees" ContentTemplate="{DataTemplate local:AllTrees}" />
-
-              <ShellContent Title="Purchase Tree"  ContentTemplate="{DataTemplate local:PurchaseTree}" />
-        </Tab>
-
-       
-    </TabBar>
-
-
-                             <Label Text="All projects"
-                        FontSize="22" TextColor="#667080" VerticalTextAlignment="Start"
-                             HorizontalTextAlignment="Start" FontFamily="Montserrat" FontAttributes="Bold" 
-                             />-->
-
-
-
-                    <HorizontalStackLayout Spacing="20" Margin="18,20,20,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
-                               <Button Text="All Projects" TextColor="#3b2765"
+                    <HorizontalStackLayout Spacing="20" Margin="25,20,20,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" >
+                               <Label Text="All Projects" TextColor="#3b2765"
                                        FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold"  >
-                                </Button>
+                                </Label>
 
 
-                                 <Button Text="Current" TextColor="#9d9de4"
+                              <!--   <Button Text="Current" TextColor="#9d9de4"
                                        FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
-                                </Button>
+                                </Button> -->
 
 
-                                 <Button Text="Closed" TextColor="#f195a5" 
+                              <!--   <Button Text="Closed" TextColor="#f195a5" 
                                        FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
-                                </Button>
+                                </Button> -->
                               
                             </HorizontalStackLayout>
 
