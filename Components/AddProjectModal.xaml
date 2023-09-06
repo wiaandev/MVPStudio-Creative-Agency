@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+             x:Class="MVPStudio_Creative_Agency.Components.AddProjectModal">
+
+
+    <Frame CornerRadius="10" BackgroundColor="{DynamicResource White}" Padding="20" BorderColor="{DynamicResource White}">
+        <ScrollView>
+            <VerticalStackLayout HeightRequest="800">
+
+                <Label Text="Add New Project" FontSize="24" TextColor="{DynamicResource Black}" HorizontalOptions="Center" FontFamily="Montserrat-Bold"/>
+
+                <Label Text="Select Client"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular"/>
+
+                <Picker Title="Select CLient" ItemsSource="{Binding Projects}" ItemDisplayBinding="{Binding Id}"/>
+
+                <Label Text="Project Name"
+                                VerticalOptions="Center" 
+                                HorizontalOptions="Center" />
+
+                <Entry x:Name="projectNameEntry" FontFamily="Montserrat-Regular" Placeholder="Project Name" FontSize="18" TextColor="{DynamicResource Black}"/>
+
+
+                <Label Text="Project Description"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+
+                <Entry x:Name="projectDescriptionEntry" FontFamily="Montserrat-Regular" Placeholder="Select Client" FontSize="18" TextColor="{DynamicResource Black}"/>
+
+
+                <Label Text="Start of Project"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+
+                <Entry x:Name="startofProjectEntry" FontFamily="Montserrat-Regular" Placeholder="Select Client" FontSize="18" TextColor="{DynamicResource Black}"/>
+
+                <Label Text="Project Duration (in weeks)"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+
+                <Entry x:Name="projectDurationWeekEntry" FontFamily="Montserrat-Regular" Placeholder="Select Client" FontSize="18" TextColor="{DynamicResource Black}"/>
+
+                <Label Text="Project Duration (in hours)"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+
+                <Entry x:Name="projectDurationHourEntry" FontFamily="Montserrat-Regular" Placeholder="Select Client" FontSize="18" TextColor="{DynamicResource Black}"/>
+
+                <Label Text="Project Type"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+
+                <Entry x:Name="projectTypeEntry" FontFamily="Montserrat-Regular" Placeholder="Select Client" FontSize="18" TextColor="{DynamicResource Black}"/>
+
+
+                <Label Text="Cost of Project"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+
+                <Entry x:Name="projectCostEntry" FontFamily="Montserrat-Regular" Placeholder="Select Client" FontSize="18" TextColor="{DynamicResource Black}"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Frame>
+
+
+
+
+</mct:Popup>

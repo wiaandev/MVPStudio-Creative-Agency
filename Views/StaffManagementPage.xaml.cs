@@ -10,7 +10,6 @@ using CommunityToolkit.Maui.Views;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using MVPStudio_Creative_Agency.Services;
 
-
 namespace MVPStudio_Creative_Agency.Views;
 
 public partial class StaffManagementPage : ContentPage
@@ -19,7 +18,6 @@ public partial class StaffManagementPage : ContentPage
     public ObservableCollection<ProjectCard> ProjectCards { get; set; }
 
     private StaffViewModel _staffViewModel;
-    private StaffManagementPage staffManagementPage;
 
     public StaffManagementPage()
     {
@@ -44,14 +42,14 @@ public partial class StaffManagementPage : ContentPage
     //popup
     private void OpenModalButton_Clicked(object sender, EventArgs e)
     {
-        var modalPage = new AddStaffModal(this); // Create an instance of your modal page
+        var modalPage = new AddStaffModal(); // Create an instance of your modal page
 
         this.ShowPopup(modalPage); // Show the modal as a popup
     }
 
     public void DisplayPopup()
     {
-        var popup = new AddStaffModal(this);
+        var popup = new AddStaffModal();
 
         this.ShowPopup(popup);
     }

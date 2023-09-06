@@ -1,21 +1,22 @@
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
+
 using Microsoft.Maui.Controls.Platform;
 using Mopups.Services;
 using MVPStudio_Creative_Agency.Components.StaffPageComponents;
+
+
 using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
-using MVPStudio_Creative_Agency.ViewModels;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
-using System.Globalization;
-using System.Windows.Input;
-
 
 namespace MVPStudio_Creative_Agency.Views.Modals
 {
     public partial class AddStaffModal : Popup
     {
+
         
         private StaffManagementPage _staffManagementPage;
 
@@ -40,35 +41,16 @@ namespace MVPStudio_Creative_Agency.Views.Modals
 
        
 
-        public ICommand ChangeDesignerFilterCommand { get; private set; }
 
-        public int MyFilterAction
-        {
-            get => filteringStaff;
-            set
-            {
-                if (filteringStaff != value)
-                {
-                    filteringStaff = value;
-                    OnPropertyChanged(nameof(MyFilterAction));
-                }
-            }
-        }
+          public DateTime DateOfBirth
+          {
+              get => dateOfBirth; // Convert DateOnly to DateTime
+              set => dateOfBirth = value; // Convert DateTime to DateOnly
+          }*/
 
-        // ChangeTo to be applied to filtering buttnos
-        private bool isDeveloperButtonActive = false;
-        public bool IsDeveloperButtonActive
-        {
-            get => isDeveloperButtonActive;
-            set
-            {
-                if (isDeveloperButtonActive != value)
-                {
-                    isDeveloperButtonActive = value;
-                    OnPropertyChanged(nameof(IsDeveloperButtonActive));
-                }
-            }
-        }
+        // Define a DateOnly property for the actual data binding     
+        public DateOnly SelectedDate { get; set; }
+
 
         // ChangeTo to be applied to filtering buttnos
         private bool isDesignButtonActive = false;
@@ -87,36 +69,22 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             }
         }
 
-        private void ChangeToFilterDeveloper()
+
+
+        public Employee NewEmployee { get; set; } = new Employee();
+
+        public AddStaffModal()
         {
-            MyFilterAction = 2;
-            IsDeveloperButtonActive = true;
-            IsDesignButtonActive = false;
-
-            Debug.WriteLine("Set Filter to Developer");
-
-        }
-        private void ChangeToFilterDesigner()
-        {
-            MyFilterAction = 3;
-            IsDeveloperButtonActive = false;
-            IsDesignButtonActive = true;
-
-            Debug.WriteLine("Set Filter to Designer");
+            InitializeComponent();
+            datePickerBirthDate.BindingContext = this;
 
         }
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
-            string name = entryName.Text;
-            int roledId = filteringStaff;
-            string surname = entrySurname.Text;
-            string gender = entryGender.Text;
-            string profileImg = entryProfileImg.Text;
-
-            int currHours = 0;
-
+            Debug.WriteLine(SelectedDate);
             // Create a new Employee object and populate it
+
             if (int.TryParse(entryCurrHours.Text, out int parsedCurrHours))
             {
                 // The nullable integer has a value (not null)
@@ -125,17 +93,17 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             }
 
 
-
             Employee newEmployee = new Employee
             {
-                Name = name,
-                RoleId = roledId,
-                Surname = surname,
-                Gender = gender,
-                ProfileImg = profileImg,
-                Curr_Hours = currHours
-
+                Name = NewEmployee.Name,
+                Surname = NewEmployee.Surname,
+                Gender = NewEmployee.Gender,
+                ProfileImg = NewEmployee.ProfileImg,
+                Birth_Date = SelectedDate,
+                Curr_Hours = NewEmployee.Curr_Hours
+                // Set other properties as needed
             };
+
             //validation
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -178,6 +146,7 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             }
 
 
+
             StaffRestService staffRestService = new StaffRestService(); // Create an instance
             bool success = await staffRestService.PostEmployeeAsync(newEmployee);
 
@@ -185,32 +154,19 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             {
                 // Employee was successfully created
                 Debug.WriteLine("Employee created successfully.");
-                //  await Navigation.PopPopupAsync(); // Close the modal
-                await ShowCustomAlertDialog("Success", "Staff member added successfully");
-                await this.CloseAsync();
-
-
+              //  await Navigation.PopPopupAsync(); // Close the modal
             }
             else
             {
                 // Handle the case where the POST request failed
                 Debug.WriteLine("Failed to create employee.");
-                // display an error message to the user
-                
-                await ShowCustomAlertDialog("Failure", "Failed to create employee.");
-
+                // Optionally, display an error message to the user
             }
-
         }
-      
-        
-        private async Task ShowCustomAlertDialog(string title, string message)
+
+        private void CancelButton_Clicked(object sender, EventArgs e)
         {
-            // Assuming this modal is opened from a parent page, use the parent page to display the alert
-           
-           await _staffManagementPage.DisplayAlert(title, message, "OK");
+            Debug.WriteLine("Cancel");
         }
-
-
     }
 }
