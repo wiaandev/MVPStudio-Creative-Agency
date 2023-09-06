@@ -237,19 +237,12 @@ namespace MVPStudio_Creative_Agency.ViewModels
             LoadAllStaffAsync();
         }
 
-        private Employee _selectedStaff;
-        public Employee SelectedStaff
+        private void ChangeSelectedStaff()
         {
-            get => _selectedStaff;
-            set
-            {
-                if (_selectedStaff != value)
-                {
-                    Debug.WriteLine(value.Name);
-                    _selectedStaff = value;
-                    OnPropertyChanged(nameof(SelectedStaff));
-                }
-            }
+            MySelectedAction = "Developer";
+
+            Debug.WriteLine("Set Filter to Selected");
+           
         }
 
        
