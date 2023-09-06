@@ -8,15 +8,13 @@ namespace MVPStudio_Creative_Agency.Views;
 
 public partial class AddClientPopUp : Popup
 {
-	public AddClientPopUp()
-	{
-		InitializeComponent();
-	}
-
-
-  
-   private void ClosePopUp(object sender, EventArgs e)
+    public AddClientPopUp()
     {
-		Close();
+        InitializeComponent();
+    }
+
+    private void ClosePopUp(object sender, EventArgs e)
+    {
+        Close();
     }
 }

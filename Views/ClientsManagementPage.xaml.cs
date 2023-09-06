@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Maui.Alerts;
-using CommunityToolkit.Maui.Views;
 using Microcharts.Maui;
 using Mopups.Services;
 using MVPStudio_Creative_Agency.ViewModels;
+using MVPStudio_Creative_Agency.Views.Modals;
 using System.Collections.ObjectModel;
 
 namespace MVPStudio_Creative_Agency.Views;
@@ -25,12 +25,11 @@ public partial class ClientsManagementPage : ContentPage
         await _clientViewModel.FetchClients();    
     }
 
-    private void OpenPopUp(object sender, EventArgs e)
+    /*private void OnEditClient(object sender, EventArgs e)
     {
+        MopupService.Instance.PopAsync();
+    }*/
+    
 
-        this.ShowPopup(new AddClientPopUp());
-    }
-
-
-
+    
 }

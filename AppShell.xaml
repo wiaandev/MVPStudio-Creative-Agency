@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:MVPStudio_Creative_Agency"
     xmlns:views="clr-namespace:MVPStudio_Creative_Agency.Views"
     FlyoutIsPresented="True"
-    FlyoutWidth="200"
+    FlyoutWidth="250"
     Shell.FlyoutBehavior="Locked">
 
 
@@ -35,7 +35,6 @@
 
 
 
-
     <Shell.FlyoutHeader>
         <Image
             Margin="0,20,0,20"
@@ -46,17 +45,6 @@
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False" IsVisible="False" />
     </Shell.BackButtonBehavior>
-
-    <TabBar>
-        <ShellContent
-            ContentTemplate="{DataTemplate views:LoadingPage}"
-            Route="LoadingPage"
-            Shell.FlyoutBehavior="Disabled" />
-        <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" Route="LoginPage" />
-        <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}" Route="DashboardPage" />
-    </TabBar>
-
-
 
     <FlyoutItem
         x:Name="Hello"
