@@ -1,18 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVPStudio_Creative_Agency.Views.FundsManagementPage"
-               xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components.FundsPageComponents"
-               xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
-     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
-            xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+                   x:Class="MVPStudio_Creative_Agency.Views.FundsManagementPage"
+                 xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
+                 xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+           
+               xmlns:sys="clr-namespace:System;assembly=mscorlib"
+         
+               xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+               xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
                Shell.NavBarIsVisible="False"
              Title="FundsManagementPage">
 
 
 
   <Grid FlowDirection="MatchParent" Grid.Column="1" FlexLayout.Basis="Auto">
-        <!-- Background image -->
+        <!-- Background image       xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" -->
 
         <Image Source="background.png" Aspect="AspectFill" />
 
@@ -27,63 +30,39 @@
                 </HorizontalStackLayout>
 
         <!--GRID-->
-        <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="80,100,0,0" HorizontalOptions="FillAndExpand" Spacing="50">
+        <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="20,100,0,0" HorizontalOptions="FillAndExpand" Spacing="0">
             
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                 <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#9D9DE4"
-                        WidthRequest="600" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="10" 
+                        WidthRequest="690" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="10" 
                         HorizontalOptions="Start" VerticalOptions="FillAndExpand" >
                     <StackLayout ZIndex="3" >
                         <!--HEADINGS STAFF & ADMIN-->
-                                      
-                        <HorizontalStackLayout Spacing="30" Margin="20,20,0,-20">
-                            <Label Text="Current" FontFamily="Montserrat"
-                             FontSize="20" FontAttributes="Bold" TextColor="#fff"
-                                 VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-
-                                <Label Text="Past" FontFamily="Montserrat"
-                             FontSize="20" FontAttributes="Bold" TextColor="#fff"
-                                 VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-                        </HorizontalStackLayout>
 
 
 
-                        <ScrollView Padding="20" VerticalScrollBarVisibility="Default" Margin="0,0,0,0" HeightRequest="670" >
-
-                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="1" >
-                                <!--Dont add this! (Cards)-->
-                                <CollectionView ItemsSource="{Binding FundCards}" SelectionMode="None" HeightRequest="646" VerticalScrollBarVisibility="Never">
-                                    <CollectionView.ItemsLayout>
-                                        <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="0" VerticalItemSpacing="30" />
-                                    </CollectionView.ItemsLayout>
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <components:FundsPageCardExample 
-                                                Name="{Binding Name}" 
-                                                Image="{Binding Image}" 
-                                                Bundle="{Binding Bundle}" 
-                                                Description="{Binding Description}" 
-                                                Team="{Binding Team}" 
-                                                Timeline="{Binding Timeline}" 
-                                                Cost="{Binding Cost}" 
-                                                Paid="{Binding Paid}" 
-                                                Progress="{Binding Progress}" />
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
-
-                            </StackLayout>
+                        <ScrollView Orientation="Vertical" HeightRequest="670">
+                            <CollectionView ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject}">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame HasShadow="True" Margin="0,10" BackgroundColor="White" CornerRadius="10">
+                                            <components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}" Progress="{Binding Progress}"/>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
                         </ScrollView>
 
+
+
                     </StackLayout>
-
-
                 </Border>
-
             </StackLayout>
 
             <HorizontalStackLayout >
-
                 <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2Fd"
                         WidthRequest="450" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25"  Padding="0"
                         HorizontalOptions="End"  Margin="10,0,0,0">
@@ -95,37 +74,36 @@
                              FontSize="30" FontAttributes="Bold" TextColor="Black"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
-                             <Label Text="Overview" FontFamily="Montserrat"
+                            <Label Text="Overview" FontFamily="Montserrat"
                              FontSize="18" FontAttributes="None" TextColor="Black"
                              VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
-               
-
                         </VerticalStackLayout>
-
+                        
                         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
-                              <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
-                                       StrokeShape="RoundRectangle 15"  HorizontalOptions="Center"  WidthRequest="380" HeightRequest="80"  Padding="5" Margin="0,0,0,40">
-                                       <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
-
                              
-                            
-                                     <Label  TextColor="Black"  FontFamily="Montserrat"
-                             FontSize="24" Text="R 180 000.00"  FontAttributes="Bold"  Padding="8"></Label>
-
- 
-                               
-                            </StackLayout>
-                                <!--GRAPH-->
-                                    </Border>
                              <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="0,-10,0,0">
                              <Border Stroke="#F2F2FD" StrokeThickness="1"  Background="white"
                                        StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="380" HeightRequest="280"  Padding="5" Margin="0,0,0,40">
                                        <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
 
-                                        <Image Source="graphplaceholder.png"></Image>
+                                                <Frame
+                                                    BackgroundColor="{DynamicResource White}"
+                                                    BorderColor="Transparent"
+                                                    CornerRadius="20"
+                                                    HeightRequest="800" WidthRequest="400">
+                                                                                   <micro:ChartView
+                                                                                        x:Name="chartView"
+                                                                                        Grid.Row="0"
+                                                                                        Grid.RowSpan="2"
+                                                                                        Grid.Column="2"
+                                                                                        Grid.ColumnSpan="2" />
+                                                    
+                     
+                                           
+                                        </Frame>
 
 
-                                        </StackLayout>
+                                    </StackLayout>
             
                                     </Border>
 
@@ -139,8 +117,8 @@
                                        StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="120" HeightRequest="100"  Padding="5" Margin="0,0,0,40">
                                        <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
                                           <VerticalStackLayout>
-                                                   <Label  TextColor="Black"  FontFamily="Montserrat"
-                             FontSize="16" Text="R 180 000.00"  FontAttributes="Bold"  Padding="2"></Label>
+                                                   <Label TextColor="Black" FontFamily="Montserrat"
+       FontSize="16" Text="{Binding TotalProjectCost, StringFormat='R {0:F2}'}" FontAttributes="Bold" Padding="2"/>
                                                    <Label  TextColor="Black"  FontFamily="Montserrat"
                              FontSize="14" Text="Revenue"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
 
