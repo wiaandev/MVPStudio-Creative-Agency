@@ -22,7 +22,7 @@ namespace MVPStudio_Creative_Agency.Services
         JsonSerializerOptions _serializerOptions;
 
         //Base Api Url
-        internal string baseUrl = "http://localhost:5044/api/";
+        internal string baseUrl = "https://localhost:7193/api/";
 
         public AuthService() {
             _client = new HttpClient();
@@ -33,10 +33,11 @@ namespace MVPStudio_Creative_Agency.Services
             };
 
         }
+
         // check if authenticated 
         public async Task<bool> IsAuthenticatedAsync()
         {
-            await Task.Delay(200);
+            await Task.Delay(2000);
 
             var authState = Preferences.Default.Get<bool>(AuthStateKey, false);
 
@@ -76,7 +77,7 @@ namespace MVPStudio_Creative_Agency.Services
         // logout
         public void LogOutUser()
         {
-            Preferences.Default.Set<bool> (AuthStateKey, false); // auth state is false
+            Preferences.Default.Remove(AuthStateKey); // auth state is false
         }
     }
 

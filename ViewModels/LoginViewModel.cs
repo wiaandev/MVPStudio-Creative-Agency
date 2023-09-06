@@ -45,13 +45,9 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 await Shell.Current.GoToAsync(nameof(DashboardPage));
             } else
             {
-                ErrorMessage = "Invalid Email or password, please try again";
+                ErrorMessage = "The username or password you entered is incorrect, try again";
             }
             
-            /*if (Password == "" | Email == "")
-            {
-
-            }*/
             OnPropertyChanged(nameof(ErrorMessage));
         }
     }

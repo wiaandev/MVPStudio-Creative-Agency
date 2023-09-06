@@ -2,6 +2,8 @@ using Microsoft.Extensions.Logging;
 using Microcharts.Maui;
 using CommunityToolkit.Maui;
 using Mopups.Hosting;
+using MVPStudio_Creative_Agency.Services;
+using MVPStudio_Creative_Agency.Views;
 
 namespace MVPStudio_Creative_Agency;
 
@@ -30,6 +32,10 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
+        // registering auth and login pages
+        builder.Services.AddTransient<AuthService>();
+        builder.Services.AddTransient<LoadingPage>();
+
 
         return builder.Build();
     }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVPStudio_Creative_Agency.Components.StaffPageComponents.StaffAdminTab">
+             x:Class="MVPStudio_Creative_Agency.Components.StaffPageComponents.StaffAdminTab"
+               >
+     
     <Border Stroke="#2b2b2b" StrokeThickness="0.1" BackgroundColor="White" 
                               WidthRequest="250" HeightRequest="150"
                               StrokeShape="RoundRectangle 15,15,15,15" 
@@ -53,7 +55,7 @@
                     </HorizontalStackLayout>
 
                     <VerticalStackLayout  HorizontalOptions="Center">
-                        <Label Text="{Binding Projects}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0"></Label>
+                        <Label Text="{Binding Id}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0"></Label>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
 
@@ -71,7 +73,12 @@
             </HorizontalStackLayout >
 
             <HorizontalStackLayout HorizontalOptions="End" Margin="0,3,10,0" Opacity="0.30">
-                <Image Source="pop_out.png" HeightRequest="20"  ></Image>
+
+                <Image Source="pop_out.png" HeightRequest="20" ClassId="{Binding Id}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnButtonClicked" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>
