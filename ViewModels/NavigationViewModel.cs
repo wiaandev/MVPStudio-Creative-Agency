@@ -1,16 +1,22 @@
-﻿using System;
+﻿using MVPStudio_Creative_Agency.Models;
+using MVPStudio_Creative_Agency.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.ViewModels
 {
-    class NavigationViewModel
+    class NavigationViewModel: BaseViewModel
     {
+        private ProjectService _projectService;
+        public Project Projects { get; set; }
         public int Id { get; set; }
 
-        public string ClienName { get; set; }
+        public string ClienName { get; set; } 
 
         public string Project_Name { get; set; }
 
@@ -32,5 +38,22 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public int Progress { get; set; }
 
         public int NavigationParameter { get; set; }
+
+        public NavigationViewModel()
+        {
+            _projectService = new ProjectService();
+            Projects = new Project();
+        }
+
+        public async Task fetchSingleProject(int id)
+        {
+            var project = await _projectService.GetSingleProject(id);
+            if (project != null)
+            {
+                Projects = project;
+                OnPropertyChanged(nameof(Projects));
+                Debug.WriteLine($"1. Project client is: {project.ClienName}"); // Corrected property name
+            }
+        }
     }
 }

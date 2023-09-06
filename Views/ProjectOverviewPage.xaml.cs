@@ -10,7 +10,7 @@ public partial class ProjectOverviewPage : ContentPage
 
     public int ProjectId { get; set; }
 
-    public string ClienName { get; set; }
+    public string ClienName { get; set; } = "yes";
 
     public string Project_Name { get; set; }
 
@@ -34,8 +34,8 @@ public partial class ProjectOverviewPage : ContentPage
 
     public ProjectOverviewPage()
     {
-        _projectViewModel = new ProjectViewModel(new Services.ProjectService());
-        BindingContext = _projectViewModel; // Move this line here
+        //_projectViewModel = new ProjectViewModel(new Services.ProjectService());
+        //BindingContext = _projectViewModel; 
         InitializeComponent();
 
     }
@@ -48,9 +48,9 @@ public partial class ProjectOverviewPage : ContentPage
         {
             if (viewModel.NavigationParameter is int id)
             {
-                await _projectViewModel.fetchSingleProject(id);
-                BindingContext = _projectViewModel;
-                Debug.WriteLine($"The project Id is: {_projectViewModel.Id}");
+                await viewModel.fetchSingleProject(id);
+                BindingContext = viewModel;
+                Debug.WriteLine($"The project Id is: {viewModel.Project_Name}");
             }
         }
     }

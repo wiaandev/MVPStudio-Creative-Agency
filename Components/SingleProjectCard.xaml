@@ -31,7 +31,7 @@
                     <Label Text="{Binding Project_Name}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="24"/>
 
                     <Label Text="Progress" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
-                    <ProgressBar Progress="0.5" ProgressColor="{DynamicResource Black}" Margin="0,0,0,20"/>
+                    <ProgressBar Progress="{Binding Progress}" ProgressColor="{DynamicResource Black}" Margin="0,0,0,20"/>
                     <Line X1="0" X2="300" Stroke="{DynamicResource Black}"/>
 
 

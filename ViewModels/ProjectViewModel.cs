@@ -22,15 +22,22 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public ObservableCollection<Client> Clients { get; set; }   
         public ObservableCollection<Project> Projects { get; set; }
 
-        public List<ProjectType> ProjectTypes { get; set; }
+        private ProjectType _selectedProjectType;
 
-        public string _selectedProject;
-        public string SelectedProjectType
+        public ObservableCollection<ProjectType> ProjectTypes { get; set; }
+
+        public ProjectType SelectedProjectType
         {
-             get => _selectedProject;
-            set => SetProperty(ref _selectedProject, value); 
+            get { return _selectedProjectType; }
+            set
+            {
+                if (_selectedProjectType != value)
+                {
+                    _selectedProjectType = value;
+                    OnPropertyChanged(nameof(SelectedProjectType));
+                }
+            }
         }
-
         //setting up my command to add a project to the db
         public ICommand OnAddNewProject { get; }
 
@@ -74,7 +81,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
             OnAddNewProject = new Command(async () => await AddNewProjectToDb());
 
-            ProjectTypes = new List<ProjectType>
+            ProjectTypes = new ObservableCollection<ProjectType>
             {
                 new ProjectType {Name = "Web Development"},
                 new ProjectType {Name = "App Development"},
@@ -94,7 +101,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 ClienName = ClienName,
                 Project_Name = Project_Name,
                 Description = Description,
-                Project_Start = Project_Start,
+                Project_Start = DateOnly.Parse("2023/09/23"),
                 Duration_Week = Duration_Week,
                 Project_Time = Project_Time,
                 Project_Type = Project_Type, 
@@ -121,19 +128,6 @@ namespace MVPStudio_Creative_Agency.ViewModels
             }
 
             Project_Count = $"{Projects.Count()}";
-        }
-
-        public async Task fetchSingleProject(int id)
-        {
-            var project = await _projectService.GetSingleProject(id);
-            Projects.Clear();
-
-            if (project != null)
-            {
-                Projects.Add(project);
-                Debug.WriteLine($"Project client is: {project.ClienName}"); // Corrected property name
-                Project_Count = $"{Projects.Count}";
-            }
         }
 
         public async Task fetchAllClients()

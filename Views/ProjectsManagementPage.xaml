@@ -8,8 +8,9 @@
             Shell.NavBarIsVisible="False"
             BackgroundColor="{DynamicResource PurpleLighter}">
 	<StackLayout Padding="60">
-		<Border StrokeShape="RoundRectangle 20"
+		<Border StrokeShape="RoundRectangle 10"
             BackgroundColor="{DynamicResource White}"
+            Stroke="{DynamicResource White}"
             Padding="15"
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
@@ -79,7 +80,7 @@
                                         <Label Text="Item" TextColor="Black"/>
                                     </FlexLayout>
                                 </Border>-->
-								<components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}"/>
+								<components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}" Progress="{Binding Progress}"/>
 							</DataTemplate>
 						</CollectionView.ItemTemplate>
 					</CollectionView>
@@ -96,7 +97,7 @@
                         FontFamily="Montserrat-Regular"
                         FontSize="18"
                         Placeholder="Name of Project"
-                        Text="{Binding Name}"
+                        Text="{Binding Project_Name}"
                         TextColor="{DynamicResource Black}" />
 
                     <Entry
@@ -112,8 +113,7 @@
 
                     <DatePicker
                         MinimumDate="{x:Static sys:DateTime.Now}"
-                        Date="{Binding Project_Start}"
-                        
+                        Date="11/21/2023"
                     />
 
                     <Entry
@@ -148,6 +148,8 @@
                         TextColor="{DynamicResource Black}" />
 
                     <Button Text="Add Project" BackgroundColor="{DynamicResource Black}" TextColor="{DynamicResource White}" FontFamily="Monstserrat-Bold" Command="{Binding OnAddNewProject}"/>
+
+                    <Label Text="{Binding SelectedItem}"/>
 
                 </VerticalStackLayout>
 

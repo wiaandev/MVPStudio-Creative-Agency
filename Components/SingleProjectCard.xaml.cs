@@ -1,4 +1,5 @@
 ﻿using MVPStudio_Creative_Agency.Models;
+using MVPStudio_Creative_Agency.Services;
 using MVPStudio_Creative_Agency.ViewModels;
 using System.Diagnostics;
 
@@ -6,6 +7,7 @@ namespace MVPStudio_Creative_Agency.Components;
 
 public partial class SingleProjectCard : ContentView
 {
+    private ProjectService _projectService;
     public static readonly BindableProperty ClienNameProperty =
     BindableProperty.Create(nameof(ClienName), typeof(string), typeof(SingleProjectCard), default(string));
 
@@ -14,6 +16,9 @@ public partial class SingleProjectCard : ContentView
 
     public static readonly BindableProperty Project_StartProperty =
     BindableProperty.Create(nameof(Project_Start), typeof(DateOnly), typeof(SingleProjectCard), default(DateOnly));
+
+    public static readonly BindableProperty ProgressProperty =
+BindableProperty.Create(nameof(Progress), typeof(int), typeof(SingleProjectCard), default(int));
 
 
 
@@ -35,11 +40,18 @@ public partial class SingleProjectCard : ContentView
         set => SetValue(Project_StartProperty, value);
     }
 
+    public int Progress
+    {
+        get => (int)GetValue(ProgressProperty);
+        set => SetValue(ProgressProperty, value);
+    }
+
 
     public SingleProjectCard()
     {
         BindingContext = this;
         InitializeComponent();
+
     }
 
     public async void ViewProject(object sender, EventArgs e)
@@ -47,7 +59,7 @@ public partial class SingleProjectCard : ContentView
         if (BindingContext is Project project)
         {
             Debug.WriteLine(project.Id);
-            var projectCardViewModel = new ProjectCardViewModel();
+            var projectCardViewModel = new ProjectCardViewModel(_projectService);
             await projectCardViewModel.NavigateToOverviewScreenAsync(project.Id);
             Debug.WriteLine(project.Id);
         }
