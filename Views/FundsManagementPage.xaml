@@ -41,23 +41,22 @@
 
 
 
+                        <ScrollView Orientation="Vertical" HeightRequest="670">
+                            <CollectionView ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject}">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame HasShadow="True" Margin="0,10" BackgroundColor="White" CornerRadius="10">
+                                            <components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}" Progress="{Binding Progress}"/>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
 
 
-                        <ScrollView  Orientation="Vertical" >
-				<CollectionView ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject}" Margin="0,100,0,0">
-					<CollectionView.ItemsLayout>
-						<GridItemsLayout Orientation="Vertical" Span="1"/>
-                    
-					</CollectionView.ItemsLayout>
-					<CollectionView.ItemTemplate>
-						<DataTemplate>
-							
-							<components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}" Progress="{Binding Progress}" HeightRequest="600"/>
-						</DataTemplate>
-					</CollectionView.ItemTemplate>
-				</CollectionView>
-
-</ScrollView>
 
                     </StackLayout>
                 </Border>
