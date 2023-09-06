@@ -2,6 +2,7 @@ using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Platform;
 using Mopups.Services;
+using MVPStudio_Creative_Agency.Components.StaffPageComponents;
 using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
 using MVPStudio_Creative_Agency.ViewModels;
@@ -27,6 +28,11 @@ namespace MVPStudio_Creative_Agency.Views.Modals
           
             BindingContext = this;
             _staffManagementPage = staffManagementPage;
+        }
+
+        public AddStaffModal(StaffAdminTab staffAdminTab)
+        {
+            this.staffAdminTab = staffAdminTab;
         }
 
         private int filteringStaff = 0;
@@ -66,6 +72,8 @@ namespace MVPStudio_Creative_Agency.Views.Modals
 
         // ChangeTo to be applied to filtering buttnos
         private bool isDesignButtonActive = false;
+        private StaffAdminTab staffAdminTab;
+
         public bool IsDesignButtonActive
         {
             get => isDesignButtonActive;
@@ -131,35 +139,33 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             //validation
             if (string.IsNullOrWhiteSpace(name))
             {
-                // Name is required. You can display an error message to the user.
+          
                 await ShowCustomAlertDialog("Validation Error", "Please enter a valid name.");
                 return;
             }
 
             if (filteringStaff == 0)
             {
-                // Role ID is required or you can perform additional validation here.
+                // Role ID is required 
                 await ShowCustomAlertDialog("Validation Error", "Please select a valid role.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(surname))
             {
-                // Surname is required. You can display an error message to the user.
                 await ShowCustomAlertDialog("Validation Error", "Please enter a valid surname.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(gender))
             {
-                // Gender is required. You can display an error message to the user.
                 await ShowCustomAlertDialog("Validation Error", "Please enter a valid gender.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(profileImg))
             {
-                // Profile Image URL is required. You can display an error message to the user.
+                // Profile Image URL is required. 
                 await ShowCustomAlertDialog("Validation Error", "Please enter a valid profile image URL.");
                 return;
             }

@@ -79,9 +79,7 @@
                         <TapGestureRecognizer Tapped="OnButtonClicked" NumberOfTapsRequired="1" /> </Image.GestureRecognizers> </Image> -->
                     
 
-                <Button HeightRequest="30" Text="Update" FontFamily="Montserrat"
-                      FontSize="14" FontAttributes="Bold" TextColor="#fff"
-                   />
+                
 
                 <Button HeightRequest="30" ClassId="{Binding Id}" Text="Delete" FontFamily="Montserrat"
                         BorderColor="#fb4b4e" BackgroundColor="White" TextColor="#fb4b4e" Opacity="0.9" 

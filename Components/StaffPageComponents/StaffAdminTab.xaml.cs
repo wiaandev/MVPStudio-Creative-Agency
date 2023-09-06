@@ -4,6 +4,16 @@ using MVPStudio_Creative_Agency.Views.Modals;
 using System.Diagnostics;
 using MVPStudio_Creative_Agency.Services;
 using MVPStudio_Creative_Agency.Views;
+using CommunityToolkit.Maui.Views;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Platform;
+using Mopups.Services;
+using System;
+using System.Globalization;
+using System.Windows.Input;
+using Popup = Microsoft.UI.Xaml.Controls.Primitives.Popup;
+using Mopups.Pages;
 
 namespace MVPStudio_Creative_Agency.Components.StaffPageComponents;
 
@@ -96,10 +106,18 @@ public partial class StaffAdminTab : ContentView
                 Debug.WriteLine("ID is not set");
             }
         }
+
     
     }
 
-
+    //popup
+    /*private void OpenStaffModalButton_Clicked(object sender, EventArgs e)
+    {
+        var staffAdminTab = this; // Assuming 'this' is your StaffAdminTab instance.
+        var staffViewModalPage = new StaffViewModal(staffAdminTab);
+        var popup = new CommunityToolkit.Maui.Views.Popup { Content = staffViewModalPage.Content };
+        popup.ShowPopupAsync(<StaffViewModal>); // Show the modal as a popup
+    }*/
 
 
 
@@ -126,4 +144,5 @@ public partial class StaffAdminTab : ContentView
 
         _staffManagementPage.DisplayAlert(title, message, "OK");
     }
+    
 }

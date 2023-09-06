@@ -9,9 +9,6 @@
 
    
     <!-- Set the background color -->
-
-
-    
     <Frame CornerRadius="15" BackgroundColor="#f2f2fd" HeightRequest="600" WidthRequest="600" Padding="24">
         
         <!-- Set the corner radius -->
