@@ -16,14 +16,13 @@ public partial class ClientsManagementPage : ContentPage
         InitializeComponent();
         _clientViewModel = new ClientViewModel(new Services.ClientService()); // init our service
         BindingContext = _clientViewModel; //context of xaml is the view model
-       
-        
+
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        await _clientViewModel.FetchClients();    
+        await _clientViewModel.FetchClients();
     }
 
     private void OpenPopUp(object sender, EventArgs e)

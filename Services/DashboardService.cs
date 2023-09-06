@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.Services
 {
-    public class ClientService: IClientService
+    internal class DashboardService : IDashboardService
     {
-        //Our httpClient
         HttpClient _client;
         JsonSerializerOptions _serializerOptions;
 
         //Base Api Url
-        internal string baseUrl = "https://localhost:7193/api/Clients";
+        internal string baseUrl = "https://localhost:7193/api/";
 
-        //List of Items
-        public List<Client> Items { get; private set; }
+        public List<Project> Projects { get; private set; }
+        //TODO: list of Clients
+        //TODO: list of Employees 
+        //TODO: list of funds
 
-        //Constructor - Creating our httpClient
-        public ClientService()
+        public DashboardService()
         {
             _client = new HttpClient();
             _serializerOptions = new JsonSerializerOptions
@@ -32,27 +32,28 @@ namespace MVPStudio_Creative_Agency.Services
             };
         }
 
-        public async Task<List<Client>> RefreshDataAsync()
+        public async Task<List<Project>> GetAllProjects()
         {
-            Items = new List<Client>();
+            Projects = new List<Project>();
 
-            Uri uri = new (string.Format(baseUrl, string.Empty));
+            Uri uri = new(string.Format(baseUrl + "Projects", string.Empty));
             try
             {
+                Debug.WriteLine(Projects);
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    Items = JsonSerializer.Deserialize<List<Client>>(content, _serializerOptions);
+                    Debug.WriteLine($"From Project Service: {content}");
+                    Projects = JsonSerializer.Deserialize<List<Project>>(content, _serializerOptions);
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
-
-            return Items;
+            Debug.WriteLine($"Projects from DashVM: {Projects}");
+            return Projects;
         }
-
     }
 }

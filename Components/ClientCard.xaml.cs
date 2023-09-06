@@ -30,7 +30,7 @@ public partial class ClientCard : ContentView
     }
    
     public ClientCard()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 }

@@ -83,5 +83,33 @@ namespace MVPStudio_Creative_Agency.Services
 
             return Items;
         }
+
+        // DELETE by id
+        public async Task<bool> DeleteEmployeeAsync(int id)
+        {
+            Uri uri = new Uri(baseUrl + "Employees/" + id);
+
+            try
+            {
+                HttpResponseMessage response = await _client.DeleteAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Employee was successfully deleted on the server
+                    return true;
+                }
+                else
+                {
+                    Debug.WriteLine(@"\tERROR: Unable to delete employee data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR: {0}", ex.Message);
+            }
+
+            return false;
+        }
+        
     }
 }

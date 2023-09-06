@@ -1,9 +1,19 @@
 using MVPStudio_Creative_Agency.ViewModels;
 using System.Data;
 using MVPStudio_Creative_Agency.Views.Modals;
-using MVPStudio_Creative_Agency.Services;
 using System.Diagnostics;
+using MVPStudio_Creative_Agency.Services;
+using MVPStudio_Creative_Agency.Views;
+using CommunityToolkit.Maui.Views;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Platform;
+using Mopups.Services;
+using System;
+using System.Globalization;
 using System.Windows.Input;
+using Popup = Microsoft.UI.Xaml.Controls.Primitives.Popup;
+using Mopups.Pages;
 
 namespace MVPStudio_Creative_Agency.Components.StaffPageComponents;
 
@@ -25,8 +35,7 @@ public partial class StaffAdminTab : ContentView
         BindableProperty.Create(nameof(Salary), typeof(string), typeof(StaffAdminTab), default(string));
 
     public static readonly BindableProperty IDProperty =
-        BindableProperty.Create(nameof(Id), typeof(string), typeof(StaffAdminTab), default(string));
-    
+        BindableProperty.Create(nameof(ID), typeof(string), typeof(StaffAdminTab), default(string));
     public static readonly BindableProperty ViewModelProperty =
         BindableProperty.Create(nameof(ViewModel), typeof(StaffViewModel), typeof(StaffAdminTab), default(StaffViewModel));
 
@@ -35,6 +44,7 @@ public partial class StaffAdminTab : ContentView
         get => (StaffViewModel)GetValue(ViewModelProperty);
         set => SetValue(ViewModelProperty, value);
     }
+
     public string Name
     {
         get => (string)GetValue(NameProperty);
@@ -65,40 +75,56 @@ public partial class StaffAdminTab : ContentView
         set => SetValue(SalaryProperty, value);
     }
 
-    public string Id
+    public string ID
     {
         get => (string)GetValue(IDProperty);
-        set
-        {
-            SetValue(IDProperty, value);
-            OnPropertyChanged(nameof(Id)); // Notify that there was a change on this property
-        }
+        set => SetValue(IDProperty, value);
     }
 
-    void OnButtonClicked(object sender, EventArgs e)
-    {
-        var image = sender as Image;
-        if (image != null)
-        {
-            var id = image.ClassId;
-            Debug.WriteLine("Select button pressed");
-            Debug.WriteLine(id);
 
+
+    void OnDeleteButtonClicked(object sender, EventArgs e)
+    {
+        var button = sender as Button;
+        if (button != null)
+        {
+            var id = button.ClassId;
             if (!string.IsNullOrEmpty(id))
             {
-                ViewModel.ChangeSelectedStaff(id);
+                int employeeId;
+                if (Int32.TryParse(id, out employeeId))
+                {
+                    ViewModel.DeleteEmployeeByIdAsync(employeeId);
+                }
+                else
+                {
+                    Debug.WriteLine("ID is not a valid integer");
+                }
             }
             else
             {
                 Debug.WriteLine("ID is not set");
             }
         }
+
+
     }
+
+    //popup
+    /*private void OpenStaffModalButton_Clicked(object sender, EventArgs e)
+    {
+        var staffAdminTab = this; // Assuming 'this' is your StaffAdminTab instance.
+        var staffViewModalPage = new StaffViewModal(staffAdminTab);
+        var popup = new CommunityToolkit.Maui.Views.Popup { Content = staffViewModalPage.Content };
+        popup.ShowPopupAsync(<StaffViewModal>); // Show the modal as a popup
+    }*/
+
 
 
     private StaffRestService _staffRestService;
     private StaffRolesServices _staffRolesServices;
     private StaffViewModel _staffViewModel;
+    private StaffManagementPage _staffManagementPage;
     public StaffAdminTab()
     {
         InitializeComponent();
@@ -108,7 +134,15 @@ public partial class StaffAdminTab : ContentView
 
         // Initialize the StaffViewModel
         _staffViewModel = new StaffViewModel(_staffRestService, _staffRolesServices);
-  
+
         BindingContext = _staffViewModel;
     }
+
+    void ShowCustomAlertDialog(string title, string message)
+    {
+        // Assuming this modal is opened from a parent page, use the parent page to display the alert
+
+        _staffManagementPage.DisplayAlert(title, message, "OK");
+    }
+
 }

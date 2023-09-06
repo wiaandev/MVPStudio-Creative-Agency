@@ -49,7 +49,12 @@ namespace MVPStudio_Creative_Agency.ViewModels
             {
                 ErrorMessage = "The username or password you entered is incorrect, try again";
             } 
+
             
+            /*if (Password == "" | Email == "")
+            {
+
+            }*/
             OnPropertyChanged(nameof(ErrorMessage));
         }
     }

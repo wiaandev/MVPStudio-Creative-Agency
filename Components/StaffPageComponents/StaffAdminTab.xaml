@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVPStudio_Creative_Agency.Components.StaffPageComponents.StaffAdminTab"
                >
-     
+
     <Border Stroke="#2b2b2b" StrokeThickness="0.1" BackgroundColor="White" 
-                              WidthRequest="250" HeightRequest="150"
+                              WidthRequest="250" HeightRequest="220"
                               StrokeShape="RoundRectangle 15,15,15,15" 
-                                 Padding="0" ZIndex="99"
+                                 Padding="6" ZIndex="99"
                                          HorizontalOptions="StartAndExpand"
                                          Margin="0, 15,30,10"  >
 
@@ -48,14 +48,14 @@
             <HorizontalStackLayout Spacing="8">
                 <!--PROJECTS-->
                 <VerticalStackLayout>
-                    <HorizontalStackLayout Margin="25, 8, 0, 0" Spacing="0">
+                    <HorizontalStackLayout Margin="15, 8, 0, 0" Spacing="0">
                         <Image Source="layers.png" HeightRequest="15" Margin="8, 8, 0, 0"></Image>
 
-                        <Label   FontAttributes="Bold" Text="Projects" Margin="8, 8, 0, 0" TextColor="#667080" FontSize="12" ></Label>
+                        <Label   FontAttributes="Bold" Text="Projects" Margin="3, 8, 0, 0" TextColor="#667080" FontSize="12" ></Label>
                     </HorizontalStackLayout>
 
                     <VerticalStackLayout  HorizontalOptions="Center">
-                        <Label Text="{Binding Id}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0"></Label>
+                        <Label Text="{Binding Id}"  TextColor="#667080" HorizontalTextAlignment="Center" Margin="35 ,0,0,0" FontSize="12"></Label>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
 
@@ -67,18 +67,20 @@
                     </HorizontalStackLayout>
 
                     <VerticalStackLayout HorizontalOptions="Center" >
-                        <Label Text="{Binding Payment}" TextColor="#667080"  HorizontalTextAlignment="Center" Margin="34 ,0,0,0"></Label>
+                        <Label Text="{Binding Payment}" TextColor="#667080"  HorizontalTextAlignment="Center" Margin="34 ,0,0,0" FontSize="12"></Label>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
             </HorizontalStackLayout >
 
-            <HorizontalStackLayout HorizontalOptions="End" Margin="0,3,10,0" Opacity="0.30">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="45" Margin="0,30,0,0" >
 
-                <Image Source="pop_out.png" HeightRequest="20" ClassId="{Binding Id}">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnButtonClicked" NumberOfTapsRequired="1" />
-                    </Image.GestureRecognizers>
-                </Image>
+       
+
+
+                <Button HeightRequest="30" ClassId="{Binding Id}" Text="Delete" FontFamily="Montserrat"
+                        BorderColor="#fb4b4e" BackgroundColor="White" TextColor="#fb4b4e" Opacity="0.9" 
+                        Clicked="OnDeleteButtonClicked"/>
+
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

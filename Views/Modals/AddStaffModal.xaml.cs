@@ -15,7 +15,7 @@ namespace MVPStudio_Creative_Agency.Views.Modals
 {
     public partial class AddStaffModal : Popup
     {
-        
+
         private StaffManagementPage _staffManagementPage;
 
         public AddStaffModal(StaffManagementPage staffManagementPage)
@@ -24,7 +24,7 @@ namespace MVPStudio_Creative_Agency.Views.Modals
 
             ChangeDesignerFilterCommand = new Command(ChangeToFilterDesigner);
             ChangeDeveloperFilterCommand = new Command(ChangeToFilterDeveloper);
-          
+
             BindingContext = this;
             _staffManagementPage = staffManagementPage;
         }
@@ -32,7 +32,7 @@ namespace MVPStudio_Creative_Agency.Views.Modals
         private int filteringStaff = 0;
         public ICommand ChangeDeveloperFilterCommand { get; private set; }
 
-       
+
 
         public ICommand ChangeDesignerFilterCommand { get; private set; }
 
@@ -190,19 +190,19 @@ namespace MVPStudio_Creative_Agency.Views.Modals
                 // Handle the case where the POST request failed
                 Debug.WriteLine("Failed to create employee.");
                 // display an error message to the user
-                
+
                 await ShowCustomAlertDialog("Failure", "Failed to create employee.");
 
             }
 
         }
-      
-        
+
+
         private async Task ShowCustomAlertDialog(string title, string message)
         {
             // Assuming this modal is opened from a parent page, use the parent page to display the alert
-           
-           await _staffManagementPage.DisplayAlert(title, message, "OK");
+
+            await _staffManagementPage.DisplayAlert(title, message, "OK");
         }
 
 
