@@ -43,16 +43,16 @@
 
 
 
-                        <ScrollView Grid.Row="1" Grid.Column="1">
+                        <ScrollView  Orientation="Vertical" >
 				<CollectionView ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject}" Margin="0,100,0,0">
 					<CollectionView.ItemsLayout>
-						<GridItemsLayout Orientation="Vertical" Span="2"/>
+						<GridItemsLayout Orientation="Vertical" Span="1"/>
                     
 					</CollectionView.ItemsLayout>
 					<CollectionView.ItemTemplate>
 						<DataTemplate>
 							
-							<components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}" Progress="{Binding Progress}"/>
+							<components:SingleProjectCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}" Progress="{Binding Progress}" HeightRequest="600"/>
 						</DataTemplate>
 					</CollectionView.ItemTemplate>
 				</CollectionView>
@@ -118,8 +118,8 @@
                                        StrokeShape="RoundRectangle 15"  HorizontalOptions="Start"  WidthRequest="120" HeightRequest="100"  Padding="5" Margin="0,0,0,40">
                                        <StackLayout Orientation="Horizontal"  Spacing="150" VerticalOptions="Center" HorizontalOptions="Center" >
                                           <VerticalStackLayout>
-                                                   <Label  TextColor="Black"  FontFamily="Montserrat"
-                             FontSize="16" Text="R 180 000.00"  FontAttributes="Bold"  Padding="2"></Label>
+                                                   <Label TextColor="Black" FontFamily="Montserrat"
+       FontSize="16" Text="{Binding TotalProjectCost, StringFormat='R {0:F2}'}" FontAttributes="Bold" Padding="2"/>
                                                    <Label  TextColor="Black"  FontFamily="Montserrat"
                              FontSize="14" Text="Revenue"  FontAttributes="Bold"  Padding="2" HorizontalOptions="Center"></Label>
 

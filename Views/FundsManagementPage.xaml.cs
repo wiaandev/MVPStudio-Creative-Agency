@@ -33,15 +33,9 @@ public partial class FundsManagementPage : ContentPage
         await _projectViewModel.fetchAllProjects();
         await _projectViewModel.fetchAllClients();
         _projectViewModel.Project_Count = $"{_projectViewModel.Projects.Count}";
-        
-        foreach (var project in _projectViewModel.Projects)
-        {
-            totalProjectCost += (double)project.Project_Cost;
-        }
-        
-        Debug.WriteLine($"Total Project Cost: {totalProjectCost}");
 
-        // Project_Count = $"{_projectViewModel.Projects.Count}";
+        Debug.WriteLine($"Total Project Cost: {_projectViewModel.TotalProjectCost}");
+
         Debug.WriteLine($"Clients are {_projectViewModel.Clients.Count}");
     }
 }

@@ -117,14 +117,14 @@
 
 
 
-                        <ScrollView  VerticalScrollBarVisibility="Always" Margin="0,16,0,0" HeightRequest="600" >
+                        <ScrollView  VerticalScrollBarVisibility="Always" Margin="0,16,0,0">
 
-                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="10" >
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" >
                                 <!--Dont add this! (Cards)-->
-                                <CollectionView ItemsSource="{Binding EmployeeList}" SelectionMode="None" HeightRequest="600"  VerticalScrollBarVisibility="Never" >
+                                <CollectionView ItemsSource="{Binding EmployeeList}" SelectionMode="None"  VerticalScrollBarVisibility="Never" >
 
                                     <CollectionView.ItemsLayout >
-                                        <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="10"   />
+                                        <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="10"   />
                                     </CollectionView.ItemsLayout>
 
                                     <CollectionView.ItemTemplate>

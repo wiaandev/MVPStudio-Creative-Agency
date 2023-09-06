@@ -73,6 +73,13 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public int Progress { get; set; }
 
+        private double _totalProjectCost;
+        public double TotalProjectCost
+        {
+            get => _totalProjectCost;
+            set => SetProperty(ref _totalProjectCost, value);
+        }
+
         public ProjectViewModel(ProjectService projectService)
         {
             _projectService = projectService;
@@ -120,13 +127,15 @@ namespace MVPStudio_Creative_Agency.ViewModels
         {
             var projects = await _projectService.GetAllProjects();
             Projects.Clear();
+            double totalCost = 0;
             foreach (var project in projects)
             {
 
                 Projects.Add(project);
+                totalCost += project.Project_Cost; 
                 Debug.WriteLine(project.ClienName);
             }
-
+            TotalProjectCost = totalCost;
             Project_Count = $"{Projects.Count()}";
         }
 
