@@ -3,7 +3,6 @@
     x:Class="MVPStudio_Creative_Agency.Views.ClientsManagementPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title=""
     BackgroundColor="{DynamicResource PurpleLighter}"
@@ -13,12 +12,12 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*" />
+            <RowDefinition Height="120*" />
             <RowDefinition />
             <RowDefinition Height="1" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
@@ -46,7 +45,6 @@
         <Button
             Grid.Column="0"
             Margin="0,80,90,0"
-            Clicked="OpenPopUp"
             HorizontalOptions="End"
             Text="Add Client"
             VerticalOptions="Start" />
@@ -60,29 +58,51 @@
 
 
 
-        <ScrollView
-            Grid.Column="0"
-            HeightRequest="700"
-            WidthRequest="700">
-            <StackLayout>
+        <ListView ItemsSource="{Binding Clients}" WidthRequest="300" HeightRequest="900">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout
+                            Grid.Column="0"
+                            Margin="0,150,0,0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Start">
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-                <CollectionView ItemsSource="{Binding Clients}" SelectionMode="None">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout
-                            HorizontalItemSpacing="2"
-                            Orientation="Vertical"
-                            Span="3"
-                            VerticalItemSpacing="5" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <components:ClientCard Name="{Binding Name}" Email="{Binding Email}" />
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                                <Border
+                                    Margin="0,0,0,0"
+                                    Padding="5"
+                                    Background="white"
+                                    HeightRequest="100"
+                                    Stroke="#F2F2FD"
+                                    StrokeShape="RoundRectangle 15"
+                                    WidthRequest="180">
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Spacing="1">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Large"
+                                            Text="{Binding Name}" />
+                                        <Label FontSize="Caption" Text="{Binding Email}" />
+                                    </StackLayout>
+                                </Border>
 
-            </StackLayout>
-        </ScrollView>
+                            </Grid>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 
 

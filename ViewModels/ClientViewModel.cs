@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace MVPStudio_Creative_Agency.ViewModels
 {
@@ -18,39 +17,12 @@ namespace MVPStudio_Creative_Agency.ViewModels
         // define all observed props
         public ObservableCollection<Client> Clients { get; set; }
 
-        // ADDING CLIENTS
-        public string Name { get; set; }    
-
-        public string Email { get; set; } 
-
-        public int ClientTypeId { get; set; }  
-
-        public ICommand AddClientCommand { get; set; }  
-
-
-
         public ClientViewModel(ClientService clientService)
         {
             _clientService = clientService;
-            Clients = new ObservableCollection<Client>();
-             
-            AddClientCommand = new Command(async () => await AddClient());
+            Clients = new ObservableCollection<Client>();   
         }
-
-        private async Task AddClient()
-        {
-            // add client 
-            var newClient = new Client
-            {
-                Name = Name,
-                Email = Email,
-                ClientTypeId = ClientTypeId,
-                
-            };
-
-            await _clientService.SaveClientAsync(newClient, true);
-        }
-
+        
         public async Task FetchClients()
         {
             var clients = await _clientService.RefreshDataAsync();  

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVPStudio_Creative_Agency.Views.FundsManagementPage"
                xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components.FundsPageComponents"
-              
+               xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
      xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
                Shell.NavBarIsVisible="False"
