@@ -1,32 +1,20 @@
-﻿using MVPStudio_Creative_Agency.Components.StaffPageComponents;
-using MVPStudio_Creative_Agency.Models;
+﻿using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MVPStudio_Creative_Agency.ViewModels
 {
-    public class StaffViewModel : INotifyPropertyChanged
+    public class StaffViewModel : BaseViewModel
     {
         public StaffRestService _restService;
         public StaffRolesServices _staffRolesServices;
-        /*public Employee SelectedStaff { get; set; }*/
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         //define all my observed properties
         public ObservableCollection<Employee> EmployeeList { get; set; }
@@ -43,7 +31,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
             ChangeAdminFilterCommand = new Command(ChangeToFilterAdmin);
             ChangeDeveloperFilterCommand = new Command(ChangeToFilterDeveloper);
 
-            
+   
 
         }
 
@@ -55,7 +43,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public ICommand ChangeDeveloperFilterCommand { get; private set; }
 
         private string selectedStaff = "";
-        public ICommand ChangeSelectedStaffCommand { get; private set; }
+
 
 
         public string MyFilterAction
@@ -148,8 +136,6 @@ namespace MVPStudio_Creative_Agency.ViewModels
             }
         }
 
-
-
         private bool isAdminButtonActive = false;
         public bool IsAdminButtonActive
         {
@@ -237,18 +223,14 @@ namespace MVPStudio_Creative_Agency.ViewModels
             LoadAllStaffAsync();
         }
 
-        private void ChangeSelectedStaff()
+        public void ChangeSelectedStaff(string iD)
         {
             MySelectedAction = "Developer";
 
             Debug.WriteLine("Set Filter to Selected");
-           
+            Debug.WriteLine(iD);
+
         }
-
-       
-
-        
-
     }
 
 
