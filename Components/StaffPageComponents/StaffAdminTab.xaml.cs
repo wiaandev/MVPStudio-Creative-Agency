@@ -1,5 +1,5 @@
+using MVPStudio_Creative_Agency.ViewModels;
 using System.Data;
-
 using MVPStudio_Creative_Agency.Views.Modals;
 using System.Diagnostics;
 using MVPStudio_Creative_Agency.Services;
@@ -14,7 +14,6 @@ using System.Globalization;
 using System.Windows.Input;
 using Popup = Microsoft.UI.Xaml.Controls.Primitives.Popup;
 using Mopups.Pages;
-
 
 namespace MVPStudio_Creative_Agency.Components.StaffPageComponents;
 
@@ -37,7 +36,6 @@ public partial class StaffAdminTab : ContentView
 
     public static readonly BindableProperty IDProperty =
         BindableProperty.Create(nameof(ID), typeof(string), typeof(StaffAdminTab), default(string));
-
     public static readonly BindableProperty ViewModelProperty =
         BindableProperty.Create(nameof(ViewModel), typeof(StaffViewModel), typeof(StaffAdminTab), default(StaffViewModel));
 
@@ -46,7 +44,6 @@ public partial class StaffAdminTab : ContentView
         get => (StaffViewModel)GetValue(ViewModelProperty);
         set => SetValue(ViewModelProperty, value);
     }
-
 
     public string Name
     {
@@ -82,7 +79,6 @@ public partial class StaffAdminTab : ContentView
     {
         get => (string)GetValue(IDProperty);
         set => SetValue(IDProperty, value);
-
     }
 
 
@@ -111,7 +107,7 @@ public partial class StaffAdminTab : ContentView
             }
         }
 
-    
+
     }
 
     //popup
@@ -148,12 +144,5 @@ public partial class StaffAdminTab : ContentView
 
         _staffManagementPage.DisplayAlert(title, message, "OK");
     }
-
-    
-
-    public StaffAdminTab()
-	{
-		InitializeComponent();
-	}
 
 }

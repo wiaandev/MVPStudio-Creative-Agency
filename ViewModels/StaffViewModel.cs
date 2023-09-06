@@ -39,7 +39,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public ICommand ChangeDesignerFilterCommand { get; private set; }
         public ICommand ChangeAdminFilterCommand { get; private set; }
         public ICommand ChangeDeveloperFilterCommand { get; private set; }
-
+        private string selectedStaff = "";
         public string MyFilterAction
         {
             get => filteringStaff;

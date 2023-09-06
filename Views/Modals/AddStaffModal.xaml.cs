@@ -1,23 +1,21 @@
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
-
 using Microsoft.Maui.Controls.Platform;
 using Mopups.Services;
-using MVPStudio_Creative_Agency.Components.StaffPageComponents;
-
-
 using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
+using MVPStudio_Creative_Agency.ViewModels;
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Globalization;
+using System.Windows.Input;
+
 
 namespace MVPStudio_Creative_Agency.Views.Modals
 {
     public partial class AddStaffModal : Popup
     {
 
-        
         private StaffManagementPage _staffManagementPage;
 
         public AddStaffModal(StaffManagementPage staffManagementPage)
@@ -26,36 +24,48 @@ namespace MVPStudio_Creative_Agency.Views.Modals
 
             ChangeDesignerFilterCommand = new Command(ChangeToFilterDesigner);
             ChangeDeveloperFilterCommand = new Command(ChangeToFilterDeveloper);
-          
+
             BindingContext = this;
             _staffManagementPage = staffManagementPage;
-        }
-
-        public AddStaffModal(StaffAdminTab staffAdminTab)
-        {
-            this.staffAdminTab = staffAdminTab;
         }
 
         private int filteringStaff = 0;
         public ICommand ChangeDeveloperFilterCommand { get; private set; }
 
-       
 
 
-          public DateTime DateOfBirth
-          {
-              get => dateOfBirth; // Convert DateOnly to DateTime
-              set => dateOfBirth = value; // Convert DateTime to DateOnly
-          }*/
+        public ICommand ChangeDesignerFilterCommand { get; private set; }
 
-        // Define a DateOnly property for the actual data binding     
-        public DateOnly SelectedDate { get; set; }
+        public int MyFilterAction
+        {
+            get => filteringStaff;
+            set
+            {
+                if (filteringStaff != value)
+                {
+                    filteringStaff = value;
+                    OnPropertyChanged(nameof(MyFilterAction));
+                }
+            }
+        }
 
+        // ChangeTo to be applied to filtering buttnos
+        private bool isDeveloperButtonActive = false;
+        public bool IsDeveloperButtonActive
+        {
+            get => isDeveloperButtonActive;
+            set
+            {
+                if (isDeveloperButtonActive != value)
+                {
+                    isDeveloperButtonActive = value;
+                    OnPropertyChanged(nameof(IsDeveloperButtonActive));
+                }
+            }
+        }
 
         // ChangeTo to be applied to filtering buttnos
         private bool isDesignButtonActive = false;
-        private StaffAdminTab staffAdminTab;
-
         public bool IsDesignButtonActive
         {
             get => isDesignButtonActive;
@@ -69,71 +79,87 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             }
         }
 
-
-
-        public Employee NewEmployee { get; set; } = new Employee();
-
-        public AddStaffModal()
+        private void ChangeToFilterDeveloper()
         {
-            InitializeComponent();
-            datePickerBirthDate.BindingContext = this;
+            MyFilterAction = 2;
+            IsDeveloperButtonActive = true;
+            IsDesignButtonActive = false;
+
+            Debug.WriteLine("Set Filter to Developer");
+
+        }
+        private void ChangeToFilterDesigner()
+        {
+            MyFilterAction = 3;
+            IsDeveloperButtonActive = false;
+            IsDesignButtonActive = true;
+
+            Debug.WriteLine("Set Filter to Designer");
 
         }
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine(SelectedDate);
-            // Create a new Employee object and populate it
+            string name = entryName.Text;
+            int roledId = filteringStaff;
+            string surname = entrySurname.Text;
+            string gender = entryGender.Text;
+            string profileImg = entryProfileImg.Text;
 
+            int currHours = 0;
+
+            // Create a new Employee object and populate it
             if (int.TryParse(entryCurrHours.Text, out int parsedCurrHours))
             {
                 // The nullable integer has a value (not null)
                 currHours = Int32.Parse(entryCurrHours.Text); // Access the integer value
-                
+
             }
+
 
 
             Employee newEmployee = new Employee
             {
-                Name = NewEmployee.Name,
-                Surname = NewEmployee.Surname,
-                Gender = NewEmployee.Gender,
-                ProfileImg = NewEmployee.ProfileImg,
-                Birth_Date = SelectedDate,
-                Curr_Hours = NewEmployee.Curr_Hours
-                // Set other properties as needed
-            };
+                Name = name,
+                RoleId = roledId,
+                Surname = surname,
+                Gender = gender,
+                ProfileImg = profileImg,
+                Curr_Hours = currHours
 
+            };
             //validation
             if (string.IsNullOrWhiteSpace(name))
             {
-          
+                // Name is required. You can display an error message to the user.
                 await ShowCustomAlertDialog("Validation Error", "Please enter a valid name.");
                 return;
             }
 
             if (filteringStaff == 0)
             {
-                // Role ID is required 
+                // Role ID is required or you can perform additional validation here.
                 await ShowCustomAlertDialog("Validation Error", "Please select a valid role.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(surname))
             {
+                // Surname is required. You can display an error message to the user.
                 await ShowCustomAlertDialog("Validation Error", "Please enter a valid surname.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(gender))
             {
+                // Gender is required. You can display an error message to the user.
                 await ShowCustomAlertDialog("Validation Error", "Please enter a valid gender.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(profileImg))
             {
-                // Profile Image URL is required. 
+                // Profile Image URL is required. You can display an error message to the user.
                 await ShowCustomAlertDialog("Validation Error", "Please enter a valid profile image URL.");
                 return;
             }
@@ -146,7 +172,6 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             }
 
 
-
             StaffRestService staffRestService = new StaffRestService(); // Create an instance
             bool success = await staffRestService.PostEmployeeAsync(newEmployee);
 
@@ -154,19 +179,32 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             {
                 // Employee was successfully created
                 Debug.WriteLine("Employee created successfully.");
-              //  await Navigation.PopPopupAsync(); // Close the modal
+                //  await Navigation.PopPopupAsync(); // Close the modal
+                await ShowCustomAlertDialog("Success", "Staff member added successfully");
+                await this.CloseAsync();
+
+
             }
             else
             {
                 // Handle the case where the POST request failed
                 Debug.WriteLine("Failed to create employee.");
-                // Optionally, display an error message to the user
+                // display an error message to the user
+
+                await ShowCustomAlertDialog("Failure", "Failed to create employee.");
+
             }
+
         }
 
-        private void CancelButton_Clicked(object sender, EventArgs e)
+
+        private async Task ShowCustomAlertDialog(string title, string message)
         {
-            Debug.WriteLine("Cancel");
+            // Assuming this modal is opened from a parent page, use the parent page to display the alert
+
+            await _staffManagementPage.DisplayAlert(title, message, "OK");
         }
+
+
     }
 }

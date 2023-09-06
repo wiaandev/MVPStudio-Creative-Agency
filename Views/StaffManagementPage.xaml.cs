@@ -42,14 +42,14 @@ public partial class StaffManagementPage : ContentPage
     //popup
     private void OpenModalButton_Clicked(object sender, EventArgs e)
     {
-        var modalPage = new AddStaffModal(); // Create an instance of your modal page
+        var modalPage = new AddStaffModal(this); // Create an instance of your modal page
 
         this.ShowPopup(modalPage); // Show the modal as a popup
     }
 
     public void DisplayPopup()
     {
-        var popup = new AddStaffModal();
+        var popup = new AddStaffModal(this);
 
         this.ShowPopup(popup);
     }
