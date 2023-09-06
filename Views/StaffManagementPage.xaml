@@ -18,9 +18,7 @@
    VerticalTextAlignment="Start" HorizontalTextAlignment="Center"  />
             <StackLayout  Margin="20,-10,0,0">
 
-                <Button HeightRequest="30" Text="Add new" FontFamily="Montserrat"
-                           FontSize="16" FontAttributes="Bold" TextColor="#fff"
-                        Clicked="OpenModalButton_Clicked" />
+               
                 
                 
             </StackLayout>
@@ -30,7 +28,7 @@
         <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="80,100,0,0" HorizontalOptions="FillAndExpand" Spacing="50" >
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2FD"
-                        WidthRequest="600" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
+                        WidthRequest="1000" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
                         HorizontalOptions="Start" VerticalOptions="FillAndExpand" >
                     <StackLayout ZIndex="3" >
                         
@@ -105,7 +103,9 @@
                             </Button.Triggers>
                         </Button>
 
-                                                                                                                                                                           
+                            <Button HeightRequest="30" Text="Add new" FontFamily="Montserrat"
+            FontSize="16" FontAttributes="Bold" TextColor="#fff"
+          Margin="200,0,0,0" />
 
 
                         </HorizontalStackLayout>
@@ -123,22 +123,14 @@
                                 <CollectionView ItemsSource="{Binding EmployeeList}" SelectionMode="None" HeightRequest="600"  VerticalScrollBarVisibility="Never" >
 
                                     <CollectionView.ItemsLayout >
-                                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10"   />
+                                        <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="10"   />
                                     </CollectionView.ItemsLayout>
 
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-
-
-
-
                                             <!-- Customize the card content here -->
                                             <!--TO DO : Create Component, add into folder-->
                                             <components:StaffAdminTab ViewModel="{Binding}" x:Name="staffAdminTab" />
-
-
-
-
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
@@ -152,123 +144,7 @@
 
             </StackLayout>
 
-            <HorizontalStackLayout >
-
-                <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2Fd"
-                        WidthRequest="450" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25"  Padding="0"
-                        HorizontalOptions="End"  Margin="10,0,0,0">
-
-                    <VerticalStackLayout >
-                        <!--   Title Stack-->
-                        <HorizontalStackLayout Spacing="20"  Margin="20,20,0,0" HorizontalOptions="StartAndExpand">
-                            
-                            <Label Text=" Employee Overview" FontFamily="Montserrat"
-                             FontSize="25" FontAttributes="Bold" TextColor="#667080"
-                             VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
-
-                            <Button Text="Update" WidthRequest="120" HorizontalOptions="CenterAndExpand" Margin="20,-10,0,0" FontSize="14"></Button>
-
-                        </HorizontalStackLayout>
-
-
-                        <!--Staff Profile Picture-->
-                        <VerticalStackLayout VerticalOptions="FillAndExpand"  Margin="10,20,10,10" Spacing="6" >
-                            <HorizontalStackLayout HorizontalOptions="Center">
-                                <Image Source="profile_img.png" HeightRequest="90" Margin="0,0,0,10" />
-                            </HorizontalStackLayout>
-
-                            <Label
-                                Text="Shanre Scheepers"
-                                HeightRequest="30"
-                             FontFamily="Montserrat"
-                             FontSize="30" FontAttributes="Bold" TextColor="#667080"
-                             VerticalTextAlignment="Start" HorizontalTextAlignment="Center"/>
-
-                            <!-- <Label Text="shanrescheepers@gmail.com" FontFamily="Montserrat" Margin="88,0,0,0" FontSize="16" TextColor="#667080"VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/> -->
-
-                            <Label
-                             Text="Creative Developer"
-                            FontFamily="Montserrat" Margin="88,0,0,0"
-                             FontSize="20" FontAttributes="Bold" TextColor="#3B2765"
-                             VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
-
-                           <VerticalStackLayout HorizontalOptions="Start" Margin="75,20,0,0">
-                                 <HorizontalStackLayout Margin="10,0,0,10" >
-                                    <Label
-                                    Text="Salary"
-                                      FontFamily="Montserrat" FontAttributes="Bold"
-                                    FontSize="18" TextColor="#667080"   />
-                            </HorizontalStackLayout>
-
-                            <HorizontalStackLayout  Spacing="0">
-                                    <Border Stroke="#667080" StrokeThickness="1"  Background="#fff"
-                                       StrokeShape="RoundRectangle 25"  HorizontalOptions="Start"  WidthRequest="300" Margin="7,-10,0,0" Padding="5">
-                                       <StackLayout Orientation="Horizontal"  Spacing="150" >
-                                             <Label Text="R25 000 p/m" WidthRequest="280" Padding="4"  />
-                                              
-                                        </StackLayout>
-                                    </Border>
-
-                                  
-                                 </HorizontalStackLayout>
-                            </VerticalStackLayout>
-
-           
-
-                    <HorizontalStackLayout Spacing="20" Margin="25,20,20,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" >
-                               <Label Text="All Projects" TextColor="#3b2765"
-                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold"  >
-                                </Label>
-
-
-                              <!--   <Button Text="Current" TextColor="#9d9de4"
-                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
-                                </Button> -->
-
-
-                              <!--   <Button Text="Closed" TextColor="#f195a5" 
-                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
-                                </Button> -->
-                              
-                            </HorizontalStackLayout>
-
-
-                          
-                            <ScrollView VerticalScrollBarVisibility="Always"  HeightRequest="200">
-                                <StackLayout>
-
-                                    <CollectionView ItemsSource="{Binding ProjectCards}" SelectionMode="None">
-                                        <CollectionView.ItemsLayout>
-                                            <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="20" VerticalItemSpacing="30" />
-                                        </CollectionView.ItemsLayout>
-                                        <CollectionView.ItemTemplate>
-                                            <DataTemplate>
-                                                <components:AllProjectsComponent ProjectName="{Binding ProjectName}" Image="{Binding Image}" Date="{Binding Date}" />
-                                            </DataTemplate>
-                                        </CollectionView.ItemTemplate>
-                                    </CollectionView>
-
-                                </StackLayout>
-                            </ScrollView>
-
-
-                            <StackLayout> 
-                            
-                            
-                            </StackLayout>
-
-
-
-
-
-
-                        </VerticalStackLayout>
-                    </VerticalStackLayout>
-
-
-                </Border>
-
-            </HorizontalStackLayout>
+            
 
         </HorizontalStackLayout>
     </Grid>

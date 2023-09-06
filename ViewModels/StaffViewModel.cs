@@ -1,20 +1,32 @@
-﻿using MVPStudio_Creative_Agency.Models;
+﻿using MVPStudio_Creative_Agency.Components.StaffPageComponents;
+using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MVPStudio_Creative_Agency.ViewModels
 {
-    public class StaffViewModel : BaseViewModel
+    public class StaffViewModel : INotifyPropertyChanged
     {
         public StaffRestService _restService;
         public StaffRolesServices _staffRolesServices;
+        /*public Employee SelectedStaff { get; set; }*/
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         //define all my observed properties
         public ObservableCollection<Employee> EmployeeList { get; set; }
@@ -44,7 +56,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         private string selectedStaff = "";
 
-
+        
 
         public string MyFilterAction
         {
@@ -136,6 +148,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
             }
         }
 
+
+
         private bool isAdminButtonActive = false;
         public bool IsAdminButtonActive
         {
@@ -223,14 +237,25 @@ namespace MVPStudio_Creative_Agency.ViewModels
             LoadAllStaffAsync();
         }
 
-        public void ChangeSelectedStaff(string iD)
+        private Employee _selectedStaff;
+        public Employee SelectedStaff
         {
-            MySelectedAction = "Developer";
-
-            Debug.WriteLine("Set Filter to Selected");
-            Debug.WriteLine(iD);
-
+            get => _selectedStaff;
+            set
+            {
+                if (_selectedStaff != value)
+                {
+                    Debug.WriteLine(value.Name);
+                    _selectedStaff = value;
+                    OnPropertyChanged(nameof(SelectedStaff));
+                }
+            }
         }
+
+       
+
+        
+
     }
 
 

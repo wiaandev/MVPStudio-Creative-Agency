@@ -80,13 +80,31 @@ public partial class StaffAdminTab : ContentView
         var image = sender as Image;
         if (image != null)
         {
-            var id = image.ClassId;
-            Debug.WriteLine("Select button pressed");
-            Debug.WriteLine(id);
+            var id = image.ClassId ;
+           
 
             if (!string.IsNullOrEmpty(id))
             {
-                ViewModel.ChangeSelectedStaff(id);
+             
+            }
+            else
+            {
+                Debug.WriteLine("ID is not set");
+            }
+        }
+    }
+
+    void OnDeleteClicked(object sender, EventArgs e)
+    {
+        var image = sender as Image;
+        if (image != null)
+        {
+            var id = image.ClassId ;
+           
+
+            if (!string.IsNullOrEmpty(id))
+            {
+             
             }
             else
             {

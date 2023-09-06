@@ -8,6 +8,7 @@ using CommunityToolkit.Maui;
 using Mopups.Services;
 using CommunityToolkit.Maui.Views;
 using Microsoft.UI.Xaml.Controls.Primitives;
+using MVPStudio_Creative_Agency.Services;
 
 
 namespace MVPStudio_Creative_Agency.Views;
@@ -34,6 +35,7 @@ public partial class StaffManagementPage : ContentPage
         Debug.WriteLine("Getting data");
         base.OnAppearing();
         await _staffViewModel.LoadAllStaffAsync();
+    
     }
 
     //popup
@@ -43,8 +45,6 @@ public partial class StaffManagementPage : ContentPage
 
         this.ShowPopup(modalPage); // Show the modal as a popup
     }
-
-   
 
     public void DisplayPopup()
     {
