@@ -15,6 +15,6 @@ public partial class FlyoutFooter : ContentView
 
         /*await Shell.Current.GoToAsync("/LoginPage");*/
         new AuthService().LogOutUser();
-        await Shell.Current.GoToAsync(nameof(LoginPage));
+        await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
     }
 }

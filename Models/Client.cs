@@ -15,7 +15,8 @@ namespace MVPStudio_Creative_Agency.Models
 
         public string Name { get; set; }
 
-        public string ImgUrl { get; set; }
+        public string ImgUrl { get; set; } = string.Empty;
+
 
         public string Email { get; set; }
 
