@@ -4,21 +4,10 @@
              x:Class="MVPStudio_Creative_Agency.Components.SingleProjectCard">
     <VerticalStackLayout>
         <ScrollView>
-            <Frame CornerRadius="20" BackgroundColor="{DynamicResource WhiteDark}" BorderColor="Transparent" Margin="5">
+        <Frame CornerRadius="20" BackgroundColor="{DynamicResource WhiteDark}" BorderColor="Transparent" >
                 <VerticalStackLayout Padding="10" Spacing="20">
                     <HorizontalStackLayout Spacing="20">
-                        <Label
-                            FontFamily="Hind-Regular"
-                            TextColor="{DynamicResource Black}">
-
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Project starts: " />
-                                    <Span Text="{Binding Project_Start}" FontFamily="Montserrat-Bold"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-
-                        </Label>
+                        <Label Text="08 July 2023" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
 
                         <Label
                             Text="Complete"
@@ -27,11 +16,11 @@
                         />
                     </HorizontalStackLayout>
 
-                    <Label Text="{Binding ClienName}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="18"/>
-                    <Label Text="{Binding Project_Name}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="24"/>
+                    <Label Text="WWF Studios" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="12"/>
+                    <Label Text="Website Design" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="30"/>
 
                     <Label Text="Progress" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
-                    <ProgressBar Progress="{Binding Progress}" ProgressColor="{DynamicResource Black}" Margin="0,0,0,20"/>
+                    <ProgressBar Progress="0.5" ProgressColor="{DynamicResource Black}" Margin="0,0,0,20"/>
                     <Line X1="0" X2="300" Stroke="{DynamicResource Black}"/>
 
 
@@ -57,8 +46,6 @@
                         </Image>
 
                     </HorizontalStackLayout>
-
-                    <Button Text="View More" Clicked="ViewProject"/>
 
                 </VerticalStackLayout>
 

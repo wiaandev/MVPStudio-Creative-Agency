@@ -1,72 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="MVPStudio_Creative_Agency.Views.DashboardPage"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
-    xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
-    Title=""
-    BackgroundColor="{DynamicResource PurpleLighter}"
-    NavigationPage.HasBackButton="False">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
+             x:Class="MVPStudio_Creative_Agency.Views.DashboardPage"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             Title=""
+             BackgroundColor="{DynamicResource PurpleLighter}">
     <Grid>
         <!--<Image Source="background.png" Aspect="Fill" ZIndex="-999" Grid.ColumnSpan="2"/>-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <VerticalStackLayout
-            Grid.Column="0"
-            Padding="50"
-            FlexLayout.Basis="80%">
-            <HorizontalStackLayout Margin="0,0,0,50" Spacing="50">
-                <Label
-                    FontFamily="Montserrat-Bold"
-                    FontSize="36"
-                    Text="Agency Workboard"
-                    TextColor="{DynamicResource Black}" />
+        <VerticalStackLayout Padding="50" FlexLayout.Basis="80%" Grid.Column="0">
+            <HorizontalStackLayout Spacing="50" Margin="0,0,0,50">
+                <Label Text="Agency Workboard" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="36"/>
                 <!--<SearchBar Placeholder="Search..." BackgroundColor="{DynamicResource White}" TextColor="{DynamicResource Black}" MaximumWidthRequest="400" CursorPosition="1" CancelButtonColor="red"/> -->
-                <Entry
-                    BackgroundColor="{DynamicResource White}"
-                    FontSize="16"
-                    HeightRequest="60"
-                    MinimumWidthRequest="300"
-                    Placeholder="Search..."
-                    TextColor="{DynamicResource Black}" />
+                <Entry Placeholder="Search..." BackgroundColor="{DynamicResource White}" TextColor="{DynamicResource Black}" MinimumWidthRequest="300" HeightRequest="60" FontSize="16"/>
             </HorizontalStackLayout>
 
-            <Frame
-                BackgroundColor="{DynamicResource White}"
-                BorderColor="Transparent"
-                CornerRadius="20"
-                HeightRequest="800">
-                <Grid Padding="20" ColumnSpacing="10">
+            <Frame CornerRadius="20" BackgroundColor="{DynamicResource White}" BorderColor="Transparent" HeightRequest="800">
+                <Grid ColumnSpacing="10" Padding="20">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                         <!--<ColumnDefinition Width="*"/>-->
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height=".4*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height=".4*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <components:DashboardCard
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        CardTitle="Clients" />
-                    <components:DashboardCard
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        CardTitle="Staff" />
-                    <micro:ChartView
-                        x:Name="chartView"
-                        Grid.Row="0"
-                        Grid.RowSpan="2"
-                        Grid.Column="2"
-                        Grid.ColumnSpan="2" />
-                    <components:ProjectsCard Grid.Row="1" Grid.ColumnSpan="2" />
+                    <components:DashboardCard Grid.Column="0" CardTitle="Clients" Grid.Row="0" />
+                    <components:DashboardCard Grid.Column="1" CardTitle="Staff" Grid.Row="0"/>
+                    <micro:ChartView x:Name="chartView" Grid.Column="2" Grid.RowSpan="2" Grid.Row="0" Grid.ColumnSpan="2"/>
+                    <components:ProjectsCard Grid.ColumnSpan="2" Grid.Row="1" />
                 </Grid>
             </Frame>
         </VerticalStackLayout>

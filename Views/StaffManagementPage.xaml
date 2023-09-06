@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components.StaffPageComponents"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MVPStudio_Creative_Agency.Views.StaffManagementPage"
                 Shell.NavBarIsVisible="False"
              Title="StaffManagementPage"
@@ -10,131 +9,136 @@
 
 
 
+
     <Grid >
+        <!-- Background image -->
+
         <Image Source="background.png" Aspect="AspectFill" />
-        <HorizontalStackLayout Margin="90,50,0,0">
+
+        <!--<FlexLayout Direction="Column" AlignItems="Start" JustifyContent="SpaceEvenly" VerticalOptions="FillAndExpand">-->
+
+
+
+
+            <!--<StackLayout Orientation="Horizontal" Padding="10,5" Spacing="10"    HorizontalOptions="Start">
+               
+
+                <StackLayout Orientation="Horizontal" Padding="10,5" Spacing="50" Margin="2" >
+                 
+
+                    <Border Stroke="#2b2b2b" StrokeThickness="0" BackgroundColor="#2b2b2b" WidthRequest="350" StrokeShape="RoundRectangle 12,12,12,12" Padding="0" HorizontalOptions="Center" >
+                        <SearchBar Placeholder="Search..."  TextColor="#fff" BackgroundColor="#2b2b2b" />
+                    </Border>
+
+                    <Button Text="+ Add new staff" HorizontalOptions="Center" Padding="20, 10" CornerRadius="15" BackgroundColor="#61D2D3"
+                         FontFamily="Montserrat" TextColor="Black" />
+                </StackLayout>
+            </StackLayout>-->
+
+
+
+
+
+            <!--This is Left Bottom Navbar-->
+            <!--<VerticalStackLayout VerticalOptions="FillAndExpand"  Margin="10,40,10,-10" Spacing="10" >
+                <Image Source="profile_img.png"
+               HeightRequest="60" />
+                <Label Text="Jane Doe"
+               FontSize="14" TextColor="#2b2b2b" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                <Button Text="Do-Nothing Button" HorizontalOptions="Center" Padding="10" CornerRadius="22"/>
+
+            </VerticalStackLayout>-->
+        <!--</FlexLayout>-->
+        <HorizontalStackLayout Margin="50,50,0,0">
             <Label Text="Staff Board" FontFamily="Montserrat"
         FontSize="30" FontAttributes="Bold" TextColor="#667080"
    VerticalTextAlignment="Start" HorizontalTextAlignment="Center"  />
-            <StackLayout  Margin="20,-10,0,0">
-
-               
-                
-                
+            <StackLayout  Margin="150,-10,0,0">
+                <Button Text="+ Add new member" HorizontalOptions="Center" Padding="10" CornerRadius="8" BackgroundColor="#61d2d3" TextColor="#2b2b2b">
+                </Button>
             </StackLayout>
         </HorizontalStackLayout>
-        
         <!--GRID-->
         <HorizontalStackLayout VerticalOptions="FillAndExpand" Margin="80,100,0,0" HorizontalOptions="FillAndExpand" Spacing="50" >
+
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2FD"
-                        WidthRequest="1000" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
+                        WidthRequest="600" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25" Padding="20" 
                         HorizontalOptions="Start" VerticalOptions="FillAndExpand" >
                     <StackLayout ZIndex="3" >
-                        
                         <!--HEADINGS STAFF & ADMIN-->
-                        <HorizontalStackLayout Margin="5,10,0,-10" Spacing="30" >
+                        <HorizontalStackLayout Margin="5,10,0,-10" Spacing="70" >
+                            <Label Text=" Staff" FontFamily="Montserrat"
+                         FontSize="20" FontAttributes="Bold" TextColor="#667080"
+                             VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
 
-                            <Button x:Name="AllButton"
-                                Text="All"
-                                FontFamily="Montserrat"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#9d9de4"
-                                Command="{Binding ChangeAllStaffFilterCommand}">
-                            <Button.Triggers>
-                                <DataTrigger TargetType="Button" Binding="{Binding IsAllStaffButtonActive}" Value="True">
-                                    <Setter Property="BackgroundColor" Value="#2b2b2b" />
-                                </DataTrigger>
-                                <DataTrigger TargetType="Button" Binding="{Binding IsAllStaffButtonActive}" Value="False">
-                                    <Setter Property="BackgroundColor" Value="#fff" />
-                                </DataTrigger>
-                            </Button.Triggers>
-                        </Button>
+                            <Label Text="Admin" FontFamily="Montserrat"
+                                  FontSize="20" FontAttributes="Bold" TextColor="#667080"
+                             VerticalTextAlignment="Start" HorizontalTextAlignment="Center"   />
 
-                        <Button x:Name="AdminButton"
-                                Text="Admin"
-                                FontFamily="Montserrat"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#9d9de4"
-                                Command="{Binding ChangeAdminFilterCommand}">
-                            <Button.Triggers>
-                                <DataTrigger TargetType="Button" Binding="{Binding IsAdminButtonActive}" Value="True">
-                                    <Setter Property="BackgroundColor" Value="#2b2b2b" />
-                                </DataTrigger>
-                                <DataTrigger TargetType="Button" Binding="{Binding IsAdminButtonActive}" Value="False">
-                                    <Setter Property="BackgroundColor" Value="#fff" />
-                                </DataTrigger>
-                            </Button.Triggers>
-                        </Button>
 
-                        <Button x:Name="DeveloperButton"
-                                Text="Developer"
-                                FontFamily="Montserrat"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#9d9de4"
-                                Command="{Binding ChangeDeveloperFilterCommand}">
-                            <Button.Triggers>
-                                <DataTrigger TargetType="Button" Binding="{Binding IsDeveloperButtonActive}" Value="True">
-                                    <Setter Property="BackgroundColor" Value="#2b2b2b" />
-                                </DataTrigger>
-                                <DataTrigger TargetType="Button" Binding="{Binding IsDeveloperButtonActive}" Value="False">
-                                    <Setter Property="BackgroundColor" Value="#fff" />
-                                </DataTrigger>
-                            </Button.Triggers>
-                        </Button>
+                    
+                              
 
-                        <Button x:Name="DesignerButton"
-                                Text="Designer"
-                                FontFamily="Montserrat"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#9d9de4"
-                                Command="{Binding ChangeDesignerFilterCommand}">
-                            <Button.Triggers>
-                                <DataTrigger TargetType="Button" Binding="{Binding IsDesignerButtonActive}" Value="True">
-                                    <Setter Property="BackgroundColor" Value="#2b2b2b" />
-                                </DataTrigger>
-                                <DataTrigger TargetType="Button" Binding="{Binding IsDesignerButtonActive}" Value="False">
-                                    <Setter Property="BackgroundColor" Value="#ffff" />
-                                </DataTrigger>
-                            </Button.Triggers>
-                        </Button>
-
-                            <Button HeightRequest="30" Text="Add new" FontFamily="Montserrat"
-                               FontSize="16" FontAttributes="Bold" TextColor="#fff" Clicked="OpenModalButton_Clicked" 
-                               Margin="180,0,0,0" />
-                            <Button HeightRequest="30" Text="Update" FontFamily="Montserrat"
-                                FontSize="14" FontAttributes="Bold" TextColor="#fff" Clicked="OpenStaffModalButton_Clicked" />
-
+                          
                         </HorizontalStackLayout>
                         <StackLayout>
-           
+                            <!--<TabControl>
+                                --><!-- Tab for Staff --><!--
+                                <TabItem Title="Staff">
+                                    <ContentView>
+                                        --><!-- Content specific to Staff --><!--
+                                        <ScrollView VerticalScrollBarVisibility="Default" Margin="5,10,0,0" HeightRequest="600">
+                                            --><!-- Place your Staff-related content here --><!--
+                                        </ScrollView>
+                                    </ContentView>
+                                </TabItem>
+
+                                --><!-- Tab for Admin --><!--
+                                <TabItem Title="Admin">
+                                    <ContentView>
+                                        --><!-- Content specific to Admin --><!--
+                                        <ScrollView VerticalScrollBarVisibility="Default" Margin="5,10,0,0" HeightRequest="600">
+                                            --><!-- Place your Admin-related content here --><!--
+                                        </ScrollView>
+                                    </ContentView>
+                                </TabItem>
+                            </TabControl>-->
                         </StackLayout>
 
 
 
 
-                        <ScrollView  VerticalScrollBarVisibility="Always" Margin="0,16,0,0">
 
-                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" >
+
+
+
+                        <!--<CollectionView ItemsSource="{Binding Cards}"
+                    ItemTemplate="{StaticResource CardTemplate}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="2" />-->
+
+
+                        <ScrollView  VerticalScrollBarVisibility="Always" Margin="0,16,0,0" HeightRequest="600" >
+
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="10" >
                                 <!--Dont add this! (Cards)-->
-                                <CollectionView ItemsSource="{Binding EmployeeList}" SelectionMode="None"  VerticalScrollBarVisibility="Never" >
+                                <CollectionView ItemsSource="{Binding Cards}" SelectionMode="None" HeightRequest="600"  VerticalScrollBarVisibility="Never" >
 
                                     <CollectionView.ItemsLayout >
-                                        <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="10"   />
+                                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10"   />
                                     </CollectionView.ItemsLayout>
 
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
+
+
+
+
                                             <!-- Customize the card content here -->
-
-                                   
-                                            <components:StaffAdminTab ViewModel="{Binding}" x:Name="staffAdminTab"  />
-
-
+                                            <!--TO DO : Create Component, add into folder-->
+                                            <components:StaffAdminTab Name="{Binding Name}" Title="{Binding Title}" Image="{Binding Image}" Projects="{Binding Projects}" Salary="{Binding Salary}" ID="{Binding ID}" />
 
 
 
@@ -151,9 +155,146 @@
 
             </StackLayout>
 
+            <HorizontalStackLayout >
 
-           
+                <Border Stroke="#ababf6" StrokeThickness="0.11" BackgroundColor="#F2F2Fd"
+                        WidthRequest="450" HeightRequest="700"  StrokeShape="RoundRectangle 25,25,25,25"  Padding="0"
+                        HorizontalOptions="End"  Margin="10,0,0,0">
 
+                    <VerticalStackLayout >
+                        <!--   Title Stack-->
+                        <HorizontalStackLayout Spacing="10"  Margin="0,40,0,0" HorizontalOptions="CenterAndExpand">
+                            <Label Text=" Employee Overview" FontFamily="Montserrat"
+                             FontSize="30" FontAttributes="Bold" TextColor="#667080"
+                             VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
+
+                            <Image Source="Images/png/edit_icon.png"
+                         HeightRequest="45"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" />
+
+                        </HorizontalStackLayout>
+
+
+                        <!--Staff Profile Picture-->
+                        <VerticalStackLayout VerticalOptions="FillAndExpand"  Margin="10,20,10,10" Spacing="6" >
+                            <HorizontalStackLayout HorizontalOptions="Center">
+                                <Image Source="profile_img.png" HeightRequest="90" Margin="0,0,0,10" />
+                            </HorizontalStackLayout>
+
+                            <Label
+                                Text="Shanre Scheepers"
+                                HeightRequest="30"
+                             FontFamily="Montserrat"
+                             FontSize="30" FontAttributes="Bold" TextColor="#667080"
+                             VerticalTextAlignment="Start" HorizontalTextAlignment="Center"/>
+
+                            <Label
+                                Text="shanrescheepers@gmail.com" 
+                            FontFamily="Montserrat" Margin="88,0,0,0"
+                             FontSize="16" TextColor="#667080"
+                             VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
+
+                            <Label
+                             Text="Creative Developer"
+                            FontFamily="Montserrat" Margin="88,0,0,0"
+                             FontSize="20" FontAttributes="Bold" TextColor="#3B2765"
+                             VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
+
+                           <VerticalStackLayout HorizontalOptions="Start" Margin="75,20,0,0">
+                                 <HorizontalStackLayout Margin="10,0,0,10" >
+                                    <Label
+                                    Text="Salary"
+                                      FontFamily="Montserrat" FontAttributes="Bold"
+                                    FontSize="18" TextColor="#667080"   />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout  Spacing="0">
+                                    <Border Stroke="#667080" StrokeThickness="1"  Background="#fff"
+                                       StrokeShape="RoundRectangle 25"  HorizontalOptions="Start"  WidthRequest="300" Margin="7,-10,0,0" Padding="5">
+                                       <StackLayout Orientation="Horizontal"  Spacing="150" >
+                                             <Label Text="R25 000 p/m" WidthRequest="280" Padding="4"  />
+                                              
+                                        </StackLayout>
+                                    </Border>
+
+                                  
+                                 </HorizontalStackLayout>
+                            </VerticalStackLayout>
+
+                             <!--<TabBar Shell.BackgroundColor="#6d6c51" Shell.NavBarHasShadow="False">
+        <Tab Title="All Trees">
+
+            <ShellContent Title="All Trees" ContentTemplate="{DataTemplate local:AllTrees}" />
+
+              <ShellContent Title="Purchase Tree"  ContentTemplate="{DataTemplate local:PurchaseTree}" />
+        </Tab>
+
+       
+    </TabBar>
+
+
+                             <Label Text="All projects"
+                        FontSize="22" TextColor="#667080" VerticalTextAlignment="Start"
+                             HorizontalTextAlignment="Start" FontFamily="Montserrat" FontAttributes="Bold" 
+                             />-->
+
+
+
+                    <HorizontalStackLayout Spacing="20" Margin="18,20,20,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                               <Button Text="All Projects" TextColor="#3b2765"
+                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold"  >
+                                </Button>
+
+
+                                 <Button Text="Current" TextColor="#9d9de4"
+                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
+                                </Button>
+
+
+                                 <Button Text="Closed" TextColor="#f195a5" 
+                                       FontFamily="Montserrat"  FontSize="22" BackgroundColor="Transparent" FontAttributes="Bold" >
+                                </Button>
+                              
+                            </HorizontalStackLayout>
+
+
+                          
+                            <ScrollView VerticalScrollBarVisibility="Always"  HeightRequest="200">
+                                <StackLayout>
+                                    <!-- Add other content here if needed -->
+
+                                    <CollectionView ItemsSource="{Binding ProjectCards}" SelectionMode="None">
+                                        <CollectionView.ItemsLayout>
+                                            <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="20" VerticalItemSpacing="30" />
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <components:AllProjectsComponent ProjectName="{Binding ProjectName}" Image="{Binding Image}" Date="{Binding Date}" />
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+
+                                    <!-- Add other content here if needed -->
+                                </StackLayout>
+                            </ScrollView>
+
+
+                            <StackLayout> 
+                            
+                            
+                            </StackLayout>
+
+
+
+
+
+
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+
+
+                </Border>
+
+            </HorizontalStackLayout>
 
         </HorizontalStackLayout>
     </Grid>
