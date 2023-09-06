@@ -181,6 +181,8 @@ namespace MVPStudio_Creative_Agency.Views.Modals
                 Debug.WriteLine("Employee created successfully.");
                 //  await Navigation.PopPopupAsync(); // Close the modal
                 await ShowCustomAlertDialog("Success", "Staff member added successfully");
+                await this.CloseAsync();
+
 
             }
             else
@@ -188,7 +190,8 @@ namespace MVPStudio_Creative_Agency.Views.Modals
                 // Handle the case where the POST request failed
                 Debug.WriteLine("Failed to create employee.");
                 // display an error message to the user
-                Debug.WriteLine("Failed to create employee.");
+                
+                await ShowCustomAlertDialog("Failure", "Failed to create employee.");
 
             }
 
@@ -200,7 +203,6 @@ namespace MVPStudio_Creative_Agency.Views.Modals
             // Assuming this modal is opened from a parent page, use the parent page to display the alert
            
            await _staffManagementPage.DisplayAlert(title, message, "OK");
-            
         }
 
 
