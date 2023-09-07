@@ -3,52 +3,108 @@ using CommunityToolkit.Maui.Views;
 using MVPStudio_Creative_Agency.Components;
 using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.ViewModels;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
+using Microcharts;
+using SkiaSharp;
 
 namespace MVPStudio_Creative_Agency.Views;
 
 public partial class FundsManagementPage : ContentPage
 {
-    public ObservableCollection<FundCard> FundCards { get; set; }
+    private ProjectViewModel _projectViewModel;
+    private StaffViewModel _staffViewModel;
+    private FundsManagementViewModel _fundsManagementViewModel;
+    private ChartEntry[] entries;
 
     public FundsManagementPage()
     {
         InitializeComponent();
-        _projectViewModel = new ProjectViewModel(new Services.ProjectService());
-        BindingContext = _projectViewModel;
+         _fundsManagementViewModel.ProfitValueLabel = (_fundsManagementViewModel.ProjectViewModel.TotalProjectCost - _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate);
+        _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate = _fundsManagementViewModel.StaffViewModel.GetTotalSalaryAndHourlyRateAsync();
         
-       /* BindingContext = this;*/
+        _fundsManagementViewModel = new FundsManagementViewModel
+        {
+            ProjectViewModel = new ProjectViewModel(new Services.ProjectService()),
+            StaffViewModel = new StaffViewModel(new Services.StaffRestService(), new Services.StaffRolesServices())
+        };
+        BindingContext = _fundsManagementViewModel;
+        
+
+        entries = new[]
+        {
+            new ChartEntry(0)
+            {
+                Label = "Revenue",
+                ValueLabel = "0",
+                Color = SKColor.Parse("#2c3e50")
+            },
+            new ChartEntry(0)
+            {
+                Label = "Unpaid",
+                ValueLabel = "0",
+                Color = SKColor.Parse("#e3e3e3")
+            },
+            new ChartEntry(0)
+            {
+                Label = "Profit",
+                ValueLabel = "0",
+                Color = SKColor.Parse("#b455b6")
+            },
+        };
+
+        chartView.Chart = new RadarChart
+        {
+            Entries = entries
+        };
     }
-
-
-    private ProjectViewModel _projectViewModel;
-    public string projectCount = "";
-    public double totalProjectCost { get; set; } = 0;
-
+    
+    
     protected override async void OnAppearing()
+{
+    try
     {
         Debug.WriteLine("Getting the data: ");
-        base.OnAppearing();
-        await _projectViewModel.fetchAllProjects();
-        await _projectViewModel.fetchAllClients();
-        _projectViewModel.Project_Count = $"{_projectViewModel.Projects.Count}";
 
-        Debug.WriteLine($"Total Project Cost: {_projectViewModel.TotalProjectCost}");
+        await _fundsManagementViewModel.ProjectViewModel.fetchAllProjects();
+        await _fundsManagementViewModel.ProjectViewModel.fetchAllClients();
+        _fundsManagementViewModel.ProfitValueLabel = (_fundsManagementViewModel.ProjectViewModel.TotalProjectCost - _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate);
+        _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate = await _fundsManagementViewModel.StaffViewModel.GetTotalSalaryAndHourlyRateAsync();
+        
+        _fundsManagementViewModel.ProjectViewModel.Project_Count = $"{_fundsManagementViewModel.ProjectViewModel.Projects.Count}";
+        
+        Debug.WriteLine($"Total Project Cost: {_fundsManagementViewModel.ProjectViewModel.TotalProjectCost}");
+        Debug.WriteLine($"Total Salary and Hourly Rate: {_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate}");
+        Debug.WriteLine($"Total Profit: {_fundsManagementViewModel.ProfitValueLabel}");
 
-        Debug.WriteLine($"Clients are {_projectViewModel.Clients.Count}");
+        // Update the chart entries after TotalProjectCost is updated
+        entries[0] = new ChartEntry((float)_fundsManagementViewModel.ProjectViewModel.TotalProjectCost)
+        {
+            Label = "Revenue",
+            ValueLabel = "R " + ((float)_fundsManagementViewModel.ProjectViewModel.TotalProjectCost).ToString(),
+            Color = SKColor.Parse("#2c3e50")
+        };
+
+        entries[1] = new ChartEntry((float)_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate)
+        {
+            Label = "Unpaid",
+            ValueLabel = "R " + ((float)_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate).ToString(),
+            Color = SKColor.Parse("#2c3e50")
+        };
+
+        entries[2] = new ChartEntry((float)_fundsManagementViewModel.ProfitValueLabel)
+        {
+            Label = "Profit",
+            ValueLabel ="R " + ((float)_fundsManagementViewModel.ProfitValueLabel).ToString(),
+            Color = SKColor.Parse("#2c3e50")
+        };
+        chartView.Chart = new RadarChart { Entries = entries };
+       
+
+        Debug.WriteLine($"Clients are {_fundsManagementViewModel.ProjectViewModel.Clients.Count}");
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine($"Error updating chart: {ex}");
     }
 }
-
-public class FundCard
-{
-    public string Name { get; internal set; }
-    public string Image { get; internal set; }
-    public string Bundle { get; internal set; }
-    public string Description { get; internal set; }
-    public string Team { get; internal set; }
-    public string Timeline { get; internal set; }
-    public string Cost { get; internal set; }
-    public string Paid { get; internal set; }
-    public string Progress { get; internal set; }
 }
