@@ -44,6 +44,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
             if (authSuccess)
             {
+
                 await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
             }
 
@@ -53,10 +54,6 @@ namespace MVPStudio_Creative_Agency.ViewModels
             }
 
 
-            /*if (Password == "" | Email == "")
-            {
-
-            }*/
             OnPropertyChanged(nameof(ErrorMessage));
         }
     }

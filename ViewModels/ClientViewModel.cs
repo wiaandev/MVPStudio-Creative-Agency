@@ -21,8 +21,6 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public Client CurrentClient { get; set; }
 
-
-        // ADDING CLIENTS
         public string Name { get; set; }    
 
         public string Email { get; set; } 
