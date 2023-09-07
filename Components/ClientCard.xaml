@@ -29,6 +29,15 @@
 
                     <Label
                         Margin="0,10,0,0"
+                        FontAttributes="None"
+                        FontFamily="Montserrat"
+                        FontSize="14"
+                        Text="Wordpress fix"
+                        TextColor="#667080" />
+
+
+                    <Label
+                        Margin="0,10,0,0"
                         FontAttributes="Bold"
                         FontFamily="Montserrat"
                         FontSize="12"
@@ -43,10 +52,7 @@
 
             <HorizontalStackLayout Margin="10,10,0,0" HorizontalOptions="Start">
 
-                <Image
-                    HeightRequest="40"
-                    HorizontalOptions="Start"
-                    Source="{Binding ImgUrl}" />
+                <Image HeightRequest="40" HorizontalOptions="Start" />
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

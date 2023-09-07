@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:MVPStudio_Creative_Agency"
     xmlns:views="clr-namespace:MVPStudio_Creative_Agency.Views"
     FlyoutIsPresented="True"
+    FlyoutWidth="200"
     Shell.FlyoutBehavior="Locked">
 
 

@@ -1,37 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView
-    x:Class="MVPStudio_Creative_Agency.Components.FlyoutFooter"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio_Creative_Agency.Components.FlyoutFooter">
 
-    <VerticalStackLayout
-        FlexLayout.AlignSelf="End"
-        HorizontalOptions="Center"
-        Spacing="10"
-        VerticalOptions="End">
+            <VerticalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="End" FlexLayout.AlignSelf="End">
+                <Image Source="person.jpeg" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" Margin="0,0,0,0" FlexLayout.AlignSelf="End">
+                    <Image.Clip>
+                        <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50" />
+                    </Image.Clip>
+                </Image>
+                <Label Text="Jane Doe" HorizontalOptions="Center" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="20"/>
+                <Label Text="Administrator" HorizontalOptions="Center" TextColor="{DynamicResource Black}" FontFamily="Hind-Light" FontSize="16"/>
+                <Button
+                    Text="Log out"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"
+                    TextColor="{DynamicResource White}"
+                    FontFamily="Montserrat-Bold"
+                    FontSize="18"
+                    BackgroundColor="{DynamicResource Black}"
+                    Clicked="Logout"
+                />
 
-        <Label
-            FontFamily="Montserrat-Bold"
-            FontSize="20"
-            HorizontalOptions="Center"
-            Text="Jane Doe"
-            TextColor="{DynamicResource Black}" />
-        <Label
-            FontFamily="Hind-Light"
-            FontSize="16"
-            HorizontalOptions="Center"
-            Text="Administrator"
-            TextColor="{DynamicResource Black}" />
-        <Button
-            BackgroundColor="{DynamicResource Black}"
-            Clicked="Logout"
-            FontFamily="Montserrat-Bold"
-            FontSize="18"
-            HorizontalOptions="Center"
-            Text="Log out"
-            TextColor="{DynamicResource White}"
-            VerticalOptions="Center" />
-
-    </VerticalStackLayout>
+            </VerticalStackLayout>
 </ContentView>
 

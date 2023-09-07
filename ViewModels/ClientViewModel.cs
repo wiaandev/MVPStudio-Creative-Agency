@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using MVPStudio_Creative_Agency.Models;
+﻿using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
 using System;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MVPStudio_Creative_Agency.ViewModels
 {
@@ -21,12 +21,11 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public Client CurrentClient { get; set; }
 
+
         // ADDING CLIENTS
         public string Name { get; set; }    
 
         public string Email { get; set; } 
-
-        public string ImgUrl { get; set; } 
 
         public int ClientTypeId { get; set; }  
 

@@ -11,7 +11,6 @@ public partial class ClientCard : ContentView
     public static readonly BindableProperty ImageProperty =
     BindableProperty.Create(nameof(ImgUrl), typeof(string), typeof(ClientCard), default(string));
 
-
     public string Name
     {
         get => (string)GetValue(NameProperty);
@@ -28,7 +27,7 @@ public partial class ClientCard : ContentView
         get => (string)GetValue(ImageProperty);
         set => SetValue(ImageProperty, value);
     }
-   
+
     public ClientCard()
     {
         InitializeComponent();

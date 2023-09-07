@@ -13,12 +13,12 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*" />
+            <RowDefinition Height="30*" />
             <RowDefinition />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="1" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
@@ -33,7 +33,7 @@
             Text="Clients" />
         <BoxView
             Grid.Column="1"
-            Margin="50,50,50,-50"
+            Margin="50"
             CornerRadius="23"
             Color="{DynamicResource PurpleLight}" />
         <Label
@@ -51,7 +51,7 @@
             Text="Add Client"
             VerticalOptions="Start" />
 
-
+        <!--<SearchBar Placeholder="Search items..." HorizontalOptions="Start" Grid.Column="0" HeightRequest="20" WidthRequest="150" />-->
 
 
 
@@ -61,21 +61,18 @@
 
 
         <ScrollView
-            HeightRequest="600"
-            VerticalScrollBarVisibility="Always"
-            WidthRequest="1000">
-            <StackLayout Padding="10">
+            Grid.Column="0"
+            HeightRequest="700"
+            WidthRequest="700">
+            <StackLayout>
 
-                <CollectionView
-                    ItemsSource="{Binding Clients}"
-                    SelectedItem="{Binding CurrentClient}"
-                    SelectionMode="Single">
+                <CollectionView ItemsSource="{Binding Clients}" SelectionMode="None">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout
-                            HorizontalItemSpacing="20"
+                            HorizontalItemSpacing="2"
                             Orientation="Vertical"
-                            Span="4"
-                            VerticalItemSpacing="20" />
+                            Span="3"
+                            VerticalItemSpacing="5" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -97,33 +94,52 @@
                 Grid.Column="1"
                 Margin="160"
                 FontAttributes="Bold"
-                FontSize="Default"
+                FontSize="Medium"
                 HorizontalOptions="Center"
-                Text="{Binding CurrentClient.Name}" />
+                Text="Jamie Underwood" />
             <Frame
                 Margin="0,-250,0,0"
                 Padding="0"
                 CornerRadius="23"
-                HeightRequest="200"
+                HeightRequest="300"
                 HorizontalOptions="Center"
                 IsClippedToBounds="True"
-                WidthRequest="200">
+                WidthRequest="290">
                 <Image
                     Aspect="Fill"
                     HorizontalOptions="Center"
-                    Source="{Binding CurrentClient.ImgUrl}" />
+                    Source="person.jpeg" />
             </Frame>
             <Label
                 Margin="0,160,0,0"
                 FontAttributes="Bold"
                 FontSize="Small"
                 HorizontalOptions="Center"
-                Text="{Binding CurrentClient.Email}"
+                Text="Email: jamieunderwood@gmail.com"
+                VerticalOptions="Center" />
+
+            <Label
+                Margin="0,280,0,0"
+                FontSize="Small"
+                HorizontalOptions="Center"
+                Text="Project: Website front page update"
+                VerticalOptions="Center" />
+            <Label
+                Margin="0,380,0,0"
+                FontAttributes="None"
+                FontSize="Micro"
+                HorizontalOptions="Center"
+                Text="Number: 0569785678"
                 VerticalOptions="Center" />
 
 
-
-
+            <Button
+                Grid.Column="1"
+                Margin="0,0,0,200"
+                HorizontalOptions="CenterAndExpand"
+                Text="Edit Client"
+                VerticalOptions="End"
+                WidthRequest="400" />
         </Grid>
 
     </Grid>

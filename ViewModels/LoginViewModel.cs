@@ -21,9 +21,10 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public ICommand LoginCommand { get; set; }
 
-        public string ErrorMessage {get; set;} = string.Empty;
+        public string ErrorMessage { get; set; } = string.Empty;
 
-        public LoginViewModel(AuthService authService) {
+        public LoginViewModel(AuthService authService)
+        {
             _authService = authService;
             LoginCommand = new Command(async () => await AttemptUserLogin());
         }
@@ -32,10 +33,11 @@ namespace MVPStudio_Creative_Agency.ViewModels
         {
             ErrorMessage = "";
 
-            
+
             var loginUser = new Admin
-            { Email = Email,
-            Password = Password,
+            {
+                Email = Email,
+                Password = Password,
             };
 
             var authSuccess = await _authService.LoginUser(loginUser);
@@ -44,13 +46,13 @@ namespace MVPStudio_Creative_Agency.ViewModels
             {
                 await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
             }
-            
+
             else
             {
                 ErrorMessage = "The username or password you entered is incorrect, try again";
-            } 
+            }
 
-            
+
             /*if (Password == "" | Email == "")
             {
 
