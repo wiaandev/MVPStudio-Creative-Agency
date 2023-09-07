@@ -22,11 +22,6 @@ namespace MVPStudio_Creative_Agency.Models
         public int Hourly_Rate { get; set; }
         public int Salary { get; set; }
         public string Payment { get; set; }
-
-
-        
-
-
         public string Gender { get; set; }
 
         public string ProfileImg { get; set; }
