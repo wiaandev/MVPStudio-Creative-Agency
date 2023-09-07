@@ -19,8 +19,6 @@ public partial class FundsManagementPage : ContentPage
     public FundsManagementPage()
     {
         InitializeComponent();
-         _fundsManagementViewModel.ProfitValueLabel = (_fundsManagementViewModel.ProjectViewModel.TotalProjectCost - _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate);
-        _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate = _fundsManagementViewModel.StaffViewModel.GetTotalSalaryAndHourlyRateAsync();
         
         _fundsManagementViewModel = new FundsManagementViewModel
         {
@@ -60,51 +58,51 @@ public partial class FundsManagementPage : ContentPage
     
     
     protected override async void OnAppearing()
-{
-    try
     {
-        Debug.WriteLine("Getting the data: ");
+        try
+        {
+            Debug.WriteLine("Getting the data: ");
 
-        await _fundsManagementViewModel.ProjectViewModel.fetchAllProjects();
-        await _fundsManagementViewModel.ProjectViewModel.fetchAllClients();
-        _fundsManagementViewModel.ProfitValueLabel = (_fundsManagementViewModel.ProjectViewModel.TotalProjectCost - _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate);
-        _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate = await _fundsManagementViewModel.StaffViewModel.GetTotalSalaryAndHourlyRateAsync();
+            await _fundsManagementViewModel.ProjectViewModel.fetchAllProjects();
+            await _fundsManagementViewModel.ProjectViewModel.fetchAllClients();
+            _fundsManagementViewModel.ProfitValueLabel = (_fundsManagementViewModel.ProjectViewModel.TotalProjectCost - _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate);
+            _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate = await _fundsManagementViewModel.StaffViewModel.GetTotalSalaryAndHourlyRateAsync();
+            
+            _fundsManagementViewModel.ProjectViewModel.Project_Count = $"{_fundsManagementViewModel.ProjectViewModel.Projects.Count}";
+            
+            Debug.WriteLine($"Total Project Cost: {_fundsManagementViewModel.ProjectViewModel.TotalProjectCost}");
+            Debug.WriteLine($"Total Salary and Hourly Rate: {_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate}");
+            Debug.WriteLine($"Total Profit: {_fundsManagementViewModel.ProfitValueLabel}");
+
+            // Update the chart entries after TotalProjectCost is updated
+            entries[0] = new ChartEntry((float)_fundsManagementViewModel.ProjectViewModel.TotalProjectCost)
+            {
+                Label = "Revenue",
+                ValueLabel = "R " + ((float)_fundsManagementViewModel.ProjectViewModel.TotalProjectCost).ToString(),
+                Color = SKColor.Parse("#2c3e50")
+            };
+
+            entries[1] = new ChartEntry((float)_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate)
+            {
+                Label = "Unpaid",
+                ValueLabel = "R " + ((float)_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate).ToString(),
+                Color = SKColor.Parse("#2c3e50")
+            };
+
+            entries[2] = new ChartEntry((float)_fundsManagementViewModel.ProfitValueLabel)
+            {
+                Label = "Profit",
+                ValueLabel ="R " + ((float)_fundsManagementViewModel.ProfitValueLabel).ToString(),
+                Color = SKColor.Parse("#2c3e50")
+            };
+            chartView.Chart = new RadarChart { Entries = entries };
         
-        _fundsManagementViewModel.ProjectViewModel.Project_Count = $"{_fundsManagementViewModel.ProjectViewModel.Projects.Count}";
-        
-        Debug.WriteLine($"Total Project Cost: {_fundsManagementViewModel.ProjectViewModel.TotalProjectCost}");
-        Debug.WriteLine($"Total Salary and Hourly Rate: {_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate}");
-        Debug.WriteLine($"Total Profit: {_fundsManagementViewModel.ProfitValueLabel}");
 
-        // Update the chart entries after TotalProjectCost is updated
-        entries[0] = new ChartEntry((float)_fundsManagementViewModel.ProjectViewModel.TotalProjectCost)
+            Debug.WriteLine($"Clients are {_fundsManagementViewModel.ProjectViewModel.Clients.Count}");
+        }
+        catch (Exception ex)
         {
-            Label = "Revenue",
-            ValueLabel = "R " + ((float)_fundsManagementViewModel.ProjectViewModel.TotalProjectCost).ToString(),
-            Color = SKColor.Parse("#2c3e50")
-        };
-
-        entries[1] = new ChartEntry((float)_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate)
-        {
-            Label = "Unpaid",
-            ValueLabel = "R " + ((float)_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate).ToString(),
-            Color = SKColor.Parse("#2c3e50")
-        };
-
-        entries[2] = new ChartEntry((float)_fundsManagementViewModel.ProfitValueLabel)
-        {
-            Label = "Profit",
-            ValueLabel ="R " + ((float)_fundsManagementViewModel.ProfitValueLabel).ToString(),
-            Color = SKColor.Parse("#2c3e50")
-        };
-        chartView.Chart = new RadarChart { Entries = entries };
-       
-
-        Debug.WriteLine($"Clients are {_fundsManagementViewModel.ProjectViewModel.Clients.Count}");
+            Debug.WriteLine($"Error updating chart: {ex}");
+        }
     }
-    catch (Exception ex)
-    {
-        Debug.WriteLine($"Error updating chart: {ex}");
-    }
-}
 }
