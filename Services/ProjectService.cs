@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.Services
 {
-    class ProjectService: IProjectService
+    class ProjectService : IProjectService
     {
         //Our httpClient
         HttpClient _client;

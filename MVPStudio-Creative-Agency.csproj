@@ -114,11 +114,7 @@
 	<ItemGroup>
 
 	  <Folder Include="Components\StaffPageComponents\NewFolder\" />
-
-	  <Folder Include="ViewModels\" />
-	  <Folder Include="Services\" />
 	  <Folder Include="Handlers\" />
-	  <Folder Include="Views\" />
 	  <Folder Include="Components\FundsPageComponents\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -172,7 +168,33 @@
 	  <BundleResource Include="Resources\Images\graphplaceholder.png" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Update="Views\FundsManagementPage.xaml.cs">
+	    <DependentUpon>FundsManagementPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
 	  <MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddClientPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Modals\AddStaffModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Modals\EditClient.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Modals\StaffViewModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FundsManagementPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProjectOverviewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\StaffManagementPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -1,5 +1,4 @@
-
-﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls;
 using CommunityToolkit.Maui.Views;
 using MVPStudio_Creative_Agency.Components;
 using MVPStudio_Creative_Agency.Models;
@@ -7,8 +6,6 @@ using MVPStudio_Creative_Agency.ViewModels;
 using System.Diagnostics;
 using Microcharts;
 using SkiaSharp;
-﻿using System.Collections.ObjectModel;
-using Microsoft.Maui.Controls;
 
 namespace MVPStudio_Creative_Agency.Views;
 
@@ -23,14 +20,13 @@ public partial class FundsManagementPage : ContentPage
     {
         InitializeComponent();
 
-        
         _fundsManagementViewModel = new FundsManagementViewModel
         {
             ProjectViewModel = new ProjectViewModel(new Services.ProjectService()),
             StaffViewModel = new StaffViewModel(new Services.StaffRestService(), new Services.StaffRolesServices())
         };
         BindingContext = _fundsManagementViewModel;
-        
+
 
         entries = new[]
         {
@@ -59,8 +55,8 @@ public partial class FundsManagementPage : ContentPage
             Entries = entries
         };
     }
-    
-    
+
+
     protected override async void OnAppearing()
     {
         try
@@ -71,9 +67,9 @@ public partial class FundsManagementPage : ContentPage
             await _fundsManagementViewModel.ProjectViewModel.fetchAllClients();
             _fundsManagementViewModel.ProfitValueLabel = (_fundsManagementViewModel.ProjectViewModel.TotalProjectCost - _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate);
             _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate = await _fundsManagementViewModel.StaffViewModel.GetTotalSalaryAndHourlyRateAsync();
-            
+
             _fundsManagementViewModel.ProjectViewModel.Project_Count = $"{_fundsManagementViewModel.ProjectViewModel.Projects.Count}";
-            
+
             Debug.WriteLine($"Total Project Cost: {_fundsManagementViewModel.ProjectViewModel.TotalProjectCost}");
             Debug.WriteLine($"Total Salary and Hourly Rate: {_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate}");
             Debug.WriteLine($"Total Profit: {_fundsManagementViewModel.ProfitValueLabel}");
@@ -96,11 +92,11 @@ public partial class FundsManagementPage : ContentPage
             entries[2] = new ChartEntry((float)_fundsManagementViewModel.ProfitValueLabel)
             {
                 Label = "Profit",
-                ValueLabel ="R " + ((float)_fundsManagementViewModel.ProfitValueLabel).ToString(),
+                ValueLabel = "R " + ((float)_fundsManagementViewModel.ProfitValueLabel).ToString(),
                 Color = SKColor.Parse("#2c3e50")
             };
             chartView.Chart = new RadarChart { Entries = entries };
-        
+
 
             Debug.WriteLine($"Clients are {_fundsManagementViewModel.ProjectViewModel.Clients.Count}");
         }
@@ -108,14 +104,5 @@ public partial class FundsManagementPage : ContentPage
         {
             Debug.WriteLine($"Error updating chart: {ex}");
         }
-        // Populate the Cards collection with dummy data Array
-
-        FundCards = new ObservableCollection<FundCard>
-            {
-                new FundCard { Name = "Google", Image = "profile_img.png", Bundle = "Web + App design bundle", Description = "This is a descrdddiption about the project overview/package", Team = "profile_img.png", Timeline = "2023", Cost = "R120 000.00", Paid = "R10 000.00", Progress = "50%"  },
-                new FundCard { Name = "Google", Image = "profile_img.png", Bundle = "Web + App design bundle", Description = "This is a descrdddiption about the project overview/package", Team = "data", Timeline = "2023", Cost = "R120 000.00", Paid = "R10 000.00", Progress = "50%"  },
-            };
-
-        BindingContext = this;
     }
 }
