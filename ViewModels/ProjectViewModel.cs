@@ -109,7 +109,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
             await _projectService.AddNewProject(newProject);
             Debug.WriteLine($"Your Added Projec: { newProject}");
-            fetchAllProjects();
+            _ = fetchAllProjects();
 
         }
 

@@ -13,6 +13,6 @@ public partial class FlyoutFooter : ContentView
     private async void Logout(object sender, EventArgs e)
     {
         new AuthService().LogOutUser();
-        await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+        await Shell.Current.GoToAsync(nameof(LoginPage));
     }
 }

@@ -15,17 +15,15 @@ public partial class LoginPage : ContentPage
         
         var emailPattern = "^(?(\")(\".+?(?<!\\\\)\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9]))$";
 
-        if (Regex.IsMatch(email, emailPattern))
+        if (email != null && Regex.IsMatch(email, emailPattern))
         {
-            
-            await Shell.Current.GoToAsync("/DashboardPage");
+            await Shell.Current.GoToAsync(nameof(DashboardPage));
         }
         else
         {
-            
             ErrorLabel.Text = "Invalid email";
         }
-       
+
     }
 
     protected override void OnAppearing()

@@ -1,3 +1,5 @@
+using MVPStudio_Creative_Agency.Views;
+
 namespace MVPStudio_Creative_Agency;
 
 public partial class App : Application
