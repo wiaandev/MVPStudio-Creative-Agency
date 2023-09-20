@@ -1,7 +1,4 @@
-﻿using MVPStudio_Creative_Agency.Services;
-using MVPStudio_Creative_Agency.Views;
-
-namespace MVPStudio_Creative_Agency.Components;
+﻿namespace MVPStudio_Creative_Agency.Components;
 
 public partial class FlyoutFooter : ContentView
 {
@@ -12,8 +9,6 @@ public partial class FlyoutFooter : ContentView
 
     private async void Logout(object sender, EventArgs e)
     {
-
-        /*await Shell.Current.GoToAsync("/LoginPage");*/
         new AuthService().LogOutUser();
         await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
     }

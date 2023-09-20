@@ -1,19 +1,15 @@
-﻿using MVPStudio_Creative_Agency.ViewModels;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace MVPStudio_Creative_Agency.Views;
 
 public partial class LoginPage : ContentPage
 {
-    private LoginViewModel _viewModel;
 	public LoginPage()
 	{
 		InitializeComponent();
-        _viewModel = new LoginViewModel(new Services.AuthService());
-        BindingContext = _viewModel;
 	}
 
-    /*private async void Login(object sender, EventArgs e)
+    private async void Login(object sender, EventArgs e)
     {
         var email = emailEntry.Text;
         
@@ -27,10 +23,11 @@ public partial class LoginPage : ContentPage
         else
         {
             
-            ErrorLabel.Text = "Envalid email, please try again";
+            ErrorLabel.Text = "Invalid email";
         }
+       
     }
-*/
+
     protected override void OnAppearing()
     {
         base.OnAppearing();

@@ -1,3 +1,4 @@
+
 ﻿using Microsoft.Maui.Controls;
 using CommunityToolkit.Maui.Views;
 using MVPStudio_Creative_Agency.Components;
@@ -6,6 +7,8 @@ using MVPStudio_Creative_Agency.ViewModels;
 using System.Diagnostics;
 using Microcharts;
 using SkiaSharp;
+﻿using System.Collections.ObjectModel;
+using Microsoft.Maui.Controls;
 
 namespace MVPStudio_Creative_Agency.Views;
 
@@ -19,6 +22,7 @@ public partial class FundsManagementPage : ContentPage
     public FundsManagementPage()
     {
         InitializeComponent();
+
         
         _fundsManagementViewModel = new FundsManagementViewModel
         {
@@ -104,5 +108,14 @@ public partial class FundsManagementPage : ContentPage
         {
             Debug.WriteLine($"Error updating chart: {ex}");
         }
+        // Populate the Cards collection with dummy data Array
+
+        FundCards = new ObservableCollection<FundCard>
+            {
+                new FundCard { Name = "Google", Image = "profile_img.png", Bundle = "Web + App design bundle", Description = "This is a descrdddiption about the project overview/package", Team = "profile_img.png", Timeline = "2023", Cost = "R120 000.00", Paid = "R10 000.00", Progress = "50%"  },
+                new FundCard { Name = "Google", Image = "profile_img.png", Bundle = "Web + App design bundle", Description = "This is a descrdddiption about the project overview/package", Team = "data", Timeline = "2023", Cost = "R120 000.00", Paid = "R10 000.00", Progress = "50%"  },
+            };
+
+        BindingContext = this;
     }
 }
