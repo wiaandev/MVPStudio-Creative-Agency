@@ -90,10 +90,9 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         private async Task AddNewProjectToDb()
         {
-
             var newProject = new Project
             {
-                Id = Id,
+                Id = 12,
                 ClienName = "Deloitte",
                 Project_Name = Project_Name,
                 Description = Description,
@@ -106,6 +105,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 isCompleted = false,
                 Progress = 0
             };
+
+            Debug.WriteLine(newProject);
 
             await _projectService.AddNewProject(newProject);
             Debug.WriteLine($"Your Added Projec: { newProject}");

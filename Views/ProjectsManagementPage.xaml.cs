@@ -17,8 +17,15 @@ public partial class ProjectsManagementPage : ContentPage
         InitializeComponent();
         _projectViewModel = new ProjectViewModel(new Services.ProjectService());
         BindingContext = _projectViewModel;
-        var selectedClient = (Client)clientPicker.SelectedItem;
-        Debug.WriteLine(selectedClient);
+
+        clientPicker.SelectedIndexChanged += (sender, args) =>
+        {
+            if (clientPicker.SelectedIndex >= 0)
+            {
+                var selectedClient = _projectViewModel.Clients[clientPicker.SelectedIndex]; // Assuming Clients is the collection bound to the Picker
+                Debug.WriteLine($"Selected client is: {selectedClient.Name}");
+            }
+        };
     }
 
     protected override async void OnAppearing()
