@@ -22,8 +22,8 @@ public partial class ProjectsManagementPage : ContentPage
         {
             if (clientPicker.SelectedIndex >= 0)
             {
-                var selectedClient = _projectViewModel.Clients[clientPicker.SelectedIndex]; // Assuming Clients is the collection bound to the Picker
-                Debug.WriteLine($"Selected client is: {selectedClient.Name}");
+                _projectViewModel.SelectedClient = (Client)clientPicker.SelectedItem;
+                Debug.WriteLine($"Selected client is: {_projectViewModel.SelectedClient.Name}");
             }
         };
     }

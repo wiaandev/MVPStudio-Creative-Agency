@@ -64,4 +64,26 @@ BindableProperty.Create(nameof(Progress), typeof(int), typeof(SingleProjectCard)
             Debug.WriteLine(project.Id);
         }
     }
+
+    public async void DeleteProject(object sender, EventArgs e)
+    {
+        if (BindingContext is Project project)
+        {
+            Debug.WriteLine($"Deleting project with ID: {project.Id}");
+
+            try
+            {
+                var projectCardViewModel = new ProjectCardViewModel(_projectService);
+                await projectCardViewModel.DeleteProject(project.Id);
+
+                Debug.WriteLine($"Project with ID {project.Id} deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error deleting project with ID {project.Id}: {ex.Message}");
+                // You may want to handle or log the exception here.
+            }
+        }
+    }
+
 }

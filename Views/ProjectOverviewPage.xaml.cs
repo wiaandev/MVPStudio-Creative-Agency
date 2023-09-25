@@ -34,9 +34,9 @@ public partial class ProjectOverviewPage : ContentPage
 
     public ProjectOverviewPage()
     {
-        //_projectViewModel = new ProjectViewModel(new Services.ProjectService());
-        //BindingContext = _projectViewModel; 
         InitializeComponent();
+        _projectViewModel = new ProjectViewModel(new Services.ProjectService());
+        BindingContext = _projectViewModel;
 
     }
 

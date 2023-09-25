@@ -21,9 +21,9 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public ObservableCollection<Client> Clients { get; set; }   
         public ObservableCollection<Project> Projects { get; set; }
 
-        private ClientPicker _selectedClient;
+        private Client _selectedClient;
 
-        public ClientPicker SelectedClient
+        public Client SelectedClient
         {
             get { return _selectedClient; }
             set
@@ -37,6 +37,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
         }
         //setting up my command to add a project to the db
         public ICommand OnAddNewProject { get; }
+        public ICommand DeleteProject { get; }
+        public ICommand TestCommand { get; }
 
         //setting up project count variable
         private string _project_Count;
@@ -85,15 +87,29 @@ namespace MVPStudio_Creative_Agency.ViewModels
             Clients = new ObservableCollection<Client>();
 
             OnAddNewProject = new Command(async () => await AddNewProjectToDb());
+            DeleteProject = new Command(async () => await DeleteAddedProject());
+            TestCommand = new Command(async () => await NewTestCommand());
 
+        }
+
+        private async Task NewTestCommand()
+        {
+            Debug.WriteLine("Test button clicked");
+        }
+
+        private async Task DeleteAddedProject()
+        {
+            Debug.WriteLine("Delete button clicked");
+            await _projectService.DeleteProjectAsync(Id);
+            fetchAllProjects();
         }
 
         private async Task AddNewProjectToDb()
         {
             var newProject = new Project
             {
-                Id = 12,
-                ClienName = "Deloitte",
+                Id = SelectedClient.Id,
+                ClienName = SelectedClient.Name,
                 Project_Name = Project_Name,
                 Description = Description,
                 Project_Start = DateOnly.Parse("2023/09/23"),
@@ -141,5 +157,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 Debug.WriteLine(client.Name);
             }
         }
+
+        
     }
 }

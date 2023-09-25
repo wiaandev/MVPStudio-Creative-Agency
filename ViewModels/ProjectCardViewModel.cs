@@ -36,15 +36,41 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public int Progress { get; set; }
 
+
         public ProjectCardViewModel(ProjectService projectService)
         {
             _projectService = projectService;
+            _projectService = new ProjectService();
         }
+
+
+
         public async Task NavigateToOverviewScreenAsync(int id)
         {
             var viewModel = new NavigationViewModel() { NavigationParameter = id };
             Debug.WriteLine(id);
             await Shell.Current.Navigation.PushAsync(new ProjectOverviewPage { BindingContext = viewModel });
+        }
+
+        public async Task DeleteProject(int id)
+        {
+            try
+            {
+                bool deleteResult = await _projectService.DeleteProjectAsync(id);
+
+                if (deleteResult)
+                {
+                    Debug.WriteLine($"Project with ID {id} deleted successfully.");
+                }
+                else
+                {
+                    Debug.WriteLine($"Failed to delete project with ID {id}.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error deleting project with ID {id}: {ex.Message}");
+            }
         }
     }
 }
