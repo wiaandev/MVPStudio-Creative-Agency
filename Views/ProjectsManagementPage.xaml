@@ -4,14 +4,18 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+            xmlns:acrylic="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
             x:Class="MVPStudio_Creative_Agency.Views.ProjectsManagementPage"
             Shell.NavBarIsVisible="False"
             BackgroundColor="{DynamicResource PurpleLighter}">
 
 	<StackLayout Padding="60">
-		<Border StrokeShape="RoundRectangle 10"
+		<acrylic:AcrylicView
+            EffectStyle="Custom"
+            TintColor="{DynamicResource Purple}"
+            TintOpacity=".2"
+            CornerRadius="10"
             BackgroundColor="{DynamicResource White}"
-            Stroke="{DynamicResource White}"
             Padding="15"
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
@@ -114,8 +118,8 @@
 
                     <DatePicker
                         MinimumDate="{x:Static sys:DateTime.Now}"
-                        Date="11/21/2023"
-                    />
+                        Date="{Binding SelectedDate}"
+                        DateSelected="DatePicker_DateSelected" />
 
                     <Entry
                         x:Name="durationWeek"
@@ -162,6 +166,6 @@
                 </VerticalStackLayout>
 
 			</Grid>
-		</Border>
+		</acrylic:AcrylicView>
 	</StackLayout>
 </ContentPage>

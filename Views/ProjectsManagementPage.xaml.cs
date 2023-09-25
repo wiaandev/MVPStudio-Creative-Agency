@@ -26,7 +26,24 @@ public partial class ProjectsManagementPage : ContentPage
                 Debug.WriteLine($"Selected client is: {_projectViewModel.SelectedClient.Name}");
             }
         };
+
     }
+
+    private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
+    {
+        // You can access your ViewModel here if needed
+        var viewModel = (ProjectViewModel)BindingContext;
+
+        // Get the selected date (already of type DateOnly)
+        DateOnly selectedDate = DateOnly.FromDateTime(e.NewDate);
+
+        viewModel.SelectedDate = selectedDate;
+
+        // Print the selected date to the debug output
+        Debug.WriteLine($"Selected date: {viewModel.SelectedDate}");
+    }
+
+
 
     protected override async void OnAppearing()
     {

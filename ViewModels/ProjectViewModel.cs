@@ -80,6 +80,21 @@ namespace MVPStudio_Creative_Agency.ViewModels
             set => SetProperty(ref _totalProjectCost, value);
         }
 
+        private DateOnly _selectedDate = DateOnly.FromDateTime(DateTime.Now);
+
+        public DateOnly SelectedDate
+        {
+            get { return _selectedDate; }
+            set
+            {
+                if (_selectedDate != value)
+                {
+                    _selectedDate = value;
+                    OnPropertyChanged(nameof(SelectedDate));
+                }
+            }
+        }
+
         public ProjectViewModel(ProjectService projectService)
         {
             _projectService = projectService;
@@ -112,7 +127,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 ClienName = SelectedClient.Name,
                 Project_Name = Project_Name,
                 Description = Description,
-                Project_Start = DateOnly.Parse("2023/09/23"),
+                Project_Start = SelectedDate,
                 Duration_Week = Duration_Week,
                 Project_Time = Project_Time,
                 Project_Type = Project_Type, 
