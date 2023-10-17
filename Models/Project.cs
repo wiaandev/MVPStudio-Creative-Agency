@@ -30,6 +30,7 @@ namespace MVPStudio_Creative_Agency.Models
         public bool isCompleted { get; set; }
 
         public int Progress { get; set; }
+        public string TeamAssigned { get; set; }
     }
 }
 

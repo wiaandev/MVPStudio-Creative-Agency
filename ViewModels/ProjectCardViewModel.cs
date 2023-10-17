@@ -36,6 +36,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public int Progress { get; set; }
 
+        public string TeamAssigned { get; set; }
+
 
         public ProjectCardViewModel(ProjectService projectService)
         {

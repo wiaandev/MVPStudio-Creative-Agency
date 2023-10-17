@@ -22,7 +22,7 @@ public partial class FundsManagementPage : ContentPage
 
         _fundsManagementViewModel = new FundsManagementViewModel
         {
-            ProjectViewModel = new ProjectViewModel(new Services.ProjectService()),
+            ProjectViewModel = new ProjectViewModel(new Services.ProjectService(), new Services.TeamService()),
             StaffViewModel = new StaffViewModel(new Services.StaffRestService(), new Services.StaffRolesServices())
         };
         BindingContext = _fundsManagementViewModel;
