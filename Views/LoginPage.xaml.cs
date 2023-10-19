@@ -1,36 +1,31 @@
-﻿using MVPStudio_Creative_Agency.ViewModels;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace MVPStudio_Creative_Agency.Views;
 
 public partial class LoginPage : ContentPage
 {
-    private LoginViewModel _viewModel;
 	public LoginPage()
 	{
 		InitializeComponent();
-        _viewModel = new LoginViewModel(new Services.AuthService());
-        BindingContext = _viewModel;
 	}
 
-    /*private async void Login(object sender, EventArgs e)
+    private async void Login(object sender, EventArgs e)
     {
         var email = emailEntry.Text;
         
         var emailPattern = "^(?(\")(\".+?(?<!\\\\)\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9]))$";
 
-        if (Regex.IsMatch(email, emailPattern))
+        if (email != null && Regex.IsMatch(email, emailPattern))
         {
-            
-            await Shell.Current.GoToAsync("/DashboardPage");
+            await Shell.Current.GoToAsync(nameof(DashboardPage));
         }
         else
         {
-            
-            ErrorLabel.Text = "Envalid email, please try again";
+            ErrorLabel.Text = "Invalid email";
         }
+
     }
-*/
+
     protected override void OnAppearing()
     {
         base.OnAppearing();

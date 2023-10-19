@@ -6,18 +6,18 @@
                 x:Name="StaffView"
                 xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                 xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui">
-    
-    
+
+
     <Frame CornerRadius="15" BackgroundColor="#f2f2fd" HeightRequest="700" WidthRequest="600" Padding="24">
-        
+
         <!-- Set the corner radius -->
         <StackLayout Spacing="10">
             <HorizontalStackLayout Margin="0,8,0,20">
-                  <Label Text="Edit Staff Member Details" FontFamily="Montserrat"
+                <Label Text="Edit Staff Member Details" FontFamily="Montserrat"
                          FontSize="18" FontAttributes="Bold" TextColor="#667080"
                          VerticalTextAlignment="Start" HorizontalTextAlignment="Center"  />
             </HorizontalStackLayout>
-            
+
             <HorizontalStackLayout Spacing="30">
 
                 <Button x:Name="Developer"
@@ -54,8 +54,8 @@
                         </DataTrigger>
                     </Button.Triggers>
                 </Button>
-    
-    
+
+
             </HorizontalStackLayout>
             <!-- Input fields based on  schema -->
             <Picker x:Name="picker"
@@ -63,10 +63,10 @@
                     ItemsSource="{Binding StaffList}"
                     SelectedItem="{Binding SelectedStaff}">
             </Picker>
-            
-            
+
+
             <Entry x:Name="entryName" Placeholder="Name" FontSize="16" Margin="0,10,0,10" />
-         
+
             <Entry x:Name="entrySurname" Placeholder="Surname" FontSize="16" Margin="0,10,0,10" />
             <Entry x:Name="entryGender" Placeholder="Gender" FontSize="16" Margin="0,10,0,10" />
             <Entry x:Name="entryProfileImg" Placeholder="Profile Image URL" FontSize="16" Margin="0,10,0,10" />
@@ -76,8 +76,8 @@
             <VerticalStackLayout Spacing="16" Margin="0,20,0,0">
 
                 <Button Text="Save"   HeightRequest="40" WidthRequest="100"/>
-             
-                
+
+
             </VerticalStackLayout>
         </StackLayout>
     </Frame>

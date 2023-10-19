@@ -8,12 +8,10 @@ using CommunityToolkit.Maui.Views;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Platform;
-using Mopups.Services;
 using System;
 using System.Globalization;
 using System.Windows.Input;
 using Popup = Microsoft.UI.Xaml.Controls.Primitives.Popup;
-using Mopups.Pages;
 
 namespace MVPStudio_Creative_Agency.Components.StaffPageComponents;
 

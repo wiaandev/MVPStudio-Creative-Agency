@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Views;
 using Microcharts.Maui;
-using Mopups.Services;
 using MVPStudio_Creative_Agency.ViewModels;
 using System.Collections.ObjectModel;
 

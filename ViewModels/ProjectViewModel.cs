@@ -16,14 +16,17 @@ namespace MVPStudio_Creative_Agency.ViewModels
     {
         //injecting the services I need
         private ProjectService _projectService;
+        private TeamService _teamService;
 
         //getting the arrays of projects and clients so I can loop / map  them and set it to the front-end
         public ObservableCollection<Client> Clients { get; set; }   
         public ObservableCollection<Project> Projects { get; set; }
 
-        private ClientPicker _selectedClient;
+        public ObservableCollection<Team> Teams { get; set; }
 
-        public ClientPicker SelectedClient
+        private Client _selectedClient;
+
+        public Client SelectedClient
         {
             get { return _selectedClient; }
             set
@@ -35,8 +38,25 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 }
             }
         }
+
+        private Team _selectedTeam;
+
+        public Team SelectedTeam
+        {
+            get { return _selectedTeam; }
+            set
+            {
+                if (_selectedTeam != value)
+                {
+                    _selectedTeam = value;
+                    OnPropertyChanged(nameof(SelectedTeam));
+                }
+            }
+        }
         //setting up my command to add a project to the db
         public ICommand OnAddNewProject { get; }
+        public ICommand DeleteProject { get; }
+        public ICommand TestCommand { get; }
 
         //setting up project count variable
         private string _project_Count;
@@ -71,6 +91,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public int Progress { get; set; }
 
+        public string TeamAssigned { get; set; }
+
         private double _totalProjectCost;
         public double TotalProjectCost
         {
@@ -78,52 +100,85 @@ namespace MVPStudio_Creative_Agency.ViewModels
             set => SetProperty(ref _totalProjectCost, value);
         }
 
-        public ProjectViewModel(ProjectService projectService)
+        private DateOnly _selectedDate = DateOnly.FromDateTime(DateTime.Now);
+
+        public DateOnly SelectedDate
+        {
+            get { return _selectedDate; }
+            set
+            {
+                if (_selectedDate != value)
+                {
+                    _selectedDate = value;
+                    OnPropertyChanged(nameof(SelectedDate));
+                }
+            }
+        }
+
+        public ProjectViewModel(ProjectService projectService, TeamService teamService)
         {
             _projectService = projectService;
+            _teamService = teamService;
             Projects = new ObservableCollection<Project>();
             Clients = new ObservableCollection<Client>();
+            Teams = new ObservableCollection<Team>();
 
             OnAddNewProject = new Command(async () => await AddNewProjectToDb());
+            DeleteProject = new Command(async () => await DeleteAddedProject());
+            TestCommand = new Command(async () => await NewTestCommand());
 
+        }
+
+        private async Task NewTestCommand()
+        {
+            Debug.WriteLine("Test button clicked");
+        }
+
+        private async Task DeleteAddedProject()
+        {
+            Debug.WriteLine("Delete button clicked");
+            await _projectService.DeleteProjectAsync(Id);
+            fetchAllProjects();
         }
 
         private async Task AddNewProjectToDb()
         {
-
             var newProject = new Project
             {
-                Id = Id,
-                ClienName = "Deloitte",
+                Id = SelectedClient.Id,
+                ClienName = SelectedClient.Name,
                 Project_Name = Project_Name,
                 Description = Description,
-                Project_Start = DateOnly.Parse("2023/09/23"),
+                Project_Start = SelectedDate,
                 Duration_Week = Duration_Week,
                 Project_Time = Project_Time,
                 Project_Type = Project_Type, 
                 Project_Cost = Project_Cost,
                 Amount_Paid = 0,
                 isCompleted = false,
-                Progress = 0
+                Progress = 0,
+                TeamAssigned = SelectedTeam.TeamName
             };
+
+            Debug.WriteLine(newProject);
 
             await _projectService.AddNewProject(newProject);
             Debug.WriteLine($"Your Added Projec: { newProject}");
-            fetchAllProjects();
+            _ = fetchAllProjects();
 
         }
 
         public async Task fetchAllProjects()
         {
-            var projects = await _projectService.GetAllProjects();
+            var projects = await _projectService.GetAllProjects();;
             Projects.Clear();
             double totalCost = 0;
             foreach (var project in projects)
             {
+                    Projects.Add(project);
+                    totalCost += project.Project_Cost;
+                    Debug.WriteLine(project.ClienName);
 
-                Projects.Add(project);
-                totalCost += project.Project_Cost; 
-                Debug.WriteLine(project.ClienName);
             }
             TotalProjectCost = totalCost;
             Project_Count = $"{Projects.Count()}";
@@ -132,6 +187,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
         public async Task fetchAllClients()
         {
             var clients = await _projectService.RefreshDataAsync();
+            Debug.WriteLine(clients);
             Clients.Clear();
             foreach (var client in clients)
             {
@@ -140,5 +196,19 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 Debug.WriteLine(client.Name);
             }
         }
+
+        public async Task fetchAllTeams()
+        {
+            var ap = await _teamService.GetTeamsAsync();
+            Debug.WriteLine(ap);
+            Teams.Clear();
+            foreach(var p in ap)
+            {
+                Teams.Add(p);
+                Debug.WriteLine($"Teams: {p.TeamName}");
+            }
+        }
+
+        
     }
 }

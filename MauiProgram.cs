@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Microcharts.Maui;
 using CommunityToolkit.Maui;
-using Mopups.Hosting;
+using Xe.AcrylicView;
 
 namespace MVPStudio_Creative_Agency;
 
@@ -14,7 +14,7 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseMicrocharts()
             .UseMauiCommunityToolkit()
-            .ConfigureMopups()
+            .UseAcrylicView()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -33,4 +33,4 @@ public static class MauiProgram
 
         return builder.Build();
     }
-    }
+}

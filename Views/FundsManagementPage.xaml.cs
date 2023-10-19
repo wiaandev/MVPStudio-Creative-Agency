@@ -1,4 +1,4 @@
-﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls;
 using CommunityToolkit.Maui.Views;
 using MVPStudio_Creative_Agency.Components;
 using MVPStudio_Creative_Agency.Models;
@@ -19,14 +19,14 @@ public partial class FundsManagementPage : ContentPage
     public FundsManagementPage()
     {
         InitializeComponent();
-        
+
         _fundsManagementViewModel = new FundsManagementViewModel
         {
-            ProjectViewModel = new ProjectViewModel(new Services.ProjectService()),
+            ProjectViewModel = new ProjectViewModel(new Services.ProjectService(), new Services.TeamService()),
             StaffViewModel = new StaffViewModel(new Services.StaffRestService(), new Services.StaffRolesServices())
         };
         BindingContext = _fundsManagementViewModel;
-        
+
 
         entries = new[]
         {
@@ -55,8 +55,8 @@ public partial class FundsManagementPage : ContentPage
             Entries = entries
         };
     }
-    
-    
+
+
     protected override async void OnAppearing()
     {
         try
@@ -67,9 +67,9 @@ public partial class FundsManagementPage : ContentPage
             await _fundsManagementViewModel.ProjectViewModel.fetchAllClients();
             _fundsManagementViewModel.ProfitValueLabel = (_fundsManagementViewModel.ProjectViewModel.TotalProjectCost - _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate);
             _fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate = await _fundsManagementViewModel.StaffViewModel.GetTotalSalaryAndHourlyRateAsync();
-            
+
             _fundsManagementViewModel.ProjectViewModel.Project_Count = $"{_fundsManagementViewModel.ProjectViewModel.Projects.Count}";
-            
+
             Debug.WriteLine($"Total Project Cost: {_fundsManagementViewModel.ProjectViewModel.TotalProjectCost}");
             Debug.WriteLine($"Total Salary and Hourly Rate: {_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate}");
             Debug.WriteLine($"Total Profit: {_fundsManagementViewModel.ProfitValueLabel}");
@@ -92,11 +92,11 @@ public partial class FundsManagementPage : ContentPage
             entries[2] = new ChartEntry((float)_fundsManagementViewModel.ProfitValueLabel)
             {
                 Label = "Profit",
-                ValueLabel ="R " + ((float)_fundsManagementViewModel.ProfitValueLabel).ToString(),
+                ValueLabel = "R " + ((float)_fundsManagementViewModel.ProfitValueLabel).ToString(),
                 Color = SKColor.Parse("#2c3e50")
             };
             chartView.Chart = new RadarChart { Entries = entries };
-        
+
 
             Debug.WriteLine($"Clients are {_fundsManagementViewModel.ProjectViewModel.Clients.Count}");
         }

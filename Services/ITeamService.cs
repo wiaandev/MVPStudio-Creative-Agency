@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.Services
 {
-    internal interface IDashboardService
+    interface ITeamService
     {
-        Task<List<Project>> GetAllProjects(); //GET all Projects 
+        Task<List<Team>> GetTeamsAsync();
     }
 }

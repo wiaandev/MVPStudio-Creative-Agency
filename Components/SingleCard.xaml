@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVPStudio_Creative_Agency.Components.SingleProjectCard">
+             x:Class="MVPStudio_Creative_Agency.Components.SingleCard">
     <VerticalStackLayout>
         <ScrollView>
-            <Frame CornerRadius="20" BackgroundColor="{DynamicResource WhiteDark}" BorderColor="Transparent" Margin="5">
+            <Frame CornerRadius="20" BackgroundColor="{DynamicResource White}" BorderColor="Transparent" Margin="5" Padding="10">
                 <VerticalStackLayout Padding="10" Spacing="20">
                     <HorizontalStackLayout Spacing="20">
                         <Label
@@ -20,11 +20,19 @@
 
                         </Label>
 
-                        <Label
-                            Text="Complete"
-                            TextColor="{DynamicResource Aqua}"
-                            FontFamily="Montserrat-Bold"
-                        />
+                        <Label TextColor="{DynamicResource Aqua}" FontFamily="Montserrat-Bold">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsCompleted}" Value="False">
+                                    <Setter Property="Text" Value="Incomplete" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsCompleted}" Value="True">
+                                    <Setter Property="Text" Value="Complete" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+
+
                     </HorizontalStackLayout>
 
                     <Label Text="{Binding ClienName}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="18"/>
@@ -35,8 +43,8 @@
                     <Line X1="0" X2="300" Stroke="{DynamicResource Black}"/>
 
 
-                    <Label Text="Team" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
-                    <HorizontalStackLayout>
+                    <Label Text="Assigned Team" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
+                    <!--<HorizontalStackLayout>
 
                         <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="0">
                             <Image.Clip>
@@ -56,7 +64,8 @@
                             </Image.Clip>
                         </Image>
 
-                    </HorizontalStackLayout>
+                    </HorizontalStackLayout>-->
+                    <Label Text="{Binding TeamAssigned}" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}"/>
 
                     <Button Text="View More" Clicked="ViewProject"/>
                     <Button Text="Delete" Clicked="DeleteProject" BackgroundColor="salmon" TextColor="{DynamicResource White}"/>

@@ -30,7 +30,6 @@ namespace MVPStudio_Creative_Agency.ViewModels
             return true;
         }
 
-    
+
     }
 }
-
