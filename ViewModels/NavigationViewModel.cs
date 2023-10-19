@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.ViewModels
 {
-    class NavigationViewModel: BaseViewModel
+    class NavigationViewModel : BaseViewModel
     {
         private ProjectService _projectService;
         public Project Projects { get; set; }
         public int Id { get; set; }
 
-        public string ClienName { get; set; } 
+        public string ClienName { get; set; }
 
         public string Project_Name { get; set; }
 

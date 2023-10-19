@@ -5,7 +5,6 @@ using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 using MVPStudio_Creative_Agency.ViewModels;
 using MVPStudio_Creative_Agency.Views.Modals;
 using CommunityToolkit.Maui;
-using Mopups.Services;
 using CommunityToolkit.Maui.Views;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using MVPStudio_Creative_Agency.Services;
@@ -61,7 +60,7 @@ public partial class StaffManagementPage : ContentPage
         this.ShowPopup(staffViewModalPage);
     }
 
-    
+
 
 }
 

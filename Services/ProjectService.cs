@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MVPStudio_Creative_Agency.Services
 {
-    class ProjectService: IProjectService
+    class ProjectService : IProjectService
     {
         //Our httpClient
         HttpClient _client;
@@ -136,6 +136,25 @@ namespace MVPStudio_Creative_Agency.Services
                 Debug.WriteLine($"\tERROR: {ex.Message}");
                 throw; // Rethrow the exception or handle it according to your requirements
             }
+        }
+
+        public async Task<bool> DeleteProjectAsync(int id)
+        {
+            Uri uri = new Uri($"{baseUrl}Projects/{id}");
+            try
+            {
+                HttpResponseMessage res = await _client.DeleteAsync(uri);
+                if (res.IsSuccessStatusCode)
+                {
+                    string responseContent = await res.Content.ReadAsStringAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+            return true;
         }
 
     }

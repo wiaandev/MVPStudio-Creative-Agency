@@ -14,11 +14,11 @@ namespace MVPStudio_Creative_Agency.Services
     public interface IRestService
     {
         public Task<List<StaffRoles>> GetStaffRolesAsync()
-    {
-        // Your implementation here.
-        // This is just a placeholder return statement.
-        return Task.FromResult(new List<StaffRoles>());
-    }
+        {
+            // Your implementation here.
+            // This is just a placeholder return statement.
+            return Task.FromResult(new List<StaffRoles>());
+        }
 
         //Define all of our REST Methods
         Task<List<Employee>> RefreshDataAsync(); //GET all Employees 

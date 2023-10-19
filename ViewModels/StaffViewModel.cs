@@ -15,7 +15,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
     {
         public StaffRestService _restService;
         public StaffRolesServices _staffRolesServices;
-
+        public double TotalSalaryAndHourlyRate { get; set; }
         //define all my observed properties
         public ObservableCollection<Employee> EmployeeList { get; set; }
 
@@ -129,10 +129,6 @@ namespace MVPStudio_Creative_Agency.ViewModels
                     Debug.WriteLine(item.ProfileImg);
                 }
                 
-
-
-
-
             }
         }
 
@@ -199,6 +195,41 @@ namespace MVPStudio_Creative_Agency.ViewModels
             }
         }
 
+        public async Task<double> GetTotalSalaryAndHourlyRateAsync()
+        {
+            Debug.WriteLine("Calculating total salary and hourly rate...");
+            var employees = await _restService.RefreshDataAsync();
+            var roles = await _staffRolesServices.GetStaffRolesAsync();
+            
+
+            // Debug lines to check the data
+            Debug.WriteLine($"Total Employees: {employees.Count}");
+            foreach (var employee in employees)
+            {
+                var role = roles.FirstOrDefault(r => r.Id ==  employee.RoleId);
+                if (role != null)
+                {
+                    /*Hier Bou ek die object op*/
+                    employee.Role_Type = role.Role_Type;
+                    employee.Hourly_Rate = role.Hourly_Rate;
+                    employee.Salary = role.Salary;
+                    Debug.WriteLine("the role " + role.Role_Type);
+
+                    
+                }
+                Debug.WriteLine($"Employee: {employee.Name}, Salary: {employee.Salary}, Hourly Rate: {employee.Hourly_Rate}, Current Hours: {employee.Curr_Hours}");
+            }
+
+            double totalSalary = employees.Sum(e => e.Salary);
+            Debug.WriteLine($"Total totalSalary: {totalSalary}");
+
+            double totalHourlyRate = employees.Sum(e => e.Hourly_Rate * e.Curr_Hours);
+            Debug.WriteLine($"Total totalHourlyRate: {totalHourlyRate}");
+            
+            Debug.WriteLine($"Total Salary: {totalSalary}");
+            Debug.WriteLine($"Total Hourly Rate: {totalHourlyRate}");
+            return totalSalary + totalHourlyRate;
+        }
         // Modify your button click methods to set the button states
         private void ChangeToFilterAllStaff()
         {

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<mopups:PopupPage
+<toolkit:Popup
     x:Class="MVPStudio_Creative_Agency.Views.Modals.EditClient"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
-    Title="EditClient">
+ xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
     <VerticalStackLayout>
         <Label
             HorizontalOptions="Center"
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" />
     </VerticalStackLayout>
-</mopups:PopupPage>
+</toolkit:Popup>

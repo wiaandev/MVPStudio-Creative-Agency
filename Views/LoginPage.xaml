@@ -1,78 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="MVPStudio_Creative_Agency.Views.LoginPage"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    Title=""
-    BackgroundColor="{DynamicResource White}"
-    NavigationPage.HasBackButton="False">
-
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio_Creative_Agency.Views.LoginPage"
+             Title=""
+             BackgroundColor="{DynamicResource White}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image
-            Grid.Column="0"
-            Aspect="Fill"
-            Source="login_background.png" />
-        <VerticalStackLayout
-            Grid.Column="1"
-            HorizontalOptions="Center"
-            Spacing="30"
-            VerticalOptions="Center">
-            <Label
-                FontFamily="Montserrat-Bold"
-                FontSize="36"
-                Text="Log In"
-                TextColor="{DynamicResource Black}" />
+        <Image Source="login_background.png" Aspect="Fill" Grid.Column="0"/>
+        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
+            <Label Text="Log In" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}" FontSize="36"/>
 
             <VerticalStackLayout>
-                <Label
-                    Margin="0,0,0,0"
-                    FontFamily="Montserrat-Regular"
-                    Text="Email"
-                    TextColor="{DynamicResource Black}" />
-                <Entry
-                    x:Name="emailEntry"
-                    FontFamily="Montserrat-Regular"
-                    FontSize="18"
-                    Placeholder="johndoe@gmail.com"
-                    Text="{Binding Email}"
-                    TextColor="{DynamicResource Black}" />
-                <!--  adding validation  -->
-                <Label
-                    x:Name="ErrorLabel"
-                    Margin="0,5,0,0"
-                    TextColor="Red" />
+                <Label Text="Email" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular" Margin="0,0,0,0"/>
+                <Entry x:Name="emailEntry" FontFamily="Montserrat-Regular" Placeholder="johndoe@gmail.com" FontSize="18" TextColor="{DynamicResource Black}"/>
+                <!-- adding validation-->
+                <Label x:Name="ErrorLabel" TextColor="Red" Margin="0,5,0,0"/>
+               
 
-
-                <Label
-                    Margin="0,40,0,0"
-                    FontFamily="Montserrat-Regular"
-                    Text="Password"
-                    TextColor="{DynamicResource Black}" />
-
-                <Entry
-                    x:Name="passwordEntry"
-                    ClearButtonVisibility="WhileEditing"
-                    FontFamily="Montserrat-Regular"
-                    FontSize="18"
-                    IsPassword="True"
-                    Text="{Binding Password}"
-                    TextColor="{DynamicResource Black}" />
-                <Line
-                    Stroke="{DynamicResource Black}"
-                    X1="0"
-                    X2="500" />
-                <Label
-                    Margin="10"
-                    Text="{Binding ErrorMessage}"
-                    TextColor="Maroon" />
+                <Label Text="Password" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular" Margin="0,40,0,0"/>
+                <Entry IsPassword="True" FontFamily="Montserrat-Regular" FontSize="18" TextColor="{DynamicResource Black}"/>
+                <Line X1="0" X2="500" Stroke="{DynamicResource Black}"/>
             </VerticalStackLayout>
 
             <Button
@@ -85,6 +39,7 @@
                 Text="LOG IN"
                 TextColor="{DynamicResource White}"
                 WidthRequest="200" />
+
         </VerticalStackLayout>
 
     </Grid>

@@ -1,7 +1,6 @@
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Platform;
-using Mopups.Services;
 using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
 using MVPStudio_Creative_Agency.ViewModels;

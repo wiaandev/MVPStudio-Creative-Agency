@@ -1,5 +1,4 @@
-﻿using MVPStudio_Creative_Agency.Components.StaffPageComponents;
-using MVPStudio_Creative_Agency.Models;
+﻿using MVPStudio_Creative_Agency.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Windows.System;
 
 namespace MVPStudio_Creative_Agency.Services
 {
@@ -24,7 +22,8 @@ namespace MVPStudio_Creative_Agency.Services
         //Base Api Url
         internal string baseUrl = "http://localhost:5044/api/";
 
-        public AuthService() {
+        public AuthService()
+        {
             _client = new HttpClient();
             _serializerOptions = new JsonSerializerOptions
             {
@@ -40,7 +39,7 @@ namespace MVPStudio_Creative_Agency.Services
 
             var authState = Preferences.Default.Get<bool>(AuthStateKey, false);
 
-            return authState;   
+            return authState;
         }
 
         // set auth to true
@@ -50,7 +49,7 @@ namespace MVPStudio_Creative_Agency.Services
             try
             {
                 string json = JsonSerializer.Serialize<Admin>(admin, _serializerOptions);
-                StringContent content = new (json, Encoding.UTF8, "application/json");
+                StringContent content = new(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
 
@@ -59,14 +58,14 @@ namespace MVPStudio_Creative_Agency.Services
                 if (response.IsSuccessStatusCode)
                 {
                     Preferences.Default.Set<bool>(AuthStateKey, true);
-                    Debug.WriteLine(@"\auth"); 
+                    Debug.WriteLine(@"\auth");
                     return true;
                 }
-                return false; 
-                
+                return false;
+
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(@"\ERROR", ex.Message);
                 return false;
@@ -76,9 +75,7 @@ namespace MVPStudio_Creative_Agency.Services
         // logout
         public void LogOutUser()
         {
-            Preferences.Default.Set<bool> (AuthStateKey, false); // auth state is false
+            Preferences.Default.Set<bool>(AuthStateKey, false); // auth state is false
         }
     }
-
-
 }
