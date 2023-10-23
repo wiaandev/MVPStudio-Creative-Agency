@@ -29,7 +29,17 @@
                 <Line X1="0" X2="500" Stroke="{DynamicResource Black}"/>
             </VerticalStackLayout>
 
-            <Button BackgroundColor="{DynamicResource Black}" Text="LOG IN" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" WidthRequest="200" HorizontalOptions="Start" CornerRadius="20" Clicked="Login"/>
+            <Button
+                BackgroundColor="{DynamicResource Black}"
+                Clicked="SetUser"
+                Command="{Binding LoginCommand}"
+                CornerRadius="20"
+                FontFamily="Montserrat-Bold"
+                HorizontalOptions="Start"
+                Text="LOG IN"
+                TextColor="{DynamicResource White}"
+                WidthRequest="200" />
+
         </VerticalStackLayout>
 
     </Grid>

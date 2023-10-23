@@ -1,9 +1,12 @@
-﻿using MVPStudio_Creative_Agency;
+﻿using Microsoft.Maui.ApplicationModel.Communication;
+using MVPStudio_Creative_Agency;
 using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.Services;
 using MVPStudio_Creative_Agency.Views;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,26 +26,39 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public string ErrorMessage {get; set;} = string.Empty;
 
+        public string UserName { get; set; }
+
         public LoginViewModel(AuthService authService) {
             _authService = authService;
             LoginCommand = new Command(async () => await AttemptUserLogin());
+
+            
         }
 
-        private async Task AttemptUserLogin()
+        public async Task AttemptUserLogin()
         {
+
+            
+
+            
             ErrorMessage = "";
 
             
             var loginUser = new Admin
-            { Email = Email,
-            Password = Password,
+            { 
+                Email = Email,
+                Password = Password,
             };
 
             var authSuccess = await _authService.LoginUser(loginUser);
 
             if (authSuccess)
             {
-                await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
+                await Shell.Current.GoToAsync(nameof(DashboardPage));
+
+                // setting the prefences 
+                Preferences.Set(nameof(UserName), string.Empty);
+                Debug.WriteLine(UserName);
             }
             
             else
@@ -75,3 +91,12 @@ namespace MVPStudio_Creative_Agency.ViewModels
         // Redirect to LoginPage
         await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
     }*/
+
+/*if (email == email)
+{
+    if (staff type == "admin") {
+        then password*/
+
+/*1.Check does the email exist
+2. Check if the user is admin
+3. Then only check if password is correct*/

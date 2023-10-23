@@ -11,10 +11,10 @@
         VerticalOptions="End">
 
         <Label
+            x:Name="UsernameVal"
             FontFamily="Montserrat-Bold"
             FontSize="20"
             HorizontalOptions="Center"
-            Text="Jane Doe"
             TextColor="{DynamicResource Black}" />
         <Label
             FontFamily="Hind-Light"

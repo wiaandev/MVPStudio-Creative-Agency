@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MVPStudio_Creative_Agency.Views.EditClientPopUp"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="EditClientPopUp">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <FlexLayout
+                Margin="40"
+                AlignContent="Center"
+                AlignItems="Center"
+                Direction="Row"
+                JustifyContent="SpaceBetween"
+                Wrap="Wrap">
+                <Label
+                    FontSize="Medium"
+                    Text="Edit Client"
+                    TextColor="Black" />
+                <Label
+                    FontSize="Medium"
+                    Text="{Binding Name}"
+                    TextColor="Black" />
+            </FlexLayout>
+
+            <BoxView
+                BackgroundColor="Black"
+                HeightRequest="1"
+                HorizontalOptions="FillAndExpand" />
+
+            <Grid
+                Padding="20"
+                ColumnSpacing="20"
+                RowSpacing="20">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Entry
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="{DynamicResource White}"
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Address"
+                    Text="{Binding Email}"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+
+
+                <Button
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    BackgroundColor="{DynamicResource Active}"
+                    BorderColor="{DynamicResource Active}"
+                    BorderWidth="1"
+                    Command="{Binding EditClientCommand}"
+                    CornerRadius="3"
+                    MaximumHeightRequest="40"
+                    Text="Edit Client"
+                    TextColor="{DynamicResource White}"
+                    VerticalOptions="End" />
+
+
+
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

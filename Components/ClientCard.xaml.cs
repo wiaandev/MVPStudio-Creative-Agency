@@ -1,3 +1,6 @@
+using MVPStudio_Creative_Agency.Models;
+using MVPStudio_Creative_Agency.Views;
+
 namespace MVPStudio_Creative_Agency.Components;
 
 public partial class ClientCard : ContentView
@@ -33,4 +36,6 @@ public partial class ClientCard : ContentView
     {
         InitializeComponent();
     }
+
+    
 }
