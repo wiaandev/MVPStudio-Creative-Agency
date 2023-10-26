@@ -17,17 +17,35 @@ MVP Studio is a versatile cross-platform application built using .NET MAUI for m
 ![POSTGRESSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
 
-## Features
+## Features & Functionality 
 
+# Client Management 
+
+<-- pages --> 
 - **Client Management:** Easily add, edit, and manage client information.
+# Project Management 
+
+<-- pages --> 
 - **Project Tracking:** Track and manage project details, status, and deadlines.
+
+# Staff Management 
+
+<-- pages --> 
 - **Staff Management:** Keep a record of staff members, their roles, and contact information.
+
+# Financial Management
+
+<-- pages --> 
 - **Financial Insights:** Monitor and manage agency finances, including income and expenses.
+
+
+# Cross platform functionality
+
 - **Cross-Platform:** Runs on iOS and Windows with .NET MAUI.
 
 ## Installation
 
-Follow these steps to run the MVP Studio application:
+Follow these steps below to setup MVP studio on your own machine:
 
 ### Prerequisites
 
