@@ -9,6 +9,14 @@
 
 MVP Studio is a versatile cross-platform application built using .NET MAUI for managing various aspects of a creative agency consisting of developers and designers, handling clients, projects, staff, or finances. It also utilizes a PostgreSQL database hosted on Aiven for data storage.
 
+### Built with 
+
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![Visual Studio](https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![POSTGRESSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
+
 ## Features
 
 - **Client Management:** Easily add, edit, and manage client information.
