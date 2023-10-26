@@ -1,8 +1,9 @@
 
 
 # MVP Studio - Creative Agency Management App
-
-![MVP Studio](https://github.com/wiaandev/MVPStudio-Creative-Agency/blob/main/Resources/Images/mvp_logo.png)
+<p align="center">
+<img height="200" width="200" src="https://github.com/wiaandev/MVPStudio-Creative-Agency/blob/main/Resources/Images/mvp_logo.png"></img>
+</p>
 
 ## Introduction
 
