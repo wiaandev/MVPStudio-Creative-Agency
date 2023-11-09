@@ -76,6 +76,10 @@
 
 
 
+                <Picker x:Name="teamPicker" Title="Choose Team" 
+                            ItemsSource="{Binding Teams}" ItemDisplayBinding="{Binding TeamName}" 
+                            TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" 
+                            SelectedItem="{Binding SelectedTeam}" TitleColor="{DynamicResource White}"/>
 
                 <Button HeightRequest="30" ClassId="{Binding Id}" Text="Delete" FontFamily="Montserrat"
                         BorderColor="#fb4b4e" BackgroundColor="White" TextColor="#fb4b4e" Opacity="0.9" 
