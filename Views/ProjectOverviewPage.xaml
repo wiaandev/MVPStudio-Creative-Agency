@@ -112,6 +112,8 @@
 
             <Label Text="Team Assigned to Project" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="20"/>
             <Label Text="{Binding Projects.TeamAssigned}" FontFamily="Montserrat-Regular" FontSize="16" TextColor="{DynamicResource Black}" Margin="0,0,0,50"/>
+            
+            <Picker/>
 
         </VerticalStackLayout>
     </Grid>
