@@ -58,7 +58,7 @@
 
                     </HorizontalStackLayout>
 
-                    <Button Text="View More" Clicked="ViewProject"/>
+                    <Button Text="View More" Clicked="ViewProject" TextColor="{DynamicResource Black}"/>
                     <Button Text="Delete" Clicked="DeleteProject" BackgroundColor="salmon" TextColor="{DynamicResource White}"/>
 
                 </VerticalStackLayout>

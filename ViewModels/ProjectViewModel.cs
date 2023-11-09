@@ -68,6 +68,15 @@ namespace MVPStudio_Creative_Agency.ViewModels
             set => SetProperty(ref _project_Count, value);
         }
 
+        //setting up project incomplete variable
+        private string _project_Incomplete;
+
+        public string Project_Incomplete
+        {
+            get => _project_Incomplete;
+            set => SetProperty(ref _project_Incomplete, value);
+        }
+
         //Project Model
         public int Id { get; set; }
 
@@ -155,7 +164,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 Project_Type = Project_Type, 
                 Project_Cost = Project_Cost,
                 Amount_Paid = 0,
-                isCompleted = false,
+                isCompleted = true,
                 Progress = 0,
                 TeamAssigned = SelectedTeam.TeamName
             };
@@ -178,6 +187,11 @@ namespace MVPStudio_Creative_Agency.ViewModels
                     Projects.Add(project);
                     totalCost += project.Project_Cost;
                     Debug.WriteLine(project.ClienName);
+
+                if(!project.isCompleted)
+                {
+                    Project_Incomplete = $"{Projects.Count()}";
+                }
 
             }
             TotalProjectCost = totalCost;

@@ -2,7 +2,7 @@
 using CommunityToolkit.Maui.Views;
 
 using Microcharts.Maui;
-using Mopups.Services;
+//using Mopups.Services;
 using MVPStudio_Creative_Agency.Components;
 using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.ViewModels;
