@@ -1,11 +1,7 @@
-﻿using CommunityToolkit.Maui.Views;
-using MVPStudio_Creative_Agency.Components;
+﻿
 using MVPStudio_Creative_Agency.Models;
 using MVPStudio_Creative_Agency.ViewModels;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-
-using CommunityToolkit.Maui.Views;
 
 namespace MVPStudio_Creative_Agency.Views;
 
