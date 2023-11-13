@@ -117,7 +117,11 @@ namespace MVPStudio_Creative_Agency.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new HttpRequestException($"HTTP request failed with status code {response}");
+                    // Consider logging the error details for production
+                    string errorContent = await response.Content.ReadAsStringAsync();
+                    Debug.WriteLine($"HTTP request failed with status code {response.StatusCode}. Error content: {errorContent}");
+
+                    throw new HttpRequestException($"HTTP request failed with status code {response.StatusCode}");
                 }
 
                 string content = await response.Content.ReadAsStringAsync();

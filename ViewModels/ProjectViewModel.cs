@@ -179,7 +179,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
         {
             Debug.WriteLine("Delete button clicked");
             await _projectService.DeleteProjectAsync(Id);
-            fetchAllProjects();
+            _ = fetchAllProjects();
         }
 
         private async Task AddNewProjectToDb()
@@ -193,7 +193,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 Project_Start = SelectedDate,
                 Duration_Week = Duration_Week,
                 Project_Time = Project_Time,
-                Project_Type = Project_Type, 
+                Project_Type = Project_Type,
                 Project_Cost = Project_Cost,
                 Amount_Paid = 0,
                 isCompleted = true,
