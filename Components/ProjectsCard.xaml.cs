@@ -15,6 +15,9 @@ public partial class ProjectsCard : ContentView
     public static readonly BindableProperty Project_NameProperty =
     BindableProperty.Create(nameof(ClienName), typeof(string), typeof(ProjectsCard), default(string));
 
+    public static readonly BindableProperty ProgressProperty =
+BindableProperty.Create(nameof(ClienName), typeof(string), typeof(ProjectsCard), default(string));
+
     public string ClientProfileImg
     {
         get => (string)GetValue(ClientProfileImgProperty);
@@ -25,6 +28,12 @@ public partial class ProjectsCard : ContentView
     {
         get => (string)GetValue(ClienNameProperty);
         set => SetValue(ClienNameProperty, value);
+    }
+
+    public string Progress
+    {
+        get => (string)GetValue(ProgressProperty);
+        set => SetValue(ProgressProperty, value);
     }
 
     public string Project_Name

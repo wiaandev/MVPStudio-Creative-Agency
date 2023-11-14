@@ -82,6 +82,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public string ClienName { get; set; }
 
+        public string ClientProfileImg { get; set; }
+
         public string Project_Name { get; set; }
 
         public string Description { get; set; }
@@ -156,6 +158,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
             {
                 Id = SelectedClient.Id,
                 ClienName = SelectedClient.Name,
+                ClientProfileImg = SelectedClient.ImgUrl,
                 Project_Name = Project_Name,
                 Description = Description,
                 Project_Start = SelectedDate,

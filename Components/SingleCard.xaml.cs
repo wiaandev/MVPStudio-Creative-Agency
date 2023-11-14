@@ -29,6 +29,9 @@ public partial class SingleCard : ContentView
     public static readonly BindableProperty TeamAssignedProperty =
     BindableProperty.Create(nameof(TeamAssigned), typeof(string), typeof(SingleProjectCard), default(string));
 
+    public static readonly BindableProperty ClientProfileImgProperty =
+    BindableProperty.Create(nameof(ClientProfileImg), typeof(string), typeof(ProjectsCard), default(string));
+
 
 
     public string ClienName
@@ -65,6 +68,12 @@ public partial class SingleCard : ContentView
     {
         get => (string)GetValue(TeamAssignedProperty);
         set => SetValue(TeamAssignedProperty, value);
+    }
+
+    public string ClientProfileImg
+    {
+        get => (string)GetValue(ClientProfileImgProperty);
+        set => SetValue(ClientProfileImgProperty, value);
     }
 
 
