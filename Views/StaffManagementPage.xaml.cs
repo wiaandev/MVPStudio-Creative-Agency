@@ -56,7 +56,7 @@ public partial class StaffManagementPage : ContentPage
     private void OpenStaffModalButton_Clicked(object sender, EventArgs e)
     {
         var staffManagementPage = this; // Assuming 'this' is your StaffManagementPage instance.
-        var staffViewModalPage = new StaffViewModal(this);
+        var staffViewModalPage = new StaffViewModal();
         this.ShowPopup(staffViewModalPage);
     }
 

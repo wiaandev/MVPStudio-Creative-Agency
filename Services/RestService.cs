@@ -111,5 +111,34 @@ namespace MVPStudio_Creative_Agency.Services
             return false;
         }
 
+        // PUT by id
+        public async Task<bool> UpdateEmployeeAsync(int id, Employee updatedEmployee)
+        {
+            Uri uri = new Uri(baseUrl + "Employees/" + id);
+
+            try
+            {
+                string json = JsonSerializer.Serialize(updatedEmployee, _serializerOptions);
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await _client.PutAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Employee was successfully updated on the server
+                    return true;
+                }
+                else
+                {
+                    Debug.WriteLine(@"\tERROR: Unable to update employee data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR: {0}", ex.Message);
+            }
+
+            return false;
+        }
+
     }
 }

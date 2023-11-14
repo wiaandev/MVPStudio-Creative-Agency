@@ -135,7 +135,10 @@
                             BackgroundColor="{DynamicResource White}"
                         />
 
-                    <Picker x:Name="teamPicker" Title="Choose Team" ItemsSource="{Binding Teams}" ItemDisplayBinding="{Binding TeamName}" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" SelectedItem="{Binding SelectedTeam}" TitleColor="{DynamicResource White}"/>
+                    <Picker x:Name="teamPicker" Title="Choose Team" 
+                            ItemsSource="{Binding Teams}" ItemDisplayBinding="{Binding TeamName}" 
+                            TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" 
+                            SelectedItem="{Binding SelectedTeam}" TitleColor="{DynamicResource White}"/>
 
                     <Button Text="Add Project" BackgroundColor="{DynamicResource Purple}" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" Command="{Binding OnAddNewProject}" Padding="10" WidthRequest="150"/>
 
