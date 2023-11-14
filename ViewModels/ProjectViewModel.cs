@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Windows.ApplicationModel.Store;
 using System.Windows.Input;
+using Microsoft.UI.Xaml.Media;
 
 namespace MVPStudio_Creative_Agency.ViewModels
 {
@@ -39,6 +40,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
             }
         }
 
+        //selected team for adding team to project
         private Team _selectedTeam;
 
         public Team SelectedTeam
@@ -53,10 +55,29 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 }
             }
         }
+
+        //Team I want to update project with
+        private Team _newTeam;
+
+        public Team NewTeam
+        {
+            get { return _newTeam; }
+            set
+            {
+                if(_newTeam != value)
+                {
+                    _selectedTeam = value;
+                    OnPropertyChanged(nameof(NewTeam));
+                }
+            }
+        }
+
         //setting up my command to add a project to the db
         public ICommand OnAddNewProject { get; }
         public ICommand DeleteProject { get; }
         public ICommand TestCommand { get; }
+
+        public ICommand UpdateProgress { get; }
 
         //setting up project count variable
         private string _project_Count;
@@ -66,6 +87,24 @@ namespace MVPStudio_Creative_Agency.ViewModels
         {
             get => _project_Count;
             set => SetProperty(ref _project_Count, value);
+        }
+
+        //setting up project incomplete variable
+        private string _project_Incomplete;
+
+        public string Project_Incomplete
+        {
+            get => _project_Incomplete;
+            set => SetProperty(ref _project_Incomplete, value);
+        }
+
+
+        private string _project_Progress;
+
+        public string Project_Progress
+        {
+            get => _project_Progress;
+            set => SetProperty(ref _project_Progress, value);
         }
 
         //Project Model
@@ -127,6 +166,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
             DeleteProject = new Command(async () => await DeleteAddedProject());
             TestCommand = new Command(async () => await NewTestCommand());
 
+            UpdateProgress = new Command(async () => await updateProjectProgress());
+
         }
 
         private async Task NewTestCommand()
@@ -138,7 +179,7 @@ namespace MVPStudio_Creative_Agency.ViewModels
         {
             Debug.WriteLine("Delete button clicked");
             await _projectService.DeleteProjectAsync(Id);
-            fetchAllProjects();
+            _ = fetchAllProjects();
         }
 
         private async Task AddNewProjectToDb()
@@ -152,10 +193,10 @@ namespace MVPStudio_Creative_Agency.ViewModels
                 Project_Start = SelectedDate,
                 Duration_Week = Duration_Week,
                 Project_Time = Project_Time,
-                Project_Type = Project_Type, 
+                Project_Type = Project_Type,
                 Project_Cost = Project_Cost,
                 Amount_Paid = 0,
-                isCompleted = false,
+                isCompleted = true,
                 Progress = 0,
                 TeamAssigned = SelectedTeam.TeamName
             };
@@ -178,6 +219,12 @@ namespace MVPStudio_Creative_Agency.ViewModels
                     Projects.Add(project);
                     totalCost += project.Project_Cost;
                     Debug.WriteLine(project.ClienName);
+                Progress /= 100;
+
+                if(!project.isCompleted)
+                {
+                    Project_Incomplete = $"{Projects.Count()}";
+                }
 
             }
             TotalProjectCost = totalCost;
@@ -209,6 +256,28 @@ namespace MVPStudio_Creative_Agency.ViewModels
             }
         }
 
-        
+        public async Task updateProjectWithNewTeam()
+        {
+            await _projectService.UpdateProjectTeam(Id, NewTeam.Id);
+        }
+
+        public async Task updateProjectProgress()
+        {
+            try
+            {
+                // Assuming _projectService is an instance of your project service
+                await _projectService.UpdateProjectProgress(Id, int.Parse(Project_Progress));
+
+                // Navigate to the desired page or location
+                await Shell.Current.GoToAsync("..");
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions or show an error message
+                Console.WriteLine($"Error updating project progress: {ex.Message}");
+            }
+        }
+
+
     }
 }

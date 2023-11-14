@@ -13,73 +13,133 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*" />
-            <RowDefinition />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="23*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
         <BoxView
-            Margin="50"
+            Margin="20,55,0,0"
             CornerRadius="23"
+            HeightRequest="600"
             Color="{DynamicResource Purple}" />
         <Label
-            Margin="100,90,0,0"
+            Margin="40,50,0,0"
             FontAttributes="Bold"
+            FontFamily="Montserrat-Bold"
             FontSize="Title"
-            Text="Clients" />
+            Text="Clients"
+            TextColor="{DynamicResource White}" />
         <BoxView
             Grid.Column="1"
-            Margin="50,50,50,-50"
+            Margin="20,50,20,0"
             CornerRadius="23"
+            HeightRequest="600"
             Color="{DynamicResource PurpleLight}" />
         <Label
             Grid.Column="1"
-            Margin="100,90,0,0"
+            Margin="40,40,0,0"
             FontAttributes="Bold"
+            FontFamily="Montserrat-Bold"
             FontSize="Subtitle"
-            Text="Client Info" />
+            Text="Client Info"
+            TextColor="{DynamicResource White}" />
 
         <Button
             Grid.Column="0"
-            Margin="0,80,90,0"
+            Margin="0,40,20,0"
             Clicked="OpenPopUp"
+            FontFamily="Montserrat-Bold"
             HorizontalOptions="End"
             Text="Add Client"
             VerticalOptions="Start" />
 
 
-
-
-
-
-
-
-
-
         <ScrollView
-            HeightRequest="600"
+            Margin="20,340,0,0"
+            HeightRequest="800"
             VerticalScrollBarVisibility="Always"
-            WidthRequest="1000">
-            <StackLayout Padding="10">
+            WidthRequest="650">
+            <StackLayout Padding="25">
 
                 <CollectionView
                     ItemsSource="{Binding Clients}"
-                    SelectedItem="{Binding CurrentClient}"
+                    SelectedItem="{Binding SelectedUser}"
                     SelectionMode="Single">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout
-                            HorizontalItemSpacing="20"
+                            HorizontalItemSpacing="5"
                             Orientation="Vertical"
-                            Span="4"
-                            VerticalItemSpacing="20" />
+                            Span="3"
+                            VerticalItemSpacing="5" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <components:ClientCard Name="{Binding Name}" Email="{Binding Email}" />
+                            <Border
+                                Padding="5"
+                                BackgroundColor="White"
+                                HeightRequest="160"
+                                HorizontalOptions="Center"
+                                Stroke="#2b2b2b"
+                                StrokeShape="RoundRectangle 15,15,15,15"
+                                StrokeThickness="0.2"
+                                WidthRequest="190"
+                                ZIndex="99">
+
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout>
+
+
+                                        <VerticalStackLayout Margin="10,10,0,0">
+
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="Montserrat"
+                                                FontSize="15"
+                                                Text="{Binding Name}"
+                                                TextColor="#667080" />
+
+                                            <Label
+                                                Margin="0,10,0,0"
+                                                FontAttributes="Bold"
+                                                FontFamily="Montserrat"
+                                                FontSize="8"
+                                                Text="{Binding Email}"
+                                                TextColor="{DynamicResource Black}" />
+
+
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+
+
+
+                                    <HorizontalStackLayout Margin="10,10,0,0" HorizontalOptions="Start">
+
+                                        <Image
+                                            HeightRequest="40"
+                                            HorizontalOptions="Center"
+                                            Source="{Binding ImgUrl}" />
+
+
+                                    </HorizontalStackLayout>
+                                    <Button
+                                        Margin="5,2"
+                                        BackgroundColor="{DynamicResource Purple}"
+                                        Clicked="OpenEditPopUp"
+                                        FontFamily="Montserrat-Bold"
+                                        FontSize="6"
+                                        HeightRequest="2"
+                                        HorizontalOptions="Start"
+                                        Text="Edit"
+                                        WidthRequest="10" />
+
+
+                                </VerticalStackLayout>
+                            </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -88,40 +148,36 @@
         </ScrollView>
 
 
-
-
-
-
         <Grid Grid.Column="1">
-            <Label
-                Grid.Column="1"
-                Margin="160"
-                FontAttributes="Bold"
-                FontSize="Default"
-                HorizontalOptions="Center"
-                Text="{Binding CurrentClient.Name}" />
+
             <Frame
                 Margin="0,-250,0,0"
                 Padding="0"
                 CornerRadius="23"
-                HeightRequest="200"
+                HeightRequest="150"
                 HorizontalOptions="Center"
                 IsClippedToBounds="True"
-                WidthRequest="200">
+                Opacity="0.8"
+                WidthRequest="150">
                 <Image
                     Aspect="Fill"
                     HorizontalOptions="Center"
-                    Source="{Binding CurrentClient.ImgUrl}" />
+                    Source="{Binding SelectedUser.ImgUrl}" />
             </Frame>
             <Label
+                Grid.Column="1"
+                FontFamily="Montserrat-Medium"
+                FontSize="Default"
+                HorizontalOptions="Center"
+                Text="{Binding SelectedUser.Name}"
+                VerticalTextAlignment="Center" />
+            <Label
                 Margin="0,160,0,0"
-                FontAttributes="Bold"
+                FontFamily="Montserrat-Medium"
                 FontSize="Small"
                 HorizontalOptions="Center"
-                Text="{Binding CurrentClient.Email}"
+                Text="{Binding SelectedUser.Email}"
                 VerticalOptions="Center" />
-
-
 
 
         </Grid>

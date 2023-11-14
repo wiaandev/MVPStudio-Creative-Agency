@@ -99,19 +99,26 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
+            
+            <Label Text="Update Progress" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Regular" Margin="0,0,0,0"/>
+            <!--<Entry Text="{Binding Project_Progress}" FontFamily="Montserrat-Regular" Placeholder="Update Progress" FontSize="18" TextColor="{DynamicResource Black}"/>-->
 
             <Label Text="Project Type" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="20"/>
             <Label Text="{Binding Projects.Project_Type}" FontFamily="Montserrat-Regular" FontSize="16" TextColor="{DynamicResource Black}" Margin="0,0,0,50"/>
 
 
-            <Label Text="Project Duration (Weeks)" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="20"/>
-            <Label Text="{Binding Projects.Duration_Week}" FontFamily="Montserrat-Regular" FontSize="16" TextColor="{DynamicResource Black}" Margin="0,0,0,50"/>
+            <Label Text="Project Duration" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="20"/>
+            <Label Text="{Binding Projects.Duration_Week, StringFormat='{}{0} Weeks'}" FontFamily="Montserrat-Regular" FontSize="16" TextColor="{DynamicResource Black}"/>
+            <Label Text="{Binding Projects.Project_Time, StringFormat='{}{0} Hours'}" FontFamily="Montserrat-Bold" FontSize="12" TextColor="{DynamicResource Black}" Margin="0,0,0,50"/>
 
-            <Label Text="Project Duration (Hour)" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="20"/>
-            <Label Text="{Binding Projects.Project_Time}" FontFamily="Montserrat-Regular" FontSize="16" TextColor="{DynamicResource Black}" Margin="0,0,0,50"/>
 
             <Label Text="Team Assigned to Project" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="20"/>
             <Label Text="{Binding Projects.TeamAssigned}" FontFamily="Montserrat-Regular" FontSize="16" TextColor="{DynamicResource Black}" Margin="0,0,0,50"/>
+
+            <!--<Picker x:Name="updateTeamPicker" Title="Update Team" ItemsSource="{Binding Teams}" ItemDisplayBinding="{Binding TeamName}" TextColor="{DynamicResource Purple}" FontFamily="Montserrat-Bold" SelectedItem="{Binding NewTeam}" TitleColor="{DynamicResource Black}"/>-->
+            <Picker x:Name="teamPicker" Title="Choose Team" ItemsSource="{Binding Teams}" ItemDisplayBinding="{Binding TeamName}" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" SelectedItem="{Binding SelectedTeam}" TitleColor="{DynamicResource White}"/>
+
+            <Button Text="Save Changes" BackgroundColor="{DynamicResource Purple}" TextColor="{DynamicResource White}" FontFamily="Montserrat-Bold" Command="{Binding UpdateProgress}" Padding="10" WidthRequest="150"/>
 
         </VerticalStackLayout>
     </Grid>

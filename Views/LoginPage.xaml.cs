@@ -1,13 +1,21 @@
-﻿using System.Text.RegularExpressions;
+﻿using MVPStudio_Creative_Agency.ViewModels;
+using System.Text.RegularExpressions;
 
 namespace MVPStudio_Creative_Agency.Views;
 
 public partial class LoginPage : ContentPage
 {
+
+    private LoginViewModel _viewModel;
+
+    public string Username { get; set; }    
 	public LoginPage()
 	{
 		InitializeComponent();
-	}
+        _viewModel = new LoginViewModel(new Services.AuthService());
+        BindingContext = _viewModel;
+
+}
 
     private async void Login(object sender, EventArgs e)
     {
@@ -47,7 +55,15 @@ public partial class LoginPage : ContentPage
             Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
         }
     }
+     public async void SetUser(object Sender, EventArgs e)
+    {
+        Username = emailEntry.Text;
+        Preferences.Set("Username", Username);
 
+        var testUsername = Preferences.Get("Username", "No Email found");
+
+       
+    }
   
 
 }

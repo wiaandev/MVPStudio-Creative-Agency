@@ -174,32 +174,45 @@
 	  </Compile>
 	</ItemGroup>
 	<ItemGroup>
-	  <MauiXaml Update="Components\SingleCard.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\AddClientPopup.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Modals\AddStaffModal.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Modals\EditClient.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Modals\StaffViewModal.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\FundsManagementPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\ProjectOverviewPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\StaffManagementPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	<MauiXaml Update="Components\SingleCard.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\AddClientPopup.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\ClientsManagementPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\DashboardPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\EditClientPopUp.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\FundsManagementPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\LoadingPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\Modals\AddStaffModal.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\Modals\EditClient.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\Modals\StaffViewModal.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\ProjectOverviewPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\StaffManagementPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+
 	</ItemGroup>
 </Project>
