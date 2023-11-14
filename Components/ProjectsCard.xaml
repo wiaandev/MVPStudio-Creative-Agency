@@ -5,7 +5,7 @@
              x:Class="MVPStudio_Creative_Agency.Components.ProjectsCard">
   <VerticalStackLayout VerticalOptions="Center">
 
-        <Label 
+        <!--<Label 
             Text="Projects"
             FontFamily="Montserrat-Bold"
             FontSize="28"
@@ -17,12 +17,41 @@
             FontFamily="Hind-Light"
             FontSize="16"
             TextColor="{DynamicResource Black}"
-        />
+        />-->
 
-        <child:ProjectListItem/>
-        <child:ProjectListItem/>
+        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
 
-        <Button Text="VIEW MORE" BackgroundColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" HeightRequest="30" WidthRequest="200" CornerRadius="15" TextColor="{DynamicResource White}"/>
+            <Frame HeightRequest="100" WidthRequest="100" CornerRadius="50" BackgroundColor="{DynamicResource Black}" BorderColor="Transparent" Margin="0,20,0,20">
+                <VerticalStackLayout Spacing="0">
+                    <Image Source="progress_icon.png" HeightRequest="40"/>
+                    <Label Text="50%" FontFamily="Montserrat-Bold" TextColor="{DynamicResource White}" FontSize="18" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Border Stroke="{DynamicResource Aqua}"
+             HeightRequest="100" 
+             WidthRequest="100"
+             StrokeShape="RoundRectangle 50,50,50,50" StrokeThickness="7"
+     >
+
+                <Image Source="{Binding ClientProfileImg}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" Margin="0,0,0,0">
+                    <Image.Clip>
+                        <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50" />
+                    </Image.Clip>
+                </Image>
+
+            </Border>
+
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <Label Text="{Binding ClienName}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="24"/>
+                <Label Text="{Binding Project_Name}" TextColor="{DynamicResource Black}" FontFamily="Hind-Light" FontSize="16"/>
+            </VerticalStackLayout>
+
+
+        </HorizontalStackLayout>
+
+        <!--<Button Text="VIEW MORE" BackgroundColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" HeightRequest="30" WidthRequest="200" CornerRadius="15" TextColor="{DynamicResource White}"/>-->
 
     </VerticalStackLayout>
 </ContentView>
