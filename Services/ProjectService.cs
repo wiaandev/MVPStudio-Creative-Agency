@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -115,7 +117,11 @@ namespace MVPStudio_Creative_Agency.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new HttpRequestException($"HTTP request failed with status code {response}");
+                    // Consider logging the error details for production
+                    string errorContent = await response.Content.ReadAsStringAsync();
+                    Debug.WriteLine($"HTTP request failed with status code {response.StatusCode}. Error content: {errorContent}");
+
+                    throw new HttpRequestException($"HTTP request failed with status code {response.StatusCode}");
                 }
 
                 string content = await response.Content.ReadAsStringAsync();
@@ -149,6 +155,7 @@ namespace MVPStudio_Creative_Agency.Services
                     string responseContent = await res.Content.ReadAsStringAsync();
                 }
             }
+
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
@@ -157,5 +164,58 @@ namespace MVPStudio_Creative_Agency.Services
             return true;
         }
 
+        public async Task UpdateProjectTeam(int projectId, int newTeamId)
+        {
+            Uri uri = new Uri(string.Format(baseUrl + "Projects/ChangeProjectTeam"));
+
+            var data = new { projectId, newTeamId };
+            var json = JsonSerializer.Serialize(data, _serializerOptions);
+
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                HttpResponseMessage response = await _client.PutAsync(uri, stringContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(await response.Content.ReadAsStringAsync());
+                }
+                else
+                {
+                    Debug.WriteLine("Something went wrong!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        public async Task UpdateProjectProgress(int projectId, int newProgressAmount)
+        {
+            Uri uri = new Uri(string.Format(baseUrl + "Projects/UpdateProjectProgress"));
+
+            var data = new { projectId, newProgressAmount };
+            var json = JsonSerializer.Serialize(data, _serializerOptions);
+
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                HttpResponseMessage response = await _client.PutAsync(uri, stringContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(await response.Content.ReadAsStringAsync());
+                }
+                else
+                {
+                    Debug.WriteLine("Something went wrong!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
     }
 }

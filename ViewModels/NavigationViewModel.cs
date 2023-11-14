@@ -39,6 +39,8 @@ namespace MVPStudio_Creative_Agency.ViewModels
 
         public int NavigationParameter { get; set; }
 
+        public int Project_Progress { get; set; }
+
         public NavigationViewModel()
         {
             _projectService = new ProjectService();

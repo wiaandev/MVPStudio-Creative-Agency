@@ -21,7 +21,7 @@ public partial class SingleCard : ContentView
     BindableProperty.Create(nameof(Project_Start), typeof(DateOnly), typeof(SingleProjectCard), default(DateOnly));
 
     public static readonly BindableProperty ProgressProperty =
-    BindableProperty.Create(nameof(Progress), typeof(int), typeof(SingleProjectCard), default(int));
+    BindableProperty.Create(nameof(Progress), typeof(double), typeof(SingleProjectCard), default(double));
 
     public static readonly BindableProperty IsCompletedProperty =
     BindableProperty.Create(nameof(IsCompleted), typeof(bool), typeof(SingleProjectCard), default(bool));
@@ -49,10 +49,10 @@ public partial class SingleCard : ContentView
         set => SetValue(Project_StartProperty, value);
     }
 
-    public int Progress
+    public double Progress
     {
-        get => (int)GetValue(ProgressProperty);
-        set => SetValue(ProgressProperty, value);
+        get => (double)GetValue(ProgressProperty);
+        set => SetValue(ProgressProperty, value / 100);
     }
 
     public bool IsCompleted
