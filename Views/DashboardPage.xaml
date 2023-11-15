@@ -50,7 +50,7 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-                    <Button Text="VIEW MORE" BackgroundColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" HeightRequest="30" WidthRequest="200" CornerRadius="15" TextColor="{DynamicResource White}" Grid.Row="3" Grid.ColumnSpan="1"/>
+                    <Button Text="VIEW MORE" BackgroundColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" HeightRequest="30" WidthRequest="200" CornerRadius="15" TextColor="{DynamicResource White}" Grid.Row="3" Grid.ColumnSpan="1" Clicked="NavigateToProjects"/>
                 </Grid>
             </Frame>
         </VerticalStackLayout>

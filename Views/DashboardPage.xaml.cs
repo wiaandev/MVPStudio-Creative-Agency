@@ -94,5 +94,10 @@ namespace MVPStudio_Creative_Agency.Views
                 Debug.WriteLine($"Error updating chart: {ex}");
             }
         }
+
+        private void NavigateToProjects(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("ProjectsManagementPage");
+        }
     }
 }
