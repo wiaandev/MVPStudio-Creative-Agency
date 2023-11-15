@@ -35,6 +35,12 @@
 
                     </HorizontalStackLayout>
 
+                    <Image Source="{Binding ClientProfileImg}" WidthRequest="80" HeightRequest="80" Aspect="AspectFill" Margin="0">
+                        <Image.Clip>
+                            <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                        </Image.Clip>
+                    </Image>
+
                     <Label Text="{Binding ClienName}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="18"/>
                     <Label Text="{Binding Project_Name}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="24"/>
 
@@ -44,27 +50,6 @@
 
 
                     <Label Text="Assigned Team" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
-                    <!--<HorizontalStackLayout>
-
-                        <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="0">
-                            <Image.Clip>
-                                <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
-                            </Image.Clip>
-                        </Image>
-
-                        <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="-20,0,0,0">
-                            <Image.Clip>
-                                <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
-                            </Image.Clip>
-                        </Image>
-
-                        <Image Source="person.jpeg" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="-20,0,0,0">
-                            <Image.Clip>
-                                <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
-                            </Image.Clip>
-                        </Image>
-
-                    </HorizontalStackLayout>-->
                     <Label Text="{Binding TeamAssigned}" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}"/>
 
                     <Button Text="View More" Clicked="ViewProject"/>

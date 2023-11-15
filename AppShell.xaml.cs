@@ -22,6 +22,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
         Routing.RegisterRoute(nameof(DashboardPage), typeof(DashboardPage));
         Routing.RegisterRoute("EditClientPopUp", typeof(EditClientPopUp));
+        Routing.RegisterRoute("ProjectsManagementPage", typeof(ProjectsManagementPage));
         BindingContext = this;
     }
 

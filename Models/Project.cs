@@ -12,6 +12,8 @@ namespace MVPStudio_Creative_Agency.Models
 
         public string ClienName { get; set; }
 
+        public string ClientProfileImg { get; set; }
+
         public string Project_Name { get; set; }
 
         public string Description { get; set; }

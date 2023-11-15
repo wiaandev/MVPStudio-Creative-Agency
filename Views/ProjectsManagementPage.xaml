@@ -50,7 +50,7 @@
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <components:SingleCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}" Progress="{Binding Progress}" IsCompleted="{Binding isCompleted}" TeamAssigned="{Binding TeamAssigned}"/>
+                                <components:SingleCard ClienName="{Binding ClienName}" Project_Name="{Binding Project_Name}" Project_Start="{Binding Project_Start}" Progress="{Binding Progress}" IsCompleted="{Binding isCompleted}" TeamAssigned="{Binding TeamAssigned}" ClientProfileImg="{Binding ClientProfileImg}"/>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
