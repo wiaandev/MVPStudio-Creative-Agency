@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVPStudio_Creative_Agency.Views.ProjectOverviewPage"
@@ -27,6 +27,8 @@
     </StackLayout>-->
     <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*">
         <VerticalStackLayout Grid.Column="0" Grid.RowSpan="3" Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+            <Button  Text="Go Back" TextColor="{DynamicResource Black}" FontFamily="Hind-Regular" FontSize="16" Clicked="Button_Clicked"/>
 
             <Label Text="{Binding Projects.Project_Name}" FontSize="36" TextColor="{DynamicResource Purple}" FontFamily="Montserrat-Bold"/>
 

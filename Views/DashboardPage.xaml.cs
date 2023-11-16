@@ -77,7 +77,7 @@ namespace MVPStudio_Creative_Agency.Views
                 {
                     Label = "Unpaid",
                     ValueLabel = "R " + ((float)_fundsManagementViewModel.StaffViewModel.TotalSalaryAndHourlyRate).ToString(),
-                    Color = SKColor.Parse("#2c3e50")
+                    Color = SKColor.Parse("#2c3e50"),
                 };
 
                 entries[2] = new ChartEntry((float)_fundsManagementViewModel.ProfitValueLabel)

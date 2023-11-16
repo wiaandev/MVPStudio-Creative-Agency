@@ -73,4 +73,9 @@ public partial class ProjectOverviewPage : ContentPage
             }
         }
     }
+
+    void Button_Clicked(System.Object sender, System.EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
 }
