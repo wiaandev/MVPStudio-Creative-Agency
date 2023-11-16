@@ -11,7 +11,6 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.System;
 
 
 namespace MVPStudio_Creative_Agency.ViewModels

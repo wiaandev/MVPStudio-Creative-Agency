@@ -5,13 +5,13 @@ using System.Diagnostics;
 using MVPStudio_Creative_Agency.Services;
 using MVPStudio_Creative_Agency.Views;
 using CommunityToolkit.Maui.Views;
-using Microsoft.UI.Xaml.Controls.Primitives;
+//using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Platform;
 using System;
 using System.Globalization;
 using System.Windows.Input;
-using Popup = Microsoft.UI.Xaml.Controls.Primitives.Popup;
+//using Popup = Microsoft.UI.Xaml.Controls.Primitives.Popup;
 
 namespace MVPStudio_Creative_Agency.Components.StaffPageComponents;
 

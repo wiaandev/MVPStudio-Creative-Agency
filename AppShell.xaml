@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="MVPStudio_Creative_Agency.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -42,39 +42,39 @@
 
 
     <Shell.FlyoutHeader>
-        <Image Source="mvp_logo.png" WidthRequest="100" Margin="0,20,0,20" />
+        <Image Source="mvp_logo.png" WidthRequest="100" />
     </Shell.FlyoutHeader>
 
     
-    <FlyoutItem x:Name="Hello" Title="Workboard" Icon="work_board.png" StyleClass="FlyoutTitle">
+    <FlyoutItem x:Name="Workboard" Title="Workboard" StyleClass="FlyoutTitle">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
         </Tab>
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Projects" Icon="layers.png" StyleClass="FlyoutTitle">
+    <FlyoutItem Title="Projects" StyleClass="FlyoutTitle">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:ProjectsManagementPage}"/>
         </Tab>
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Clients" Icon="users.png" StyleClass="FlyoutTitle">
+    <FlyoutItem Title="Clients" StyleClass="FlyoutTitle">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:ClientsManagementPage}"/>
         </Tab>
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Staff" Icon="user_check.png" StyleClass="FlyoutTitle">
+    <FlyoutItem Title="Staff" StyleClass="FlyoutTitle">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:StaffManagementPage}"/>
         </Tab>
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Funds" Icon="dollar_sign.png" StyleClass="FlyoutTitle">
+    <FlyoutItem Title="Funds" StyleClass="FlyoutTitle">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:FundsManagementPage}"/>
 
