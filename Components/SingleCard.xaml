@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio_Creative_Agency.Components.SingleCard">
+    <VerticalStackLayout>
+        <ScrollView>
+            <Frame CornerRadius="20" BackgroundColor="{DynamicResource White}" BorderColor="Transparent" Margin="5" Padding="10">
+                <VerticalStackLayout Padding="10" Spacing="20">
+                    <HorizontalStackLayout Spacing="20">
+                        <Label
+                            FontFamily="Hind-Regular"
+                            TextColor="{DynamicResource Black}">
+
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Project starts: " />
+                                    <Span Text="{Binding Project_Start}" FontFamily="Montserrat-Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+
+                        </Label>
+
+                        <Label TextColor="{DynamicResource Aqua}" FontFamily="Montserrat-Bold">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsCompleted}" Value="False">
+                                    <Setter Property="Text" Value="Incomplete" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsCompleted}" Value="True">
+                                    <Setter Property="Text" Value="Complete" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+
+
+                    </HorizontalStackLayout>
+
+                    <Image Source="{Binding ClientProfileImg}" WidthRequest="80" HeightRequest="80" Aspect="AspectFill" Margin="0">
+                        <Image.Clip>
+                            <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                        </Image.Clip>
+                    </Image>
+
+                    <Label Text="{Binding ClienName}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="18"/>
+                    <Label Text="{Binding Project_Name}" TextColor="{DynamicResource Black}" FontFamily="Montserrat-Bold" FontSize="24"/>
+
+                    <Label Text="Progress" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
+                    <ProgressBar Progress="{Binding Progress, StringFormat='{}{0:0.0}'}" ProgressColor="{DynamicResource Black}" Margin="0,0,0,20"/>
+                    <Line X1="0" X2="300" Stroke="{DynamicResource Black}"/>
+
+
+                    <Label Text="Assigned Team" FontFamily="Hind-Regular" TextColor="{DynamicResource Black}"/>
+                    <Label Text="{Binding TeamAssigned}" FontFamily="Montserrat-Bold" TextColor="{DynamicResource Black}"/>
+
+                    <Button Text="View More" Clicked="ViewProject"/>
+                    <Button Text="Delete" Clicked="DeleteProject" BackgroundColor="salmon" TextColor="{DynamicResource White}"/>
+
+                </VerticalStackLayout>
+
+
+            </Frame>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentView>

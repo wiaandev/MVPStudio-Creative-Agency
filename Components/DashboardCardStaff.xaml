@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVPStudio_Creative_Agency.Components.DashboardCardStaff">
+    <VerticalStackLayout Margin="0">
+        <Frame
+           CornerRadius="15"
+           BackgroundColor="{DynamicResource PurpleLighter}"
+           BorderColor="Transparent"
+       >
+            <VerticalStackLayout HorizontalOptions="Start">
+
+                <Label 
+                   Text="Staff"
+                   FontFamily="Montserrat-Bold"
+                   TextColor="{DynamicResource Black}"
+                   FontSize="32"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="Start"
+               />
+
+                <HorizontalStackLayout Margin="0,20,0,20">
+
+
+                    <CollectionView ItemsSource="{Binding EmployeeList}" ItemsLayout="HorizontalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="{Binding ProfileImg}" WidthRequest="80" HeightRequest="80" Aspect="AspectFill" Margin="0">
+                                        <Image.Clip>
+                                            <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                                        </Image.Clip>
+                                    </Image>
+                                </HorizontalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </HorizontalStackLayout>
+
+                <Label FontFamily="Hind-Light" FontSize="16" TextColor="{DynamicResource Purple}">
+
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="List of "/>
+                            <Span Text="Staff" />
+                        </FormattedString>
+                    </Label.FormattedText>
+
+                </Label>
+
+            </VerticalStackLayout>
+
+        </Frame>
+    </VerticalStackLayout>
+</ContentView>

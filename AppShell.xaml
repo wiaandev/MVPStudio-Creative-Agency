@@ -8,8 +8,10 @@
     xmlns:components="clr-namespace:MVPStudio_Creative_Agency.Components"
     Shell.FlyoutBehavior="Locked" 
     FlyoutWidth="200"
-    FlyoutIsPresented="True"
-    >
+    FlyoutIsPresented="True">
+
+
+
 
     <Shell.Resources>
         <Style TargetType="Label" Class="FlyoutTitle">

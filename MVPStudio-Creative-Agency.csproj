@@ -52,6 +52,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AcrylicView.Maui" Version="2.0.1" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
 		<PackageReference Include="LiveCharts" Version="0.9.7" />
 		<PackageReference Include="LiveChartsCore.SkiaSharpView.Maui" Version="2.0.0-beta.911" />
@@ -114,11 +115,7 @@
 	<ItemGroup>
 
 	  <Folder Include="Components\StaffPageComponents\NewFolder\" />
-
-	  <Folder Include="ViewModels\" />
-	  <Folder Include="Services\" />
 	  <Folder Include="Handlers\" />
-	  <Folder Include="Views\" />
 	  <Folder Include="Components\FundsPageComponents\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -172,8 +169,53 @@
 	  <BundleResource Include="Resources\Images\graphplaceholder.png" />
 	</ItemGroup>
 	<ItemGroup>
-	  <MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	  <Compile Update="Views\FundsManagementPage.xaml.cs">
+	    <DependentUpon>FundsManagementPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	<MauiXaml Update="Components\DashboardCardStaff.xaml">
+	  <Generator>MSBuild:Compile</Generator>
+	</MauiXaml>
+	<MauiXaml Update="Components\SingleCard.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Components\StaffPageComponents\StaffAdminTab.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\AddClientPopup.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\ClientsManagementPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\DashboardPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\EditClientPopUp.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\FundsManagementPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\LoadingPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\Modals\AddStaffModal.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\Modals\EditClient.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\Modals\StaffViewModal.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\ProjectOverviewPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+<MauiXaml Update="Views\StaffManagementPage.xaml">
+  <Generator>MSBuild:Compile</Generator>
+</MauiXaml>
+
 	</ItemGroup>
 </Project>
