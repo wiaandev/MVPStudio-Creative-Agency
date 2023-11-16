@@ -6,7 +6,6 @@ using MVPStudio_Creative_Agency.ViewModels;
 using MVPStudio_Creative_Agency.Views.Modals;
 using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Views;
-using Microsoft.UI.Xaml.Controls.Primitives;
 using MVPStudio_Creative_Agency.Services;
 
 namespace MVPStudio_Creative_Agency.Views;

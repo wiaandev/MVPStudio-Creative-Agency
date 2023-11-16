@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Windows.ApplicationModel.Store;
 using System.Windows.Input;
 
 namespace MVPStudio_Creative_Agency.ViewModels
